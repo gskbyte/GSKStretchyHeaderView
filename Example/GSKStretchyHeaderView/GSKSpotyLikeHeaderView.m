@@ -99,16 +99,16 @@ static const CGSize kUserImageSize = {.width = 64, .height = 64};
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor {
     CGFloat alpha = 1;
-
+    CGFloat blurAlpha = 1;
     if (self.normalizedStretchFactor > 1) {
         alpha = CGFloatTranslateRange(self.normalizedStretchFactor, 1, 1.3, 1, 0);
+        blurAlpha = alpha;
     } else if (self.normalizedStretchFactor < 0.8) {
         alpha = CGFloatTranslateRange(self.normalizedStretchFactor, 0.2, 0.8, 0, 1);
     }
 
     alpha = MAX(0, alpha);
-    self.backgroundImageView.alpha = 1 - alpha;
-    self.blurredBackgroundImageView.alpha = alpha;
+    self.blurredBackgroundImageView.alpha = blurAlpha;
     self.userImageView.alpha = alpha;
     self.title.alpha = alpha;
     self.followButton.alpha = alpha;

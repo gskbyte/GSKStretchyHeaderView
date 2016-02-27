@@ -1,10 +1,10 @@
 #import "GSKStretchyHeaderView.h"
 #import "GSKGeometry.h"
 
+
 static const CGFloat kNibDefaultHeight = 240;
 
 @interface GSKStretchyHeaderView ()
-@property (nonatomic) CGFloat initialHeight;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic) CGFloat stretchFactor;
 @end
@@ -21,6 +21,7 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     NSAssert(frame.size.height > 0, @"Initial height MUST be greater than 0");
     self = [super initWithFrame:frame];
     if (self) {
+        self.initialHeight = self.frame.size.height;
         [self setupView];
         [self setupContentView];
     }
@@ -30,14 +31,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        CGFloat initialHeight = [[self valueForKeyPath:@"initialHeight"] floatValue];
-        if (initialHeight == 0) {
-            initialHeight = kNibDefaultHeight;
-            NSLog(@"initialHeight not defined for nib, setting default height");
-        }
-        CGRect frame = self.frame;
-        frame.size.height = initialHeight;
-        self.frame = frame;
         [self setupView];
 
         NSArray<UIView *> *oldSubviews = self.subviews;
@@ -50,7 +43,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 - (void)setupView {
-    _initialHeight = self.frame.size.height;
     _expandOnBounce = YES;
     _stretchContentView = YES;
     self.clipsToBounds = YES;
@@ -62,6 +54,16 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 #pragma mark - Overriden methods
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    if (self.initialHeight == 0) {
+        NSLog(@"initialHeight not defined for %@, setting default (%@)",
+              NSStringFromClass(self.class),
+              @(kNibDefaultHeight));
+        [self setInitialHeight:kNibDefaultHeight];
+    }
+}
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     [super willMoveToWindow:newWindow];
@@ -76,8 +78,8 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 - (void)stopObservingScrollView {
-    [self.scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
-    self.scrollView = nil;
+    [_scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
+    _scrollView = nil;
 }
 
 - (void)didMoveToSuperview {
@@ -88,6 +90,13 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 #pragma mark - Private properties and methods
+
+- (void)setInitialHeight:(CGFloat)initialHeight {
+    _initialHeight = initialHeight;
+    CGRect frame = self.frame;
+    frame.size.height = initialHeight;
+    self.frame = frame;
+}
 
 - (void)setScrollView:(UIScrollView *)scrollView {
     _scrollView = scrollView;

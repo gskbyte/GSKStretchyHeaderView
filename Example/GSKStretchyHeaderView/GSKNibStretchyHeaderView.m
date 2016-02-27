@@ -1,18 +1,27 @@
 #import "GSKNibStretchyHeaderView.h"
 #import <GSKStretchyHeaderView/GSKGeometry.h>
 
+static const BOOL kNavBar = YES;
+
 @interface GSKNibStretchyHeaderView ()
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *navigationTitleLabel;
+
 @end
 
 @implementation GSKNibStretchyHeaderView
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1];
-    // uncoment to get a fade to custom navBar
-    self.minimumHeight = 64;
+
+    if (kNavBar) {
+        self.minimumHeight = 64;
+    } else {
+        self.navigationTitleLabel.hidden = YES;
+    }
 }
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor {
@@ -21,9 +30,17 @@
 
     self.userImage.alpha = alpha;
     self.userNameLabel.alpha = alpha;
-    // uncoment to get a fade to custom navBar
-    self.backgroundImageView.alpha = alpha;
-}
 
+    if (kNavBar) {
+        self.backgroundImageView.alpha = alpha;
+
+        CGFloat navTitleFactor = 0.4;
+        CGFloat navTitleAlpha = 0;
+        if (self.normalizedStretchFactor < navTitleFactor) {
+            navTitleAlpha = CGFloatTranslateRange(self.normalizedStretchFactor, 0, navTitleFactor, 1, 0);
+        }
+        self.navigationTitleLabel.alpha = navTitleAlpha;
+    }
+}
 
 @end

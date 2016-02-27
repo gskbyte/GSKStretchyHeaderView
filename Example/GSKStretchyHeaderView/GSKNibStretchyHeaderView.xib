@@ -13,15 +13,32 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="landscape" translatesAutoresizingMaskIntoConstraints="NO" id="aMv-3S-oxx">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artist" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="artist" translatesAutoresizingMaskIntoConstraints="NO" id="IDV-kH-KIc">
                     <rect key="frame" x="252" y="236" width="96" height="96"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="96" id="4bP-u3-OxX"/>
                         <constraint firstAttribute="height" constant="96" id="9YK-yg-h84"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
+                            <color key="value" red="1" green="0.7744572935046834" blue="0.94959942904629147" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="48"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I'm a cool user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRt-Jw-3vW">
                     <rect key="frame" x="12" y="340" width="576" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A cool user's profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ePj-xy-EI5">
+                    <rect key="frame" x="8" y="289" width="580" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -34,8 +51,10 @@
                 <constraint firstItem="QRt-Jw-3vW" firstAttribute="top" secondItem="IDV-kH-KIc" secondAttribute="bottom" constant="8" id="GH1-On-4TK"/>
                 <constraint firstAttribute="trailing" secondItem="aMv-3S-oxx" secondAttribute="trailing" id="GRk-T0-Wfr"/>
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-16" id="GuP-HQ-plq"/>
+                <constraint firstItem="ePj-xy-EI5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OyO-rb-yam"/>
                 <constraint firstAttribute="trailing" secondItem="QRt-Jw-3vW" secondAttribute="trailing" constant="12" id="ZTG-zn-LtS"/>
                 <constraint firstItem="aMv-3S-oxx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fbC-ju-Dip"/>
+                <constraint firstItem="ePj-xy-EI5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="l1k-vK-38T"/>
                 <constraint firstAttribute="bottom" secondItem="aMv-3S-oxx" secondAttribute="bottom" id="pv5-QU-awc"/>
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qCF-xt-FOX"/>
             </constraints>
@@ -46,6 +65,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundImageView" destination="aMv-3S-oxx" id="PYT-58-Obu"/>
+                <outlet property="navigationTitleLabel" destination="ePj-xy-EI5" id="Txn-eh-S0d"/>
                 <outlet property="userImage" destination="IDV-kH-KIc" id="yZN-iV-FkM"/>
                 <outlet property="userNameLabel" destination="QRt-Jw-3vW" id="O20-AZ-exF"/>
             </connections>

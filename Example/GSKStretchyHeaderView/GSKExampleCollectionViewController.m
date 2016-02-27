@@ -58,6 +58,7 @@ static const NSUInteger kNumberOfRows = 100;
     [super viewWillAppear:animated];
     if (!self.data.navigationBarVisible) {
         [self.navigationController gsk_setNavigationBarTransparent:YES animated:NO];
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     }
 }
 

@@ -16,6 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.title = @"GSKStretchyHeaderView examples";
     [GSKExampleDataCell registerIn:self.tableView];
 
     GSKExampleData *data = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
@@ -34,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController gsk_setNavigationBarTransparent:NO animated:YES];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

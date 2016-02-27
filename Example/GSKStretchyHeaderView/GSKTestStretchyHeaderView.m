@@ -58,18 +58,23 @@
 
     CGSize minImageSize = CGSizeMake(32, 32);
     CGSize maxImageSize = CGSizeMake(96, 96);
-    CGPoint minImageOrigin = CGPointMake(12, 20);
+    CGPoint minImageOrigin = CGPointMake(96, 24);
     CGPoint maxImageOrigin = CGPointMake((self.contentView.width - maxImageSize.width) / 2, 32);
 
     self.imageView.size = CGSizeInterpolate(limitedStretchFactor, minImageSize, maxImageSize);
     self.imageView.left = CGFloatInterpolate(limitedStretchFactor, minImageOrigin.x, maxImageOrigin.x);
     self.imageView.top = CGFloatInterpolate(normalizedStretchFactor, minImageOrigin.y, maxImageOrigin.y);
 
-    self.button.top = CGFloatInterpolate(normalizedStretchFactor,
-                                         self.imageView.centerY - self.button.height / 2,
-                                         self.imageView.bottom + 8);
+    if (normalizedStretchFactor < 1) {
+        self.button.top = CGFloatInterpolate(normalizedStretchFactor,
+                                             self.imageView.centerY - self.button.height / 2,
+                                             self.imageView.bottom + 4);
+    } else {
+        self.button.top = self.imageView.bottom + 4;
+    }
+
     self.button.left = CGFloatInterpolate(limitedStretchFactor,
-                                          minImageOrigin.x + minImageSize.width + 12,
+                                          minImageOrigin.x + minImageSize.width + 8,
                                           self.contentView.width / 2 - self.button.width / 2);
 }
 
