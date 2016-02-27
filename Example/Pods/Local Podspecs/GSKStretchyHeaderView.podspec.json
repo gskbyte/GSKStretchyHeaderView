@@ -3,15 +3,16 @@
   "version": "0.1.0",
   "summary": "A short description of GSKStretchyHeaderView.",
   "description": "",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/GSKStretchyHeaderView",
+  "homepage": "https://github.com/gskbyte/GSKStretchyHeaderView",
   "license": "MIT",
   "authors": {
     "Jose Alcalá Correa": "jose.alcala@xing.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/GSKStretchyHeaderView.git",
+    "git": "https://github.com/gskbyte/GSKStretchyHeaderView.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/gskbyte",
   "platforms": {
     "ios": "7.0"
   },

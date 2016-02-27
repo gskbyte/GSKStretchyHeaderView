@@ -21,8 +21,10 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		8BB67C9123ECCFEB853380FE /* Pods_GSKStretchyHeaderView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9665F69057F6345F76A265F /* Pods_GSKStretchyHeaderView_Tests.framework */; };
+		C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */; };
+		C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */; };
+		C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C361C81A56F003EDACA /* GSKGradientView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +64,11 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6F608CEB51797022B7A6DBF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		74798159CA4EB05E512059FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C0116C2B1C81A4E7003EDACA /* GSKTestStretchyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTestStretchyHeaderView.h; sourceTree = "<group>"; };
+		C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTestStretchyHeaderView.m; sourceTree = "<group>"; };
+		C0116C351C81A56F003EDACA /* GSKGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKGradientView.h; sourceTree = "<group>"; };
+		C0116C361C81A56F003EDACA /* GSKGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKGradientView.m; sourceTree = "<group>"; };
 		F26302623B7ABAB2135B78DB /* Pods-GSKStretchyHeaderView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSKStretchyHeaderView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSKStretchyHeaderView_Example/Pods-GSKStretchyHeaderView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F9665F69057F6345F76A265F /* Pods_GSKStretchyHeaderView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSKStretchyHeaderView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -97,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
-				6003F593195388D20070C39A /* Example for GSKStretchyHeaderView */,
+				6003F593195388D20070C39A /* Example */,
 				6003F5B5195388D20070C39A /* Tests */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
@@ -127,18 +133,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6003F593195388D20070C39A /* Example for GSKStretchyHeaderView */ = {
+		6003F593195388D20070C39A /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				6003F59C195388D20070C39A /* GSKAppDelegate.h */,
 				6003F59D195388D20070C39A /* GSKAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* GSKViewController.h */,
 				6003F5A6195388D20070C39A /* GSKViewController.m */,
+				C0116C2B1C81A4E7003EDACA /* GSKTestStretchyHeaderView.h */,
+				C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */,
+				C0116C351C81A56F003EDACA /* GSKGradientView.h */,
+				C0116C361C81A56F003EDACA /* GSKGradientView.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */,
 			);
-			name = "Example for GSKStretchyHeaderView";
+			name = Example;
 			path = GSKStretchyHeaderView;
 			sourceTree = "<group>";
 		};
@@ -276,7 +286,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -391,6 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */,
+				C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */,
+				C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */,
 				6003F5A7195388D20070C39A /* GSKViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -516,6 +528,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GSKStretchyHeaderView/GSKStretchyHeaderView-Prefix.pch";
 				INFOPLIST_FILE = "GSKStretchyHeaderView/GSKStretchyHeaderView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -532,6 +545,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GSKStretchyHeaderView/GSKStretchyHeaderView-Prefix.pch";
 				INFOPLIST_FILE = "GSKStretchyHeaderView/GSKStretchyHeaderView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";

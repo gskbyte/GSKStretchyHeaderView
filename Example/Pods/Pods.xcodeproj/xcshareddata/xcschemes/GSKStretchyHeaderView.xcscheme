@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '92CFEA2079390FEECD781107'
+               BlueprintIdentifier = '13659ED9568672119834C902'
                BlueprintName = 'GSKStretchyHeaderView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'GSKStretchyHeaderView.framework'>

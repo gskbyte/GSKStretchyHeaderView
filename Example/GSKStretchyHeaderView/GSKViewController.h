@@ -8,6 +8,6 @@
 
 @import UIKit;
 
-@interface GSKViewController : UIViewController
+@interface GSKViewController : UICollectionViewController
 
 @end
