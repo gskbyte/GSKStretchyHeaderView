@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		048DC2106E9C739888A1B9C6 /* Pods_GSKStretchyHeaderView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 433E936EF0C1D11E1D334FD9 /* Pods_GSKStretchyHeaderView_Example.framework */; };
+		01E49417DA7B194F52E3CF77 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B467B8F0C1A7A07238CC4B /* Pods_Tests.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,7 +21,7 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		8BB67C9123ECCFEB853380FE /* Pods_GSKStretchyHeaderView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9665F69057F6345F76A265F /* Pods_GSKStretchyHeaderView_Tests.framework */; };
+		78279A171B3AD9A702069D0C /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 578EEE3C00671469673761D0 /* Pods_Example.framework */; };
 		C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */; };
 		C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */; };
 		C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C361C81A56F003EDACA /* GSKGradientView.m */; };
@@ -38,12 +38,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00182E742192282BCFF3E012 /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		2159A4C5E2A815B6711BE729 /* Pods-GSKStretchyHeaderView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSKStretchyHeaderView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSKStretchyHeaderView_Tests/Pods-GSKStretchyHeaderView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		29B467B8F0C1A7A07238CC4B /* Pods_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		32DDBCD8B87100B0F50A640F /* GSKStretchyHeaderView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GSKStretchyHeaderView.podspec; path = ../GSKStretchyHeaderView.podspec; sourceTree = "<group>"; };
 		433E936EF0C1D11E1D334FD9 /* Pods_GSKStretchyHeaderView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSKStretchyHeaderView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5699B2219E8639BB95DEFBD1 /* Pods-GSKStretchyHeaderView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSKStretchyHeaderView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSKStretchyHeaderView_Example/Pods-GSKStretchyHeaderView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		578EEE3C00671469673761D0 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		585B5464D6A5D60B34CAE9B0 /* Pods-GSKStretchyHeaderView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSKStretchyHeaderView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GSKStretchyHeaderView_Tests/Pods-GSKStretchyHeaderView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6003F58A195388D20070C39A /* GSKStretchyHeaderView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GSKStretchyHeaderView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F58A195388D20070C39A /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -56,7 +59,7 @@
 		6003F5A5195388D20070C39A /* GSKViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GSKViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* GSKViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GSKViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		6003F5AE195388D20070C39A /* GSKStretchyHeaderView_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GSKStretchyHeaderView_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6003F5AE195388D20070C39A /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6003F5B7195388D20070C39A /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -69,6 +72,9 @@
 		C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTestStretchyHeaderView.m; sourceTree = "<group>"; };
 		C0116C351C81A56F003EDACA /* GSKGradientView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKGradientView.h; sourceTree = "<group>"; };
 		C0116C361C81A56F003EDACA /* GSKGradientView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKGradientView.m; sourceTree = "<group>"; };
+		D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
+		E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		F26302623B7ABAB2135B78DB /* Pods-GSKStretchyHeaderView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GSKStretchyHeaderView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GSKStretchyHeaderView_Example/Pods-GSKStretchyHeaderView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F9665F69057F6345F76A265F /* Pods_GSKStretchyHeaderView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GSKStretchyHeaderView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,7 +87,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				048DC2106E9C739888A1B9C6 /* Pods_GSKStretchyHeaderView_Example.framework in Frameworks */,
+				78279A171B3AD9A702069D0C /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +98,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				8BB67C9123ECCFEB853380FE /* Pods_GSKStretchyHeaderView_Tests.framework in Frameworks */,
+				01E49417DA7B194F52E3CF77 /* Pods_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,8 +120,8 @@
 		6003F58B195388D20070C39A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6003F58A195388D20070C39A /* GSKStretchyHeaderView_Example.app */,
-				6003F5AE195388D20070C39A /* GSKStretchyHeaderView_Tests.xctest */,
+				6003F58A195388D20070C39A /* Example.app */,
+				6003F5AE195388D20070C39A /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -129,6 +135,8 @@
 				6003F5AF195388D20070C39A /* XCTest.framework */,
 				433E936EF0C1D11E1D334FD9 /* Pods_GSKStretchyHeaderView_Example.framework */,
 				F9665F69057F6345F76A265F /* Pods_GSKStretchyHeaderView_Tests.framework */,
+				578EEE3C00671469673761D0 /* Pods_Example.framework */,
+				29B467B8F0C1A7A07238CC4B /* Pods_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -199,6 +207,10 @@
 				5699B2219E8639BB95DEFBD1 /* Pods-GSKStretchyHeaderView_Example.release.xcconfig */,
 				2159A4C5E2A815B6711BE729 /* Pods-GSKStretchyHeaderView_Tests.debug.xcconfig */,
 				585B5464D6A5D60B34CAE9B0 /* Pods-GSKStretchyHeaderView_Tests.release.xcconfig */,
+				00182E742192282BCFF3E012 /* Pods-Example.debug.xcconfig */,
+				EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */,
+				E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */,
+				D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -206,9 +218,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6003F589195388D20070C39A /* GSKStretchyHeaderView_Example */ = {
+		6003F589195388D20070C39A /* Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "GSKStretchyHeaderView_Example" */;
+			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
 				AD0469A2D4633A0EF544E679 /* Check Pods Manifest.lock */,
 				6003F586195388D20070C39A /* Sources */,
@@ -221,14 +233,14 @@
 			);
 			dependencies = (
 			);
-			name = GSKStretchyHeaderView_Example;
+			name = Example;
 			productName = GSKStretchyHeaderView;
-			productReference = 6003F58A195388D20070C39A /* GSKStretchyHeaderView_Example.app */;
+			productReference = 6003F58A195388D20070C39A /* Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		6003F5AD195388D20070C39A /* GSKStretchyHeaderView_Tests */ = {
+		6003F5AD195388D20070C39A /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "GSKStretchyHeaderView_Tests" */;
+			buildConfigurationList = 6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
 				DD5F8CC2753B452034CAD6DD /* Check Pods Manifest.lock */,
 				6003F5AA195388D20070C39A /* Sources */,
@@ -242,9 +254,9 @@
 			dependencies = (
 				6003F5B4195388D20070C39A /* PBXTargetDependency */,
 			);
-			name = GSKStretchyHeaderView_Tests;
+			name = Tests;
 			productName = GSKStretchyHeaderViewTests;
-			productReference = 6003F5AE195388D20070C39A /* GSKStretchyHeaderView_Tests.xctest */;
+			productReference = 6003F5AE195388D20070C39A /* Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -262,7 +274,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "GSKStretchyHeaderView" */;
+			buildConfigurationList = 6003F585195388D10070C39A /* Build configuration list for PBXProject "Example" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -275,8 +287,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6003F589195388D20070C39A /* GSKStretchyHeaderView_Example */,
-				6003F5AD195388D20070C39A /* GSKStretchyHeaderView_Tests */,
+				6003F589195388D20070C39A /* Example */,
+				6003F5AD195388D20070C39A /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -315,7 +327,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GSKStretchyHeaderView_Tests/Pods-GSKStretchyHeaderView_Tests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4761CB458DB977A661EAFE3A /* Copy Pods Resources */ = {
@@ -330,7 +342,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GSKStretchyHeaderView_Example/Pods-GSKStretchyHeaderView_Example-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A8E4C35F89195869A8D16930 /* Embed Pods Frameworks */ = {
@@ -345,7 +357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GSKStretchyHeaderView_Example/Pods-GSKStretchyHeaderView_Example-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AD0469A2D4633A0EF544E679 /* Check Pods Manifest.lock */ = {
@@ -375,7 +387,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GSKStretchyHeaderView_Tests/Pods-GSKStretchyHeaderView_Tests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tests/Pods-Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DD5F8CC2753B452034CAD6DD /* Check Pods Manifest.lock */ = {
@@ -421,7 +433,7 @@
 /* Begin PBXTargetDependency section */
 		6003F5B4195388D20070C39A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6003F589195388D20070C39A /* GSKStretchyHeaderView_Example */;
+			target = 6003F589195388D20070C39A /* Example */;
 			targetProxy = 6003F5B3195388D20070C39A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -479,49 +491,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		6003F5BE195388D20070C39A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		6003F5C0195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F26302623B7ABAB2135B78DB /* Pods-GSKStretchyHeaderView_Example.debug.xcconfig */;
+			baseConfigurationReference = 00182E742192282BCFF3E012 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -536,26 +515,9 @@
 			};
 			name = Debug;
 		};
-		6003F5C1195388D20070C39A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5699B2219E8639BB95DEFBD1 /* Pods-GSKStretchyHeaderView_Example.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "GSKStretchyHeaderView/GSKStretchyHeaderView-Prefix.pch";
-				INFOPLIST_FILE = "GSKStretchyHeaderView/GSKStretchyHeaderView-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
 		6003F5C3195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2159A4C5E2A815B6711BE729 /* Pods-GSKStretchyHeaderView_Tests.debug.xcconfig */;
+			baseConfigurationReference = EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -572,60 +534,37 @@
 				INFOPLIST_FILE = "Tests/Tests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GSKStretchyHeaderView_Example.app/GSKStretchyHeaderView_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
 		};
-		6003F5C4195388D20070C39A /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 585B5464D6A5D60B34CAE9B0 /* Pods-GSKStretchyHeaderView_Tests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Tests/Tests-Prefix.pch";
-				INFOPLIST_FILE = "Tests/Tests-Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GSKStretchyHeaderView_Example.app/GSKStretchyHeaderView_Example";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6003F585195388D10070C39A /* Build configuration list for PBXProject "GSKStretchyHeaderView" */ = {
+		6003F585195388D10070C39A /* Build configuration list for PBXProject "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5BD195388D20070C39A /* Debug */,
-				6003F5BE195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "GSKStretchyHeaderView_Example" */ = {
+		6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C0195388D20070C39A /* Debug */,
-				6003F5C1195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "GSKStretchyHeaderView_Tests" */ = {
+		6003F5C2195388D20070C39A /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6003F5C3195388D20070C39A /* Debug */,
-				6003F5C4195388D20070C39A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

@@ -84,16 +84,16 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-GSKStretchyHeaderView_Tests/GSKStretchyHeaderView.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Expecta.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Expecta_Snapshots.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/FBSnapshotTestCase.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Specta.framework"
+  install_framework "Pods-Tests/GSKStretchyHeaderView.framework"
+  install_framework "Pods-Tests/Expecta.framework"
+  install_framework "Pods-Tests/Expecta_Snapshots.framework"
+  install_framework "Pods-Tests/FBSnapshotTestCase.framework"
+  install_framework "Pods-Tests/Specta.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-GSKStretchyHeaderView_Tests/GSKStretchyHeaderView.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Expecta.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Expecta_Snapshots.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/FBSnapshotTestCase.framework"
-  install_framework "Pods-GSKStretchyHeaderView_Tests/Specta.framework"
+  install_framework "Pods-Tests/GSKStretchyHeaderView.framework"
+  install_framework "Pods-Tests/Expecta.framework"
+  install_framework "Pods-Tests/Expecta_Snapshots.framework"
+  install_framework "Pods-Tests/FBSnapshotTestCase.framework"
+  install_framework "Pods-Tests/Specta.framework"
 fi

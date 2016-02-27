@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:GSKStretchyHeaderView.xcodeproj">
+      location = "group:Example/Example.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Pods/Pods.xcodeproj">
+      location = "group:Example/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

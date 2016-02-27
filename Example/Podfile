@@ -1,11 +1,15 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'GSKStretchyHeaderView_Example', :exclusive => true do
+workspace '../GSKStretchyHeaderView'
+xcodeproj 'Example.xcodeproj'
+
+
+target 'Example', :exclusive => true do
   pod 'GSKStretchyHeaderView', :path => '../'
 end
 
-target 'GSKStretchyHeaderView_Tests', :exclusive => true do
+target 'Tests', :exclusive => true do
   pod 'GSKStretchyHeaderView', :path => '../'
 
   pod 'Specta'
