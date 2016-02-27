@@ -30,6 +30,24 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 
 #pragma mark - Overriden methods
 
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (!newWindow) {
+        [self stopObservingScrollView];
+    }
+}
+
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    [self stopObservingScrollView];
+}
+
+- (void)stopObservingScrollView {
+    [self.scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
+    [self.scrollView.layer removeObserver:self forKeyPath:@"sublayers" context:GSKStretchyHeaderViewObserverContext];
+    self.scrollView = nil;
+}
+
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
@@ -40,14 +58,9 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 #pragma mark - Private properties and methods
 
 - (void)setScrollView:(UIScrollView *)scrollView {
-    if (_scrollView) {
-        [_scrollView.subviews removeObserver:self forKeyPath:@"count" context:GSKStretchyHeaderViewObserverContext];
-        [_scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
-    }
     _scrollView = scrollView;
 
     [scrollView addSubview:self];
-    scrollView.backgroundColor = [UIColor greenColor];
 
     UIEdgeInsets collectionViewContentInset = scrollView.contentInset;
     collectionViewContentInset.top = self.frame.size.height;
