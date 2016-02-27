@@ -1,0 +1,25 @@
+{
+  "name": "GSKStretchyHeaderView",
+  "version": "0.1.0",
+  "summary": "A short description of GSKStretchyHeaderView.",
+  "description": "",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/GSKStretchyHeaderView",
+  "license": "MIT",
+  "authors": {
+    "Jose Alcalá Correa": "jose.alcala@xing.com"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/GSKStretchyHeaderView.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "7.0"
+  },
+  "requires_arc": true,
+  "source_files": "Pod/Classes/**/*",
+  "resource_bundles": {
+    "GSKStretchyHeaderView": [
+      "Pod/Assets/*.png"
+    ]
+  }
+}
