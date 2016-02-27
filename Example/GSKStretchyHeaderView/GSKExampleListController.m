@@ -6,6 +6,7 @@
 #import "GSKExampleCollectionViewController.h"
 
 #import "GSKTestStretchyHeaderView.h"
+#import "GSKSpotyLikeHeaderView.h"
 
 @interface GSKExampleListController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -17,12 +18,17 @@
     [super viewDidLoad];
     [GSKExampleDataCell registerIn:self.tableView];
 
-    GSKExampleData *data = [GSKExampleData dataWithTitle:@"First example"
+    GSKExampleData *data = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
                                          headerViewClass:[GSKTestStretchyHeaderView class]];
+    data.headerViewInitialHeight = 200;
 
-    self.exampleDatas = @[data
+    GSKExampleData *spoty = [GSKExampleData dataWithTitle:@"Spoty-Like header view (Auto Layout)"
+                                          headerViewClass:[GSKSpotyLikeHeaderView class]];
 
-                          ];
+    GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
+                                      headerViewNibName:@"GSKNibStretchyHeaderView"];
+
+    self.exampleDatas = @[data, spoty, nib];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -57,12 +63,12 @@
 }
 
 - (void)exampleDataCellDidTapCollectionViewButton:(GSKExampleDataCell *)cell {
-    GSKExampleCollectionViewController *viewController = [[GSKExampleCollectionViewController alloc] initWithStretchyHeaderViewClass:cell.data.headerViewClass];
+    GSKExampleCollectionViewController *viewController = [[GSKExampleCollectionViewController alloc] initWithData:cell.data];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 
 - (void)exampleDataCellDidTapTableViewButton:(GSKExampleDataCell *)cell {
-    GSKExampleTableViewController *viewController = [[GSKExampleTableViewController alloc] initWithStretchyHeaderViewClass:cell.data.headerViewClass];
+    GSKExampleTableViewController *viewController = [[GSKExampleTableViewController alloc] initWithData:cell.data];
     [self.navigationController pushViewController:viewController animated:YES];
 }
 

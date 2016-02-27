@@ -7,6 +7,7 @@ xcodeproj 'Example.xcodeproj'
 
 target 'Example', :exclusive => true do
   pod 'GSKStretchyHeaderView', :path => '../'
+  pod 'Masonry'
 end
 
 target 'Tests', :exclusive => true do

@@ -30,6 +30,9 @@
 		C03FC4E71C81B2FE0015FAAA /* UINavigationController+Transparency.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */; };
 		C03FC4EC1C81B3250015FAAA /* GSKExampleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */; };
 		C03FC4ED1C81B3250015FAAA /* GSKExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */; };
+		C03FC4F01C81EC140015FAAA /* GSKSpotyLikeHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4EF1C81EC140015FAAA /* GSKSpotyLikeHeaderView.m */; };
+		C03FC4F41C820C9C0015FAAA /* GSKNibStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4F21C820C9C0015FAAA /* GSKNibStretchyHeaderView.m */; };
+		C03FC4F51C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +90,11 @@
 		C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleCollectionViewController.m; sourceTree = "<group>"; };
 		C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleTableViewController.h; sourceTree = "<group>"; };
 		C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleTableViewController.m; sourceTree = "<group>"; };
+		C03FC4EE1C81EC140015FAAA /* GSKSpotyLikeHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKSpotyLikeHeaderView.h; sourceTree = "<group>"; };
+		C03FC4EF1C81EC140015FAAA /* GSKSpotyLikeHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKSpotyLikeHeaderView.m; sourceTree = "<group>"; };
+		C03FC4F11C820C9C0015FAAA /* GSKNibStretchyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKNibStretchyHeaderView.h; sourceTree = "<group>"; };
+		C03FC4F21C820C9C0015FAAA /* GSKNibStretchyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKNibStretchyHeaderView.m; sourceTree = "<group>"; };
+		C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSKNibStretchyHeaderView.xib; sourceTree = "<group>"; };
 		D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +185,11 @@
 				C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */,
 				C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */,
 				C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */,
+				C03FC4EE1C81EC140015FAAA /* GSKSpotyLikeHeaderView.h */,
+				C03FC4EF1C81EC140015FAAA /* GSKSpotyLikeHeaderView.m */,
+				C03FC4F11C820C9C0015FAAA /* GSKNibStretchyHeaderView.h */,
+				C03FC4F21C820C9C0015FAAA /* GSKNibStretchyHeaderView.m */,
+				C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */,
@@ -324,6 +337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */,
+				C03FC4F51C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -438,8 +452,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03FC4E71C81B2FE0015FAAA /* UINavigationController+Transparency.m in Sources */,
+				C03FC4F41C820C9C0015FAAA /* GSKNibStretchyHeaderView.m in Sources */,
 				6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */,
 				C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */,
+				C03FC4F01C81EC140015FAAA /* GSKSpotyLikeHeaderView.m in Sources */,
 				C03FC4E21C81B1E30015FAAA /* GSKExampleData.m in Sources */,
 				C03FC4E31C81B1E30015FAAA /* GSKExampleDataCell.m in Sources */,
 				C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */,

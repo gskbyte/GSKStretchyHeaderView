@@ -5,7 +5,7 @@
 static const NSUInteger kNumberOfRows = 100;
 
 @interface GSKExampleTableViewController ()
-@property (nonatomic) Class stretchyHeaderViewClass;
+@property (nonatomic) GSKExampleData *data;
 @property (nonatomic) GSKStretchyHeaderView *stretchyHeaderView;
 @property (nonatomic) NSMutableArray<NSNumber *> *rowHeights;
 @end
@@ -19,10 +19,10 @@ static const NSUInteger kNumberOfRows = 100;
 
 @implementation GSKExampleTableViewController
 
-- (instancetype)initWithStretchyHeaderViewClass:(Class)stretchyHeaderViewClass {
+- (instancetype)initWithData:(GSKExampleData *)data {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.stretchyHeaderViewClass = stretchyHeaderViewClass;
+        self.data = data;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     return self;
@@ -32,7 +32,14 @@ static const NSUInteger kNumberOfRows = 100;
     [super viewDidLoad];
     [GSKViewControllerTableCell registerIn:self.tableView];
 
-    self.stretchyHeaderView = [[self.stretchyHeaderViewClass alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 200)];
+    if (self.data.headerViewClass) {
+        self.stretchyHeaderView = [[self.data.headerViewClass alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.data.headerViewInitialHeight)];
+    } else {
+        NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:self.data.nibName
+                                                          owner:self
+                                                        options:nil];
+        self.stretchyHeaderView = nibViews.firstObject;
+    }
     [self.tableView addSubview:self.stretchyHeaderView];
 
     self.rowHeights = [NSMutableArray arrayWithCapacity:kNumberOfRows];
@@ -44,7 +51,7 @@ static const NSUInteger kNumberOfRows = 100;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.stretchyHeaderView.minimumHeight > 0) {
+    if (!self.data.navigationBarVisible) {
         [self.navigationController gsk_setNavigationBarTransparent:YES animated:NO];
     }
 }

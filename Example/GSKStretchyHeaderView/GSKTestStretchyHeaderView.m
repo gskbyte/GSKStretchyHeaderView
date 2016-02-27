@@ -1,7 +1,7 @@
 #import "GSKTestStretchyHeaderView.h"
 #import "GSKGradientView.h"
-#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
-#import <GSKStretchyHeaderView/GSKGeometry.h>
+#import "UIView+GSKLayoutHelper.h"
+#import "GSKGeometry.h"
 
 @interface GSKTestStretchyHeaderView ()
 @property (nonatomic) GSKGradientView *gradientView;

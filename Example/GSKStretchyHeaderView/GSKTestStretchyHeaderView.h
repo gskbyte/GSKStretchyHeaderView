@@ -1,4 +1,4 @@
-#import <GSKStretchyHeaderView/GSKStretchyHeaderView.h>
+@import GSKStretchyHeaderView;
 
 @interface GSKTestStretchyHeaderView : GSKStretchyHeaderView
 

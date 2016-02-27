@@ -1,9 +1,16 @@
 #import "GSKStretchyHeaderView.h"
 #import "GSKGeometry.h"
 
+static const CGFloat kNibDefaultHeight = 240;
+
 @interface GSKStretchyHeaderView ()
 @property (nonatomic) CGFloat initialHeight;
 @property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic) CGFloat stretchFactor;
+@end
+
+@interface GSKStretchyHeaderContentView : UIView
+
 @end
 
 static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserverContext;
@@ -14,17 +21,43 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     NSAssert(frame.size.height > 0, @"Initial height MUST be greater than 0");
     self = [super initWithFrame:frame];
     if (self) {
-        _initialHeight = frame.size.height;
-        _expandOnBounce = YES;
-        _stretchContentView = NO;
-        self.clipsToBounds = YES;
+        [self setupView];
         [self setupContentView];
     }
     return self;
 }
 
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        CGFloat initialHeight = [[self valueForKeyPath:@"initialHeight"] floatValue];
+        if (initialHeight == 0) {
+            initialHeight = kNibDefaultHeight;
+            NSLog(@"initialHeight not defined for nib, setting default height");
+        }
+        CGRect frame = self.frame;
+        frame.size.height = initialHeight;
+        self.frame = frame;
+        [self setupView];
+
+        NSArray<UIView *> *oldSubviews = self.subviews;
+        [self setupContentView];
+        for (UIView *view in oldSubviews) {
+            [self.contentView addSubview:view];
+        }
+    }
+    return self;
+}
+
+- (void)setupView {
+    _initialHeight = self.frame.size.height;
+    _expandOnBounce = YES;
+    _stretchContentView = YES;
+    self.clipsToBounds = YES;
+}
+
 - (void)setupContentView {
-    _contentView = [[UIView alloc] initWithFrame:self.frame];
+    _contentView = [[GSKStretchyHeaderContentView alloc] initWithFrame:self.frame];
     [self addSubview:_contentView];
 }
 
@@ -44,7 +77,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 
 - (void)stopObservingScrollView {
     [self.scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
-    [self.scrollView.layer removeObserver:self forKeyPath:@"sublayers" context:GSKStretchyHeaderViewObserverContext];
     self.scrollView = nil;
 }
 
@@ -70,10 +102,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
                  forKeyPath:@"contentOffset"
                     options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
                     context:GSKStretchyHeaderViewObserverContext];
-    [scrollView.layer addObserver:self
-                       forKeyPath:@"sublayers"
-                          options:NSKeyValueObservingOptionNew
-                          context:GSKStretchyHeaderViewObserverContext];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -86,15 +114,11 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
         CGPoint contentOffset = newValue.CGPointValue;
         [self updateOriginForContentOffset:contentOffset];
     }
-
-    if (object == self.scrollView.layer &&
-        [keyPath isEqualToString:@"sublayers"]) {
-        [self.scrollView bringSubviewToFront:self];
-    }
 }
 
 - (void)updateOriginForContentOffset:(CGPoint)contentOffset {
     CGRect frame = self.frame;
+    frame.size.width = self.scrollView.frame.size.width;
     if (self.initialHeight + contentOffset.y < 0) {
         frame.origin.y = contentOffset.y;
         if (self.expandOnBounce) {
@@ -112,13 +136,15 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 
     CGFloat contentViewHeight = self.stretchContentView ? frame.size.height : self.initialHeight;
     self.contentView.frame = CGRectMake(0, 0, frame.size.width, contentViewHeight);
+
+    CGFloat newStretchFactor = self.frame.size.height / self.initialHeight;
+    if (newStretchFactor != self.stretchFactor) {
+        self.stretchFactor = newStretchFactor;
+        [self didChangeStretchFactor:newStretchFactor];
+    }
 }
 
-#pragma mark - Stretch factor readonly properties
-
-- (CGFloat)stretchFactor {
-    return self.frame.size.height / self.initialHeight;
-}
+#pragma mark - Stretch factor
 
 - (CGFloat)minStretchFactor {
     return self.minimumHeight / self.initialHeight;
@@ -127,5 +153,13 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 - (CGFloat)normalizedStretchFactor {
     return CGFloatTranslateRange(self.stretchFactor, self.minStretchFactor, 1, 0, 1);
 }
+
+- (void)didChangeStretchFactor:(CGFloat)stretchFactor {
+    // to be implemented in subclasses
+}
+
+@end
+
+@implementation GSKStretchyHeaderContentView
 
 @end

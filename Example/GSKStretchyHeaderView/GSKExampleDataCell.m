@@ -1,5 +1,5 @@
 #import "GSKExampleDataCell.h"
-#import <GSKStretchyHeaderVIew/UIView+GSKLayoutHelper.h>
+#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
 
 @interface GSKExampleDataCell ()
 @property (nonatomic) UIButton *titleButton;
@@ -60,20 +60,22 @@
     _data = data;
     [self.titleButton setTitle:data.title forState:UIControlStateNormal];
 
-    if (data.headerViewClass) {
-        self.titleButton.enabled = NO;
-        self.collectionViewControllerButton.hidden = NO;
-        self.tableViewControllerButton.hidden = NO;
-    } else {
+    if (data.viewControllerClass) {
         self.titleButton.enabled = YES;
         self.collectionViewControllerButton.hidden = YES;
         self.tableViewControllerButton.hidden = YES;
+    } else {
+        self.titleButton.enabled = NO;
+        self.collectionViewControllerButton.hidden = NO;
+        self.tableViewControllerButton.hidden = NO;
     }
 }
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    if (self.data.headerViewClass) {
+    if (self.data.viewControllerClass) {
+        self.titleButton.frame = self.bounds;
+    } else {
         CGFloat buttonHeight = self.height / 2;
 
         self.titleButton.width = self.width;
@@ -87,8 +89,6 @@
         self.tableViewControllerButton.left = self.collectionViewControllerButton.right;
         self.tableViewControllerButton.width = self.width / 2;
         self.tableViewControllerButton.height = buttonHeight;
-    } else {
-        self.titleButton.frame = self.bounds;
     }
 }
 

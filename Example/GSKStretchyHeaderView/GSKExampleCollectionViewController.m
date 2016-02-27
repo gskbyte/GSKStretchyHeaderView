@@ -5,7 +5,7 @@
 static const NSUInteger kNumberOfRows = 100;
 
 @interface GSKExampleCollectionViewController () <UICollectionViewDelegateFlowLayout>
-@property (nonatomic) Class stretchyHeaderViewClass;
+@property (nonatomic) GSKExampleData *data;
 @property (nonatomic) GSKStretchyHeaderView *stretchyHeaderView;
 @property (nonatomic) NSMutableArray<NSNumber *> *rowHeights;
 @end
@@ -17,7 +17,7 @@ static const NSUInteger kNumberOfRows = 100;
 
 @implementation GSKExampleCollectionViewController
 
-- (instancetype)initWithStretchyHeaderViewClass:(Class)stretchyHeaderViewClass {
+- (instancetype)initWithData:(GSKExampleData *)data {
     UICollectionViewFlowLayout *collectionViewLayout = [[UICollectionViewFlowLayout alloc] init];
     collectionViewLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
     collectionViewLayout.minimumLineSpacing = 0;
@@ -25,19 +25,26 @@ static const NSUInteger kNumberOfRows = 100;
 
     self = [super initWithCollectionViewLayout:collectionViewLayout];
     if (self) {
-        self.stretchyHeaderViewClass = stretchyHeaderViewClass;
+        self.data = data;
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     return self;
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    self.collectionView.backgroundColor = [UIColor whiteColor];
     [GSKViewControllerCell registerIn:self.collectionView];
 
-    self.stretchyHeaderView = [[self.stretchyHeaderViewClass alloc] initWithFrame:CGRectMake(0, 0, self.collectionView.frame.size.width, 200)];
+    if (self.data.headerViewClass) {
+        self.stretchyHeaderView = [[self.data.headerViewClass alloc] initWithFrame:CGRectMake(0, 0, self.collectionView.frame.size.width, self.data.headerViewInitialHeight)];
+    } else {
+        NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:self.data.nibName
+                                                          owner:self
+                                                        options:nil];
+        self.stretchyHeaderView = nibViews.firstObject;
+    }
+
     [self.collectionView addSubview:self.stretchyHeaderView];
 
     self.rowHeights = [NSMutableArray arrayWithCapacity:kNumberOfRows];
@@ -49,7 +56,7 @@ static const NSUInteger kNumberOfRows = 100;
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.stretchyHeaderView.minimumHeight > 0) {
+    if (!self.data.navigationBarVisible) {
         [self.navigationController gsk_setNavigationBarTransparent:YES animated:NO];
     }
 }

@@ -1,6 +1,8 @@
 @import UIKit;
+#import "GSKExampleData.h"
+
 @interface GSKExampleTableViewController : UITableViewController
 
-- (instancetype)initWithStretchyHeaderViewClass:(Class)stretchyHeaderViewClass;
+- (instancetype)initWithData:(GSKExampleData *)data;
 
 @end
