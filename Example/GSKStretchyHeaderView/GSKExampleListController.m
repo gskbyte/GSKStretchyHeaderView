@@ -7,6 +7,7 @@
 
 #import "GSKTestStretchyHeaderView.h"
 #import "GSKSpotyLikeHeaderView.h"
+#import "GSKExampleTabsViewController.h"
 
 @interface GSKExampleListController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -30,7 +31,10 @@
     GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
                                       headerViewNibName:@"GSKNibStretchyHeaderView"];
 
-    self.exampleDatas = @[data, spoty, nib];
+    GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"Header view with tabs"
+                                     viewControllerClass:[GSKExampleTabsViewController class]];
+
+    self.exampleDatas = @[data, spoty, nib, tabs];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
