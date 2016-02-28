@@ -27,7 +27,7 @@
     return data;
 }
 
-+ (instancetype)dataWithtitle:(NSString *)title
++ (instancetype)dataWithTitle:(NSString *)title
           viewControllerClass:(Class)viewControllerClass {
     GSKExampleData *data = [[self alloc] init];
     data.title = title;

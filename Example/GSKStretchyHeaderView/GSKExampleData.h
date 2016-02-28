@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
               headerViewClass:(Class)headerViewClass;
 + (instancetype)dataWithTitle:(NSString *)title
             headerViewNibName:(NSString *)nibName;
-+ (instancetype)dataWithtitle:(NSString *)title
++ (instancetype)dataWithTitle:(NSString *)title
           viewControllerClass:(Class)viewControllerClass;
 
 @end

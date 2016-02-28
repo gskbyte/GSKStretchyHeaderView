@@ -62,6 +62,8 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="initialHeight">
                     <integer key="value" value="280"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="stretchContentView" value="YES"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="expandOnBounce" value="YES"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundImageView" destination="aMv-3S-oxx" id="PYT-58-Obu"/>

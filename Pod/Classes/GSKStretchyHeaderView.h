@@ -1,12 +1,14 @@
 #import <UIKit/UIKit.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface GSKStretchyHeaderView : UIView
 
-@property (nonatomic) BOOL expandOnBounce; // default YES
-@property (nonatomic) BOOL stretchContentView; // default YES
+@property (nonatomic) IBInspectable BOOL expandOnBounce; // default YES
+@property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
 
-@property (nonatomic, readonly) CGFloat initialHeight;
-@property (nonatomic) CGFloat minimumHeight; // defaults to 0
+@property (nonatomic, readonly) IBInspectable CGFloat initialHeight;
+@property (nonatomic) IBInspectable CGFloat minimumHeight; // defaults to 0
 
 @property (nonatomic, readonly) UIView *contentView; // add your stuff here
 
@@ -22,3 +24,5 @@
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor;
 
 @end
+
+NS_ASSUME_NONNULL_END

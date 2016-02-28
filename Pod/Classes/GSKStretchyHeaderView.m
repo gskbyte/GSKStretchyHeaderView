@@ -43,9 +43,10 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 - (void)setupView {
-    _expandOnBounce = YES;
-    _stretchContentView = YES;
     self.clipsToBounds = YES;
+    self.minimumHeight = 0;
+    self.expandOnBounce = YES;
+    self.stretchContentView = YES;
 }
 
 - (void)setupContentView {
@@ -58,7 +59,7 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 - (void)awakeFromNib {
     [super awakeFromNib];
     if (self.initialHeight == 0) {
-        NSLog(@"initialHeight not defined for %@, setting default (%@)",
+        NSLog(@"'initialHeight' not defined for %@, setting default (%@)",
               NSStringFromClass(self.class),
               @(kNibDefaultHeight));
         [self setInitialHeight:kNibDefaultHeight];
