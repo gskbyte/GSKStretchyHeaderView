@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
 
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
-@property (nonatomic) IBInspectable BOOL expandOnBounce; // default YES
 @property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
 
 - (void)setMaximumContentHeight:(CGFloat)maximumContentHeight

@@ -44,7 +44,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 - (void)setupView {
     self.clipsToBounds = YES;
     self.minimumContentHeight = 0;
-    self.expandOnBounce = YES;
     self.stretchContentView = YES;
 }
 
@@ -69,6 +68,11 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     }
 }
 
+- (void)setContentInset:(UIEdgeInsets)contentInset {
+    _contentInset = contentInset;
+    [self setupScrollViewInsets];
+}
+
 #pragma mark - Public methods
 
 - (void)setMaximumContentHeight:(CGFloat)maximumContentHeight
@@ -79,7 +83,7 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     
     self.maximumContentHeight = maximumContentHeight;
     [UIView animateWithDuration:animated ? 0.3 : 0 animations:^{
-        self.scrollView.contentOffset = CGPointMake(0, -self.maximumContentHeight);
+        self.scrollView.contentOffset = CGPointMake(0, -(self.maximumContentHeight + self.contentInset.top));
     }];
 }
 
@@ -125,15 +129,18 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     _scrollView = scrollView;
 
     [scrollView addSubview:self];
-
-    UIEdgeInsets collectionViewContentInset = scrollView.contentInset;
-    collectionViewContentInset.top = self.frame.size.height;
-    scrollView.contentInset = collectionViewContentInset;
+    [self setupScrollViewInsets];
 
     [scrollView addObserver:self
                  forKeyPath:@"contentOffset"
                     options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
                     context:GSKStretchyHeaderViewObserverContext];
+}
+
+- (void)setupScrollViewInsets {
+    UIEdgeInsets scrollViewContentInset = self.scrollView.contentInset;
+    scrollViewContentInset.top = self.maximumContentHeight + self.contentInset.top + self.contentInset.bottom;
+    self.scrollView.contentInset = scrollViewContentInset;
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath
@@ -150,29 +157,31 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 
 - (void)updateOriginForContentOffset:(CGPoint)contentOffset {
     CGRect frame = self.frame;
+
     frame.size.width = self.scrollView.frame.size.width;
-    CGFloat verticalInset = self.contentInset.top + self.contentInset.top;
-    if (self.maximumContentHeight + contentOffset.y < 0) {
-        if (self.expandOnBounce) {
-            frame.size.height = -contentOffset.y + verticalInset;
-        }
-        frame.origin.y = contentOffset.y - self.contentInset.top;
-    } else if (-contentOffset.y <= self.minimumContentHeight) {
+    frame.origin.y = contentOffset.y;
+
+    CGFloat verticalInset = self.contentInset.top + self.contentInset.bottom;
+    CGFloat maximumHeight = self.maximumContentHeight + verticalInset;
+    CGFloat minimumHeight = self.minimumContentHeight + verticalInset;
+
+    if (contentOffset.y + maximumHeight < 0) { // bigger than default
+        frame.size.height = -contentOffset.y;
+    } else if (-contentOffset.y <= minimumHeight) { // less than minimum height
         frame.size.height = self.minimumContentHeight + verticalInset;
-        frame.origin.y = contentOffset.y - self.contentInset.top;
-    } else {
-        frame.size.height = MIN(-contentOffset.y, self.maximumContentHeight + verticalInset);
-        frame.origin.y = - (frame.size.height + self.contentInset.top);
+    } else { // between minimum and maximum
+        frame.size.height = -contentOffset.y;
     }
 
     self.frame = frame;
 
-    CGFloat contentViewHeight = self.stretchContentView ? frame.size.height : self.maximumContentHeight;
-    self.contentView.frame = CGRectMake(self.contentInset.top, self.contentInset.left,
+    CGFloat contentHeightDif = self.maximumContentHeight - self.minimumContentHeight;
+    CGFloat contentViewHeight = self.stretchContentView ? frame.size.height - verticalInset : self.maximumContentHeight;
+    self.contentView.frame = CGRectMake(self.contentInset.left, self.contentInset.top,
                                         frame.size.width - self.contentInset.left - self.contentInset.right,
                                         contentViewHeight);
 
-    CGFloat newStretchFactor = (self.contentView.frame.size.height - self.minimumContentHeight) / (self.maximumContentHeight - self.minimumContentHeight);
+    CGFloat newStretchFactor = (self.contentView.frame.size.height - self.minimumContentHeight) / contentHeightDif;
     if (newStretchFactor != self.stretchFactor) {
         self.stretchFactor = newStretchFactor;
         [self didChangeStretchFactor:newStretchFactor];

@@ -16,6 +16,7 @@
     if (self) {
         self.stretchContentView = YES;
         self.minimumContentHeight = 64;
+        self.backgroundColor = [UIColor redColor];
         [self setupGradient];
         [self setupImageView];
         [self setupButton];
@@ -24,7 +25,7 @@
 }
 
 - (void)setupGradient {
-    self.gradientView = [[GSKGradientView alloc] initWithFrame:self.contentView.frame];
+    self.gradientView = [[GSKGradientView alloc] initWithFrame:self.contentView.bounds];
     self.gradientView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.contentView addSubview:self.gradientView];
 }
