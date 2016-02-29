@@ -10,7 +10,6 @@
 
 #import "GSKExampleTabsViewController.h"
 #import "GSKExampleNavigationBarViewController.h"
-#import "GSKExampleDismissableNavigationBarController.h"
 
 @interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -40,10 +39,7 @@
     GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Under navigation bar"
                                        viewControllerClass:[GSKExampleNavigationBarViewController class]];
 
-    GSKExampleData *dismissableNavbar = [GSKExampleData dataWithTitle:@"Hidden navigation bar"
-                                                  viewControllerClass:[GSKExampleDismissableNavigationBarController class]];
-
-    self.exampleDatas = @[data, spoty, nib, tabs, navBar, dismissableNavbar];
+    self.exampleDatas = @[data, spoty, nib, tabs, navBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

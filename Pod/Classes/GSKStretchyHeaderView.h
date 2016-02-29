@@ -9,7 +9,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) IBInspectable CGFloat maximumContentHeight; // defaults to initial frame height
 @property (nonatomic) IBInspectable CGFloat minimumContentHeight; // defaults to 0
-@property (nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
+@property (nonatomic) IBInspectable UIEdgeInsets contentInsetz; // default UIEdgeInsetsZero
 
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
