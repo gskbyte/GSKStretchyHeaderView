@@ -2,17 +2,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol GSKStretchyHeaderViewDelegate;
+@protocol GSKStretchyHeaderViewStretchDelegate;
 @interface GSKStretchyHeaderView : UIView
 
-@property (nonatomic, weak) id<GSKStretchyHeaderViewDelegate> delegate;
-@property (nonatomic) IBInspectable BOOL expandOnBounce; // default YES
+@property (nonatomic, readonly) UIView *contentView; // add your subviews here
+
+@property (nonatomic) IBInspectable CGFloat maximumContentHeight; // defaults to initial frame height
+@property (nonatomic) IBInspectable CGFloat minimumContentHeight; // defaults to 0
+@property (nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
+
+@property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
 
-@property (nonatomic, readonly) IBInspectable CGFloat initialHeight;
-@property (nonatomic) IBInspectable CGFloat minimumHeight; // defaults to 0
-
-@property (nonatomic, readonly) UIView *contentView; // add your stuff here
+- (void)setMaximumContentHeight:(CGFloat)maximumContentHeight
+                  resetAnimated:(BOOL)animated;
 
 @end
 
@@ -20,17 +23,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GSKStretchyHeaderView (StretchFactor)
 
 @property (nonatomic, readonly) CGFloat stretchFactor;
-@property (nonatomic, readonly) CGFloat minStretchFactor;
-@property (nonatomic, readonly) CGFloat normalizedStretchFactor;
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor;
 
 @end
 
 
-@protocol GSKStretchyHeaderViewDelegate <NSObject>
+@protocol GSKStretchyHeaderViewStretchDelegate <NSObject>
 
-@optional
 - (void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView
     didChangeStretchFactor:(CGFloat)stretchFactor;
 

@@ -49,8 +49,8 @@
     NSLog(@"didSelectTab %@", @(index));
     [self.dataSources[index] registerForTableView:self.tableView];
     [self.tableView reloadData];
-    if (self.tableView.contentOffset.y > -headerView.minimumHeight) {
-        self.tableView.contentOffset = CGPointMake(0, -headerView.minimumHeight);
+    if (self.tableView.contentOffset.y > -headerView.minimumContentHeight) {
+        self.tableView.contentOffset = CGPointMake(0, -headerView.minimumContentHeight);
     }
 }
 

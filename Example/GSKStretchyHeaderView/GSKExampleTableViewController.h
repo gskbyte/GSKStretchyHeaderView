@@ -1,8 +1,5 @@
-@import UIKit;
-#import "GSKExampleData.h"
+#import "GSKExampleBaseTableViewController.h"
 
-@interface GSKExampleTableViewController : UITableViewController
-
-- (instancetype)initWithData:(GSKExampleData *)data;
+@interface GSKExampleTableViewController : GSKExampleBaseTableViewController
 
 @end

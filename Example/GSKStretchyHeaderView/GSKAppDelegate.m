@@ -1,5 +1,5 @@
 #import "GSKAppDelegate.h"
-#import "GSKExampleListController.h"
+#import "GSKExampleListViewController.h"
 
 @implementation GSKAppDelegate
 
@@ -7,7 +7,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
 
-    GSKExampleListController *exampleListController = [[GSKExampleListController alloc] init];
+    GSKExampleListViewController *exampleListController = [[GSKExampleListViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:exampleListController];
     self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];

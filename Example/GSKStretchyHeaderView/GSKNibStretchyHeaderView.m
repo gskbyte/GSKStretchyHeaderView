@@ -18,14 +18,14 @@ static const BOOL kNavBar = YES;
     self.contentView.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1];
 
     if (kNavBar) {
-        self.minimumHeight = 64;
+        self.minimumContentHeight = 64;
     } else {
         self.navigationTitleLabel.hidden = YES;
     }
 }
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor {
-    CGFloat alpha = CGFloatTranslateRange(self.normalizedStretchFactor, 0.2, 0.8, 0, 1);
+    CGFloat alpha = CGFloatTranslateRange(stretchFactor, 0.2, 0.8, 0, 1);
     alpha = MAX(0, MIN(1, alpha));
 
     self.userImage.alpha = alpha;
@@ -36,8 +36,8 @@ static const BOOL kNavBar = YES;
 
         CGFloat navTitleFactor = 0.4;
         CGFloat navTitleAlpha = 0;
-        if (self.normalizedStretchFactor < navTitleFactor) {
-            navTitleAlpha = CGFloatTranslateRange(self.normalizedStretchFactor, 0, navTitleFactor, 1, 0);
+        if (stretchFactor < navTitleFactor) {
+            navTitleAlpha = CGFloatTranslateRange(stretchFactor, 0, navTitleFactor, 1, 0);
         }
         self.navigationTitleLabel.alpha = navTitleAlpha;
     }
