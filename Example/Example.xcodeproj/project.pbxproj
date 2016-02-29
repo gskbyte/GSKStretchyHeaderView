@@ -26,7 +26,7 @@
 		C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C361C81A56F003EDACA /* GSKGradientView.m */; };
 		C03FC4E21C81B1E30015FAAA /* GSKExampleData.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4DD1C81B1E30015FAAA /* GSKExampleData.m */; };
 		C03FC4E31C81B1E30015FAAA /* GSKExampleDataCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4DF1C81B1E30015FAAA /* GSKExampleDataCell.m */; };
-		C03FC4E41C81B1E30015FAAA /* GSKExampleListController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E11C81B1E30015FAAA /* GSKExampleListController.m */; };
+		C03FC4E41C81B1E30015FAAA /* GSKExampleListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E11C81B1E30015FAAA /* GSKExampleListViewController.m */; };
 		C03FC4E71C81B2FE0015FAAA /* UINavigationController+Transparency.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */; };
 		C03FC4EC1C81B3250015FAAA /* GSKExampleCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */; };
 		C03FC4ED1C81B3250015FAAA /* GSKExampleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */; };
@@ -39,6 +39,9 @@
 		C03FC5051C8348150015FAAA /* GSKTabsStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC4FF1C8348150015FAAA /* GSKTabsStretchyHeaderView.m */; };
 		C03FC5061C8348150015FAAA /* GSKTabsStretchyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */; };
 		C03FC5091C8349440015FAAA /* GSKExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */; };
+		C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */; };
+		C086E0061C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0051C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.m */; };
+		C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +91,8 @@
 		C03FC4DD1C81B1E30015FAAA /* GSKExampleData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleData.m; sourceTree = "<group>"; };
 		C03FC4DE1C81B1E30015FAAA /* GSKExampleDataCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleDataCell.h; sourceTree = "<group>"; };
 		C03FC4DF1C81B1E30015FAAA /* GSKExampleDataCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleDataCell.m; sourceTree = "<group>"; };
-		C03FC4E01C81B1E30015FAAA /* GSKExampleListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleListController.h; sourceTree = "<group>"; };
-		C03FC4E11C81B1E30015FAAA /* GSKExampleListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleListController.m; sourceTree = "<group>"; };
+		C03FC4E01C81B1E30015FAAA /* GSKExampleListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleListViewController.h; sourceTree = "<group>"; };
+		C03FC4E11C81B1E30015FAAA /* GSKExampleListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleListViewController.m; sourceTree = "<group>"; };
 		C03FC4E51C81B2FE0015FAAA /* UINavigationController+Transparency.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+Transparency.h"; sourceTree = "<group>"; };
 		C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+Transparency.m"; sourceTree = "<group>"; };
 		C03FC4E81C81B3250015FAAA /* GSKExampleCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleCollectionViewController.h; sourceTree = "<group>"; };
@@ -114,6 +117,12 @@
 		C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSKTabsStretchyHeaderView.xib; sourceTree = "<group>"; };
 		C03FC5071C8349440015FAAA /* GSKExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleDataSource.h; sourceTree = "<group>"; };
 		C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleDataSource.m; sourceTree = "<group>"; };
+		C086E0011C846309002A54C1 /* GSKExampleNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleNavigationBarViewController.h; sourceTree = "<group>"; };
+		C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleNavigationBarViewController.m; sourceTree = "<group>"; };
+		C086E0041C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleDismissableNavigationBarController.h; sourceTree = "<group>"; };
+		C086E0051C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleDismissableNavigationBarController.m; sourceTree = "<group>"; };
+		C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleBaseTableViewController.h; sourceTree = "<group>"; };
+		C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleBaseTableViewController.m; sourceTree = "<group>"; };
 		D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -186,42 +195,16 @@
 		6003F593195388D20070C39A /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				C03FC4E51C81B2FE0015FAAA /* UINavigationController+Transparency.h */,
-				C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */,
+				C086DFFD1C846295002A54C1 /* Header Views */,
+				C086DFFC1C846281002A54C1 /* View Controllers */,
 				C03FC4DC1C81B1E30015FAAA /* GSKExampleData.h */,
 				C03FC4DD1C81B1E30015FAAA /* GSKExampleData.m */,
 				C03FC4DE1C81B1E30015FAAA /* GSKExampleDataCell.h */,
 				C03FC4DF1C81B1E30015FAAA /* GSKExampleDataCell.m */,
-				C03FC4E01C81B1E30015FAAA /* GSKExampleListController.h */,
-				C03FC4E11C81B1E30015FAAA /* GSKExampleListController.m */,
+				C03FC4E01C81B1E30015FAAA /* GSKExampleListViewController.h */,
+				C03FC4E11C81B1E30015FAAA /* GSKExampleListViewController.m */,
 				6003F59C195388D20070C39A /* GSKAppDelegate.h */,
 				6003F59D195388D20070C39A /* GSKAppDelegate.m */,
-				C0116C2B1C81A4E7003EDACA /* GSKTestStretchyHeaderView.h */,
-				C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */,
-				C0116C351C81A56F003EDACA /* GSKGradientView.h */,
-				C0116C361C81A56F003EDACA /* GSKGradientView.m */,
-				C03FC4E81C81B3250015FAAA /* GSKExampleCollectionViewController.h */,
-				C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */,
-				C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */,
-				C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */,
-				C03FC4EE1C81EC140015FAAA /* GSKSpotyLikeHeaderView.h */,
-				C03FC4EF1C81EC140015FAAA /* GSKSpotyLikeHeaderView.m */,
-				C03FC4F11C820C9C0015FAAA /* GSKNibStretchyHeaderView.h */,
-				C03FC4F21C820C9C0015FAAA /* GSKNibStretchyHeaderView.m */,
-				C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */,
-				C03FC4F61C8348150015FAAA /* GSKCollectionViewCell.h */,
-				C03FC4F71C8348150015FAAA /* GSKCollectionViewCell.m */,
-				C03FC4F81C8348150015FAAA /* GSKExampleDataSource.h */,
-				C03FC4F91C8348150015FAAA /* GSKExampleDataSource.m */,
-				C03FC4FA1C8348150015FAAA /* GSKExampleTabsViewController.h */,
-				C03FC4FB1C8348150015FAAA /* GSKExampleTabsViewController.m */,
-				C03FC4FC1C8348150015FAAA /* GSKTableViewCell.h */,
-				C03FC4FD1C8348150015FAAA /* GSKTableViewCell.m */,
-				C03FC4FE1C8348150015FAAA /* GSKTabsStretchyHeaderView.h */,
-				C03FC4FF1C8348150015FAAA /* GSKTabsStretchyHeaderView.m */,
-				C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */,
-				C03FC5071C8349440015FAAA /* GSKExampleDataSource.h */,
-				C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */,
@@ -268,6 +251,86 @@
 				74798159CA4EB05E512059FF /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		C086DFFC1C846281002A54C1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C086E0071C846C4F002A54C1 /* Base view controllers */,
+				C086E0001C8462D6002A54C1 /* Data source */,
+				C086DFFF1C8462C9002A54C1 /* Cells */,
+				C03FC4E51C81B2FE0015FAAA /* UINavigationController+Transparency.h */,
+				C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */,
+				C03FC4E81C81B3250015FAAA /* GSKExampleCollectionViewController.h */,
+				C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */,
+				C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */,
+				C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */,
+				C03FC4FA1C8348150015FAAA /* GSKExampleTabsViewController.h */,
+				C03FC4FB1C8348150015FAAA /* GSKExampleTabsViewController.m */,
+				C086E0011C846309002A54C1 /* GSKExampleNavigationBarViewController.h */,
+				C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */,
+				C086E0041C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.h */,
+				C086E0051C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.m */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		C086DFFD1C846295002A54C1 /* Header Views */ = {
+			isa = PBXGroup;
+			children = (
+				C086DFFE1C8462BE002A54C1 /* Subviews */,
+				C0116C2B1C81A4E7003EDACA /* GSKTestStretchyHeaderView.h */,
+				C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */,
+				C03FC4EE1C81EC140015FAAA /* GSKSpotyLikeHeaderView.h */,
+				C03FC4EF1C81EC140015FAAA /* GSKSpotyLikeHeaderView.m */,
+				C03FC4F11C820C9C0015FAAA /* GSKNibStretchyHeaderView.h */,
+				C03FC4F21C820C9C0015FAAA /* GSKNibStretchyHeaderView.m */,
+				C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */,
+				C03FC4FE1C8348150015FAAA /* GSKTabsStretchyHeaderView.h */,
+				C03FC4FF1C8348150015FAAA /* GSKTabsStretchyHeaderView.m */,
+				C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */,
+			);
+			name = "Header Views";
+			sourceTree = "<group>";
+		};
+		C086DFFE1C8462BE002A54C1 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				C0116C351C81A56F003EDACA /* GSKGradientView.h */,
+				C0116C361C81A56F003EDACA /* GSKGradientView.m */,
+			);
+			name = Subviews;
+			sourceTree = "<group>";
+		};
+		C086DFFF1C8462C9002A54C1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C03FC4F61C8348150015FAAA /* GSKCollectionViewCell.h */,
+				C03FC4F71C8348150015FAAA /* GSKCollectionViewCell.m */,
+				C03FC4FC1C8348150015FAAA /* GSKTableViewCell.h */,
+				C03FC4FD1C8348150015FAAA /* GSKTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		C086E0001C8462D6002A54C1 /* Data source */ = {
+			isa = PBXGroup;
+			children = (
+				C03FC4F81C8348150015FAAA /* GSKExampleDataSource.h */,
+				C03FC4F91C8348150015FAAA /* GSKExampleDataSource.m */,
+				C03FC5071C8349440015FAAA /* GSKExampleDataSource.h */,
+				C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */,
+			);
+			name = "Data source";
+			sourceTree = "<group>";
+		};
+		C086E0071C846C4F002A54C1 /* Base view controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */,
+				C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */,
+			);
+			name = "Base view controllers";
 			sourceTree = "<group>";
 		};
 		CA169D59AFB8A97F311DE2BB /* Pods */ = {
@@ -499,7 +562,10 @@
 				C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */,
 				C03FC4ED1C81B3250015FAAA /* GSKExampleTableViewController.m in Sources */,
 				C03FC4EC1C81B3250015FAAA /* GSKExampleCollectionViewController.m in Sources */,
-				C03FC4E41C81B1E30015FAAA /* GSKExampleListController.m in Sources */,
+				C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */,
+				C086E0061C84631C002A54C1 /* GSKExampleDismissableNavigationBarController.m in Sources */,
+				C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */,
+				C03FC4E41C81B1E30015FAAA /* GSKExampleListViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

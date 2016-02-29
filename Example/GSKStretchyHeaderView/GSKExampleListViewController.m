@@ -1,4 +1,4 @@
-#import "GSKExampleListController.h"
+#import "GSKExampleListViewController.h"
 #import "GSKExampleDataCell.h"
 
 #import "UINavigationController+Transparency.h"
@@ -7,13 +7,16 @@
 
 #import "GSKTestStretchyHeaderView.h"
 #import "GSKSpotyLikeHeaderView.h"
-#import "GSKExampleTabsViewController.h"
 
-@interface GSKExampleListController () <GSKExampleDataCellDelegate>
+#import "GSKExampleTabsViewController.h"
+#import "GSKExampleNavigationBarViewController.h"
+#import "GSKExampleDismissableNavigationBarController.h"
+
+@interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
 @end
 
-@implementation GSKExampleListController
+@implementation GSKExampleListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,10 +34,16 @@
     GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
                                       headerViewNibName:@"GSKNibStretchyHeaderView"];
 
-    GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"Header view with tabs"
+    GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"With tabs"
                                      viewControllerClass:[GSKExampleTabsViewController class]];
 
-    self.exampleDatas = @[data, spoty, nib, tabs];
+    GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Under navigation bar"
+                                       viewControllerClass:[GSKExampleNavigationBarViewController class]];
+
+    GSKExampleData *dismissableNavbar = [GSKExampleData dataWithTitle:@"Hidden navigation bar"
+                                                  viewControllerClass:[GSKExampleDismissableNavigationBarController class]];
+
+    self.exampleDatas = @[data, spoty, nib, tabs, navBar, dismissableNavbar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

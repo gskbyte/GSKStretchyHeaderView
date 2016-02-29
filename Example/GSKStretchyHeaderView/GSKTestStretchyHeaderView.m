@@ -15,7 +15,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.stretchContentView = YES;
-        self.minimumHeight = 64;
+        self.minimumContentHeight = 64;
         [self setupGradient];
         [self setupImageView];
         [self setupButton];
@@ -50,11 +50,9 @@
 }
 
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-
-    CGFloat normalizedStretchFactor = self.normalizedStretchFactor;
-    CGFloat limitedStretchFactor = MIN(1, normalizedStretchFactor);
+- (void)didChangeStretchFactor:(CGFloat)stretchFactor {
+    [super didChangeStretchFactor:stretchFactor];
+    CGFloat limitedStretchFactor = MIN(1, stretchFactor);
 
     CGSize minImageSize = CGSizeMake(32, 32);
     CGSize maxImageSize = CGSizeMake(96, 96);
@@ -63,10 +61,10 @@
 
     self.imageView.size = CGSizeInterpolate(limitedStretchFactor, minImageSize, maxImageSize);
     self.imageView.left = CGFloatInterpolate(limitedStretchFactor, minImageOrigin.x, maxImageOrigin.x);
-    self.imageView.top = CGFloatInterpolate(normalizedStretchFactor, minImageOrigin.y, maxImageOrigin.y);
+    self.imageView.top = CGFloatInterpolate(stretchFactor, minImageOrigin.y, maxImageOrigin.y);
 
-    if (normalizedStretchFactor < 1) {
-        self.button.top = CGFloatInterpolate(normalizedStretchFactor,
+    if (stretchFactor < 1) {
+        self.button.top = CGFloatInterpolate(stretchFactor,
                                              self.imageView.centerY - self.button.height / 2,
                                              self.imageView.bottom + 4);
     } else {
