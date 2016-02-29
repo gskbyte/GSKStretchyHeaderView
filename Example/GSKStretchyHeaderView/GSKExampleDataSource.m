@@ -1,11 +1,3 @@
-//
-//  GSKExampleDataSource.m
-//  GSKStretchyHeader
-//
-//  Created by Jose Alcalá-Correa on 26/02/16.
-//  Copyright © 2016 Jose Alcalá Correa. All rights reserved.
-//
-
 #import "GSKExampleDataSource.h"
 #import "GSKTableViewCell.h"
 #import "GSKCollectionViewCell.h"

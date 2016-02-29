@@ -8,7 +8,7 @@
 GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on the Twitter app or the Spotify app. It's designed in order to accomplish the following requirements:
 
 - Compatibility with `UITableView` and `UICollectionView`
-- Provide support for frame layout, auto layout and Interface Builder `.xib` files 
+- Provide support for frame layout, auto layout and Interface Builder `.xib` files
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
 
@@ -20,12 +20,12 @@ To add a stretchy header to your table or collection view, you just have to do t
 - (void)viewDidLoad {
     [super viewDidLoad];
     CGSize headerSize = CGSizeMake(self.tableView.frame.size.width, 200); // 200 will be the default height
-    self.stretchyHeader = [[GSKStretchyHeaderViewSubclass alloc] initWithFrame:CGRectMake(0, 0, headerSize.width, headerSize.height)]; 
+    self.stretchyHeader = [[GSKStretchyHeaderViewSubclass alloc] initWithFrame:CGRectMake(0, 0, headerSize.width, headerSize.height)];
     self.stretchyHeader.delegate = self; // this is completely optional
     [self.tableView addSubview:self.stretchyHeader];
 }
 ```
-or 
+or
 ```objc
 - (void)viewDidLoad {
     [super viewDidLoad];
