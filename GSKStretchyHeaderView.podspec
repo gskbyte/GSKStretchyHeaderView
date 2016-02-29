@@ -1,11 +1,13 @@
 Pod::Spec.new do |s|
   s.name             = "GSKStretchyHeaderView"
-  s.version          = "0.1.0"
-  s.summary          = "A short description of GSKStretchyHeaderView."
+  s.version          = "0.7.0"
+  s.summary          = "A generic, easy to use stretchy header view for UITableView and UICollectionView"
 
-  s.description      = "A generic, easy to use stretchy header view for UITableView and UICollectionView"
+  s.description      = <<-DESC
+                       GSKStretchyHeaderView allows you to add a stretchy header view (like Twitter's or Spotify's) to any existing UITableView and UICollectionView. There is no need inherit from custom view controllers, just create your custom header view and add it to your UITableView or UICollectionView. Creating a custom stretchy header view is as easy as inheriting from the base class or using Interface Builder.
+                       DESC
   s.homepage         = "https://github.com/gskbyte/GSKStretchyHeaderView"
-  s.screenshots      = "https://github.com/gskbyte/GSKStretchyHeaderView/screenshots/spoty_default.jpg", "https://github.com/gskbyte/GSKStretchyHeaderView/screenshots/gradient.jpg"
+  s.screenshots      = "https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/spoty_default.jpg", "https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/gradient.jpg"
   s.license          = 'MIT'
   s.author           = { "Jose Alcalá Correa" => "jose.alcala@xing.com" }
   s.source           = { :git => "https://github.com/gskbyte/GSKStretchyHeaderView.git", :tag => s.version.to_s }
