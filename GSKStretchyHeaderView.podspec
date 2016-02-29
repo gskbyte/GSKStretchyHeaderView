@@ -3,11 +3,9 @@ Pod::Spec.new do |s|
   s.version          = "0.1.0"
   s.summary          = "A short description of GSKStretchyHeaderView."
 
-  s.description      = <<-DESC
-                       DESC
-
+  s.description      = "A generic, easy to use stretchy header view for UITableView and UICollectionView"
   s.homepage         = "https://github.com/gskbyte/GSKStretchyHeaderView"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.screenshots      = "https://github.com/gskbyte/GSKStretchyHeaderView/screenshots/spoty_default.jpg", "https://github.com/gskbyte/GSKStretchyHeaderView/screenshots/gradient.jpg"
   s.license          = 'MIT'
   s.author           = { "Jose Alcalá Correa" => "jose.alcala@xing.com" }
   s.source           = { :git => "https://github.com/gskbyte/GSKStretchyHeaderView.git", :tag => s.version.to_s }
@@ -20,6 +18,4 @@ Pod::Spec.new do |s|
   s.resource_bundles = {
     'GSKStretchyHeaderView' => ['Pod/Assets/*.png']
   }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
 end
