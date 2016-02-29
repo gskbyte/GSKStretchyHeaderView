@@ -64,6 +64,7 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     frame.size.height = maximumContentHeight;
     self.frame = frame;
     if (self.scrollView) {
+        [self setupScrollViewInsets];
         [self updateOriginForContentOffset:self.scrollView.contentOffset];
     }
 }
