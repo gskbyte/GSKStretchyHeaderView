@@ -5,7 +5,7 @@
 @interface GSKTabsStretchyHeaderView : GSKStretchyHeaderView
 
 @property (nonatomic, readonly) NSUInteger tabsCount;
-@property (nonatomic, weak) id<GSKTabsStretchyHeaderViewDelegate> delegate;
+@property (nonatomic, weak) id<GSKTabsStretchyHeaderViewDelegate> tabsDelegate;
 
 @end
 

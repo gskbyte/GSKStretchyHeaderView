@@ -2,8 +2,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol GSKStretchyHeaderViewDelegate;
 @interface GSKStretchyHeaderView : UIView
 
+@property (nonatomic, weak) id<GSKStretchyHeaderViewDelegate> delegate;
 @property (nonatomic) IBInspectable BOOL expandOnBounce; // default YES
 @property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
 
@@ -22,6 +24,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) CGFloat normalizedStretchFactor;
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor;
+
+@end
+
+
+@protocol GSKStretchyHeaderViewDelegate <NSObject>
+
+@optional
+- (void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView
+    didChangeStretchFactor:(CGFloat)stretchFactor;
 
 @end
 

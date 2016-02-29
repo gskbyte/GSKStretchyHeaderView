@@ -26,7 +26,7 @@
                                                       owner:self
                                                     options:nil];
     self.stretchyHeaderView = nibViews.firstObject;
-    self.stretchyHeaderView.delegate = self;
+    self.stretchyHeaderView.tabsDelegate = self;
     [self.tableView addSubview:self.stretchyHeaderView];
 
     NSMutableArray *dataSources = [NSMutableArray array];
