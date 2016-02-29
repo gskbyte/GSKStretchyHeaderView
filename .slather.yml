@@ -1,0 +1,6 @@
+coverage_service: coveralls
+xcodeproj: Example/Example.xcodeproj
+source_directory: Classes
+build_directory: build
+ignore:
+  - Example/*
