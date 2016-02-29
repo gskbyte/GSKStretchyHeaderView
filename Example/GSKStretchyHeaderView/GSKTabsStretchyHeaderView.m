@@ -19,8 +19,8 @@
 }
 
 - (IBAction)didTapTabButton:(id)sender {
-    [self.delegate tabsStretchyHeaderView:self
-                      didSelectTabAtIndex:[self.tabs indexOfObject:sender]];
+    [self.tabsDelegate tabsStretchyHeaderView:self
+                          didSelectTabAtIndex:[self.tabs indexOfObject:sender]];
 }
 
 

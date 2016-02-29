@@ -151,6 +151,9 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     if (newStretchFactor != self.stretchFactor) {
         self.stretchFactor = newStretchFactor;
         [self didChangeStretchFactor:newStretchFactor];
+        if ([self.delegate respondsToSelector:@selector(stretchyHeaderView:didChangeStretchFactor:)]) {
+            [self.delegate stretchyHeaderView:self didChangeStretchFactor:newStretchFactor];
+        }
     }
 }
 
