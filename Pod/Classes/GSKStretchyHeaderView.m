@@ -6,6 +6,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 @interface GSKStretchyHeaderView ()
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic) CGFloat stretchFactor;
+@property (nonatomic) BOOL observingScrollView;
 @end
 
 @interface GSKStretchyHeaderContentView : UIView
@@ -108,38 +109,45 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     [super willMoveToWindow:newWindow];
     if (!newWindow) {
         [self stopObservingScrollView];
+    } else {
+        [self observeScrollView];
+        [self setupScrollViewInsets];
     }
 }
 
 - (void)willMoveToSuperview:(UIView *)newSuperview {
     [super willMoveToSuperview:newSuperview];
-    [self stopObservingScrollView];
-}
 
-- (void)stopObservingScrollView {
-    [_scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
-    _scrollView = nil;
-}
+    if (newSuperview != self.scrollView) {
+        [self stopObservingScrollView];
+        self.scrollView = nil;
+    }
 
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-        self.scrollView = (UIScrollView *)self.superview;
+    if ([newSuperview isKindOfClass:[UIScrollView class]]) {
+        self.scrollView = (UIScrollView *)newSuperview;
+        [self observeScrollView];
+        [self setupScrollViewInsets];
     }
 }
 
 #pragma mark - Private properties and methods
 
-- (void)setScrollView:(UIScrollView *)scrollView {
-    _scrollView = scrollView;
+- (void)observeScrollView {
+    if (!self.observingScrollView && self.scrollView) {
+        [self.scrollView addObserver:self
+                          forKeyPath:@"contentOffset"
+                             options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
+                             context:GSKStretchyHeaderViewObserverContext];
+        self.observingScrollView = YES;
+    }
+}
 
-    [scrollView addSubview:self];
-    [self setupScrollViewInsets];
 
-    [scrollView addObserver:self
-                 forKeyPath:@"contentOffset"
-                    options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew
-                    context:GSKStretchyHeaderViewObserverContext];
+- (void)stopObservingScrollView {
+    if (self.observingScrollView && self.scrollView) {
+        [self.scrollView removeObserver:self forKeyPath:@"contentOffset" context:GSKStretchyHeaderViewObserverContext];
+        self.observingScrollView = NO;
+    }
 }
 
 - (void)setupScrollViewInsets {
@@ -167,8 +175,12 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     const CGFloat minimumHeight = self.minimumContentHeight + verticalInset;
 
     CGRect frame = self.frame;
+    BOOL forceStretchFactorUpdate = NO;
 
-    frame.size.width = self.scrollView.frame.size.width;
+    if (frame.size.width != self.scrollView.frame.size.width) {
+        frame.size.width = self.scrollView.frame.size.width;
+        forceStretchFactorUpdate = YES;
+    }
     frame.origin.y = contentOffset.y;
 
     if (contentOffset.y + maximumHeight < 0) { // bigger than default
@@ -178,8 +190,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     } else { // between minimum and maximum
         frame.size.height = -contentOffset.y;
     }
-
-    self.frame = frame;
 
     const CGFloat visibleContentViewHeight = frame.size.height - verticalInset;
     CGFloat contentViewHeight;
@@ -200,13 +210,16 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
             break;
     }
 
+    self.frame = frame;
     self.contentView.frame = CGRectMake(self.contentInset.left,
                                         contentViewTop,
                                         frame.size.width - self.contentInset.left - self.contentInset.right,
                                         contentViewHeight);
 
     CGFloat newStretchFactor = (visibleContentViewHeight - self.minimumContentHeight) / contentHeightDif;
-    if (newStretchFactor != self.stretchFactor) {
+    NSLog(@"width %@ stretchFactor %@", @(self.scrollView.frame.size.width), @(newStretchFactor));
+    if (newStretchFactor != self.stretchFactor ||
+        forceStretchFactorUpdate) {
         self.stretchFactor = newStretchFactor;
         [self didChangeStretchFactor:newStretchFactor];
         [self.stretchDelegate stretchyHeaderView:self didChangeStretchFactor:newStretchFactor];

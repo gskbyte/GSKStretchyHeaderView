@@ -21,7 +21,6 @@ static const CGSize kUserImageSize = {.width = 64, .height = 64};
     self = [super initWithFrame:frame];
     if (self) {
         self.minimumContentHeight = 64;
-        self.stretchContentView = YES;
         self.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1];
         [self setupViews];
         [self setupViewConstraints];
