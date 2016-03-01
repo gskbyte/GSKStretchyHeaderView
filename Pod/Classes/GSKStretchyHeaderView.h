@@ -2,6 +2,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef NS_ENUM(NSUInteger, GSKStretchyHeaderContentViewMode) {
+    // anchors top and bottom, height changes
+    GSKStretchyHeaderContentViewModeStretchHeight = 0,
+
+    // top anchor, height = self.maximumContentHeight
+    GSKStretchyHeaderContentViewModeFixedHeightAnchorTop,
+
+    // bottom anchor, height = self.maximumContentHeight
+    GSKStretchyHeaderContentViewModeFixedHeightAnchorBottom
+};
+
 @protocol GSKStretchyHeaderViewStretchDelegate;
 @interface GSKStretchyHeaderView : UIView
 
@@ -10,9 +21,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) IBInspectable CGFloat maximumContentHeight; // defaults to initial frame height
 @property (nonatomic) IBInspectable CGFloat minimumContentHeight; // defaults to 0
 @property (nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
+@property (nonatomic) IBInspectable GSKStretchyHeaderContentViewMode contentViewMode; // default GSKStretchyHeaderViewContentModeStretchHeight
 
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
-@property (nonatomic) IBInspectable BOOL stretchContentView; // default YES
 
 - (void)setMaximumContentHeight:(CGFloat)maximumContentHeight
                   resetAnimated:(BOOL)animated;

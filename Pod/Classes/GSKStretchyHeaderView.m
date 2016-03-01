@@ -44,7 +44,7 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 - (void)setupView {
     self.clipsToBounds = YES;
     self.minimumContentHeight = 0;
-    self.stretchContentView = YES;
+    self.contentViewMode = GSKStretchyHeaderContentViewModeStretchHeight;
 }
 
 - (void)setupContentView {
@@ -63,15 +63,19 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     CGRect frame = self.frame;
     frame.size.height = maximumContentHeight;
     self.frame = frame;
-    if (self.scrollView) {
-        [self setupScrollViewInsets];
-        [self updateOriginForContentOffset:self.scrollView.contentOffset];
-    }
+
+    [self setupScrollViewInsets];
+    [self updateOriginForContentOffset:self.scrollView.contentOffset];
 }
 
 - (void)setContentInset:(UIEdgeInsets)contentInset {
     _contentInset = contentInset;
     [self setupScrollViewInsets];
+}
+
+- (void)setContentViewMode:(GSKStretchyHeaderContentViewMode)contentViewMode {
+    _contentViewMode = contentViewMode;
+    [self updateOriginForContentOffset:self.scrollView.contentOffset];
 }
 
 #pragma mark - Public methods
@@ -157,14 +161,15 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 - (void)updateOriginForContentOffset:(CGPoint)contentOffset {
+    const CGFloat verticalInset = self.contentInset.top + self.contentInset.bottom;
+    const CGFloat contentHeightDif = (self.maximumContentHeight - self.minimumContentHeight);
+    const CGFloat maximumHeight = self.maximumContentHeight + verticalInset;
+    const CGFloat minimumHeight = self.minimumContentHeight + verticalInset;
+
     CGRect frame = self.frame;
 
     frame.size.width = self.scrollView.frame.size.width;
     frame.origin.y = contentOffset.y;
-
-    CGFloat verticalInset = self.contentInset.top + self.contentInset.bottom;
-    CGFloat maximumHeight = self.maximumContentHeight + verticalInset;
-    CGFloat minimumHeight = self.minimumContentHeight + verticalInset;
 
     if (contentOffset.y + maximumHeight < 0) { // bigger than default
         frame.size.height = -contentOffset.y;
@@ -176,13 +181,31 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 
     self.frame = frame;
 
-    CGFloat contentHeightDif = self.maximumContentHeight - self.minimumContentHeight;
-    CGFloat contentViewHeight = self.stretchContentView ? frame.size.height - verticalInset : self.maximumContentHeight;
-    self.contentView.frame = CGRectMake(self.contentInset.left, self.contentInset.top,
+    const CGFloat visibleContentViewHeight = frame.size.height - verticalInset;
+    CGFloat contentViewHeight;
+    CGFloat contentViewTop;
+    switch (self.contentViewMode) {
+        case GSKStretchyHeaderContentViewModeStretchHeight:
+            contentViewHeight = visibleContentViewHeight;
+            contentViewTop = self.contentInset.top;
+            break;
+        case GSKStretchyHeaderContentViewModeFixedHeightAnchorTop:
+            contentViewHeight = self.maximumContentHeight;
+            contentViewTop = self.contentInset.top;
+            break;
+        case GSKStretchyHeaderContentViewModeFixedHeightAnchorBottom:
+            contentViewHeight = self.maximumContentHeight;
+            contentViewTop = MIN(self.contentInset.top,
+                                 frame.size.height - verticalInset - self.maximumContentHeight);
+            break;
+    }
+
+    self.contentView.frame = CGRectMake(self.contentInset.left,
+                                        contentViewTop,
                                         frame.size.width - self.contentInset.left - self.contentInset.right,
                                         contentViewHeight);
 
-    CGFloat newStretchFactor = (self.contentView.frame.size.height - self.minimumContentHeight) / contentHeightDif;
+    CGFloat newStretchFactor = (visibleContentViewHeight - self.minimumContentHeight) / contentHeightDif;
     if (newStretchFactor != self.stretchFactor) {
         self.stretchFactor = newStretchFactor;
         [self didChangeStretchFactor:newStretchFactor];
