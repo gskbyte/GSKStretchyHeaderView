@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.tableView.backgroundColor = [UIColor colorWithWhite:0.8 alpha:1];
+
     NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:@"GSKTabsStretchyHeaderView"
                                                       owner:self
                                                     options:nil];

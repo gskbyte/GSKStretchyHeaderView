@@ -10,10 +10,6 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yjx-YF-ctZ">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tabs example" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-5F-3mx">
                     <rect key="frame" x="20" y="280" width="560" height="24"/>
                     <constraints>
@@ -62,33 +58,28 @@
                     </constraints>
                 </stackView>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.65980857329999998" green="0.32248958350000001" blue="0.32762394620000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="jMx-3v-PzL" secondAttribute="bottom" id="3jL-Wg-7Bb"/>
                 <constraint firstAttribute="trailing" secondItem="jMx-3v-PzL" secondAttribute="trailing" id="CDS-se-0R7"/>
                 <constraint firstItem="jMx-3v-PzL" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Fz4-pR-AbH"/>
-                <constraint firstAttribute="trailing" secondItem="yjx-YF-ctZ" secondAttribute="trailing" id="NBW-BQ-Suv"/>
                 <constraint firstItem="TlC-5F-3mx" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-8" id="OLk-iT-Bih"/>
-                <constraint firstItem="yjx-YF-ctZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="PVK-up-DJm"/>
-                <constraint firstAttribute="bottom" secondItem="yjx-YF-ctZ" secondAttribute="bottom" id="R4h-e1-qy6"/>
-                <constraint firstItem="yjx-YF-ctZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="YOB-Xb-OIw"/>
                 <constraint firstAttribute="trailing" secondItem="TlC-5F-3mx" secondAttribute="trailing" constant="20" id="dW2-h3-mBP"/>
                 <constraint firstItem="TlC-5F-3mx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="mwd-Ah-iYH"/>
                 <constraint firstItem="TlC-5F-3mx" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zL5-Pe-rvN"/>
             </constraints>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="minimumHeight">
-                    <integer key="value" value="100"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="number" keyPath="initialHeight">
-                    <integer key="value" value="200"/>
-                </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="maximumContentHeight">
                     <real key="value" value="240"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="number" keyPath="minimumContentHeight">
                     <real key="value" value="100"/>
                 </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="contentAnchor">
+                    <integer key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="contentStretches" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="contentBounces" value="NO"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="firstTab" destination="XK0-Ht-YnQ" id="Ter-W2-KXg"/>

@@ -59,11 +59,6 @@
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qCF-xt-FOX"/>
             </constraints>
             <userDefinedRuntimeAttributes>
-                <userDefinedRuntimeAttribute type="number" keyPath="initialHeight">
-                    <integer key="value" value="280"/>
-                </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="stretchContentView" value="YES"/>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="expandOnBounce" value="YES"/>
                 <userDefinedRuntimeAttribute type="number" keyPath="maximumContentHeight">
                     <real key="value" value="260"/>
                 </userDefinedRuntimeAttribute>

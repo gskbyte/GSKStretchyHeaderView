@@ -14,7 +14,6 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.stretchContentView = YES;
         self.minimumContentHeight = 64;
         self.backgroundColor = [UIColor redColor];
         [self setupGradient];
