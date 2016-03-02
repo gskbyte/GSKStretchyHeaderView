@@ -8,7 +8,6 @@
 ![Example 1](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/airbnb.gif)
 ![Example 2](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_blur.gif)
 ![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_tabs.gif)
-![Example 4](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_nib.gif)
 
 GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on the Twitter app or the Spotify app. It's designed in order to accomplish the following requirements:
 
@@ -57,8 +56,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Installation
 
-GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
 
 ```ruby
 pod "GSKStretchyHeaderView"
