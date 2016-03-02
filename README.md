@@ -46,7 +46,7 @@ or
 There are two ways to create your own stretchy header:
 
 - Create a stretchy header subclass and add subviews to its `contentView`. You can layout its subviews with manual layouting (by using frames) or with Auto Layout.
-- Create an Interface Builder file and map it to your `GSKStretchyHeaderView` subclass. Subviews added to the stretchy header will be automatically moved to the content view, keeping their constraints. Remember to set the property `initialHeight` in the attributes inspector (fourth tab on the right panel in Interface Builder).
+- Create an Interface Builder file and map it to your `GSKStretchyHeaderView` subclass. Subviews added to the stretchy header will be automatically moved to the content view, keeping their constraints. Remember to set the properties `maximumContentHeight` and `minimumContentHeight` in the attributes inspector (fourth tab on the right panel in Interface Builder).
 
 To modify the behaviour and layout of your stretchy header, just override the method `-didChangeStretchFactor:` in your subclass, where you can adjust it by using the `stretchFactor`. To get a more detailed description of the properties, please have a look at the source code. There are also a few usage examples in the example project. You can also take them as a reference for your own stretchy headers.
 
