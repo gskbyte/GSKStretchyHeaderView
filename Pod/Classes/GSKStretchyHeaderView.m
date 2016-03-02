@@ -28,16 +28,11 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self setupView];
-
-        NSArray<UIView *> *oldSubviews = self.subviews;
         [self setupContentView];
-        for (UIView *view in oldSubviews) {
-            [self.contentView addSubview:view];
-        }
     }
     return self;
 }
@@ -49,7 +44,8 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
 }
 
 - (void)setupContentView {
-    _contentView = [[GSKStretchyHeaderContentView alloc] initWithFrame:self.frame];
+    _contentView = [[GSKStretchyHeaderContentView alloc] initWithFrame:self.bounds];
+    [self gsk_transplantSubviewsToView:_contentView];
     [self addSubview:_contentView];
 }
 
