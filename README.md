@@ -1,6 +1,6 @@
 # GSKStretchyHeaderView
 
-[![CI Status](http://img.shields.io/travis/Jose Alcalá Correa/GSKStretchyHeaderView.svg?style=flat)](https://travis-ci.org/Jose Alcalá Correa/GSKStretchyHeaderView)
+[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/Jose Alcalá Correa/GSKStretchyHeaderView)
 [![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
