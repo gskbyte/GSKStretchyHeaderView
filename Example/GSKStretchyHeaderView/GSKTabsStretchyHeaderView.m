@@ -1,4 +1,5 @@
 #import "GSKTabsStretchyHeaderView.h"
+#import <GSKStretchyHeaderView/GSKGeometry.h>
 
 @interface GSKTabsStretchyHeaderView ()
 @property (weak, nonatomic) IBOutlet UIButton *firstTab;
@@ -9,6 +10,11 @@
 @end
 
 @implementation GSKTabsStretchyHeaderView
+
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.backgroundColor = [UIColor clearColor];
+}
 
 - (NSUInteger)tabsCount {
     return self.tabs.count;
@@ -23,5 +29,11 @@
                           didSelectTabAtIndex:[self.tabs indexOfObject:sender]];
 }
 
+- (void)didChangeStretchFactor:(CGFloat)stretchFactor {
+    self.contentView.backgroundColor = [UIColor colorWithRed:CGFloatTranslateRange(stretchFactor, 0, 1, 0.2, 0.3)
+                                                       green:CGFloatTranslateRange(stretchFactor, 0, 1, 0.7, 0.3)
+                                                        blue:0.3
+                                                       alpha:1];
+}
 
 @end
