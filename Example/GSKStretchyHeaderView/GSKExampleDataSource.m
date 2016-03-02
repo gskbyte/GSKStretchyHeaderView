@@ -18,6 +18,7 @@
             CGFloat height = 40 + arc4random_uniform(160);
             [self.rowHeights addObject:@(height)];
         }
+        self.cellColors = @[[UIColor grayColor], [UIColor lightGrayColor]];
     }
     return self;
 }
@@ -48,7 +49,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GSKTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[GSKTableViewCell reuseIdentifier]];
-    cell.backgroundColor = indexPath.item % 2 ? [UIColor grayColor] : [UIColor lightGrayColor];
+    cell.contentView.backgroundColor = self.cellColors[indexPath.row % self.cellColors.count];
     return cell;
 }
 
@@ -61,7 +62,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     GSKCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:[GSKCollectionViewCell reuseIdentifier]
                                                                             forIndexPath:indexPath];
-    cell.backgroundColor = indexPath.item % 2 ? [UIColor grayColor] : [UIColor lightGrayColor];
+    cell.contentView.backgroundColor = self.cellColors[indexPath.item % self.cellColors.count];
     return cell;
 }
 
