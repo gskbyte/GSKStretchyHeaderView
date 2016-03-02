@@ -10,6 +10,7 @@
 
 #import "GSKExampleTabsViewController.h"
 #import "GSKExampleNavigationBarViewController.h"
+#import "GSKAirbnbExampleViewController.h"
 
 @interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -23,11 +24,14 @@
     self.title = @"GSKStretchyHeaderView examples";
     [GSKExampleDataCell registerIn:self.tableView];
 
-    GSKExampleData *data = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
-                                         headerViewClass:[GSKTestStretchyHeaderView class]];
-    data.headerViewInitialHeight = 200;
+    GSKExampleData *airbnb = [GSKExampleData dataWithTitle:@"airbnb-like header view"
+                                       viewControllerClass:[GSKAirbnbExampleViewController class]];
 
-    GSKExampleData *spoty = [GSKExampleData dataWithTitle:@"Spoty-Like header view (Auto Layout)"
+    GSKExampleData *firstExample = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
+                                         headerViewClass:[GSKTestStretchyHeaderView class]];
+    firstExample.headerViewInitialHeight = 200;
+
+    GSKExampleData *spoty = [GSKExampleData dataWithTitle:@"Spotify-like header view (Auto Layout)"
                                           headerViewClass:[GSKSpotyLikeHeaderView class]];
 
     GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
@@ -39,11 +43,12 @@
     GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Under navigation bar"
                                        viewControllerClass:[GSKExampleNavigationBarViewController class]];
 
-    self.exampleDatas = @[data, spoty, nib, tabs, navBar];
+    self.exampleDatas = @[airbnb, spoty, firstExample, nib, tabs, navBar];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController gsk_setNavigationBarTransparent:NO animated:YES];
     self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
 }

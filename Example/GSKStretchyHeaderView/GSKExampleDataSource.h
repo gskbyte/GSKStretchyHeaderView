@@ -4,6 +4,7 @@
                                            UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, readonly) NSUInteger numberOfRows;
+@property (nonatomic) NSArray<UIColor *> *cellColors;
 
 - (instancetype)initWithNumberOfRows:(NSUInteger)numberOfRows;
 - (void)registerForTableView:(UITableView *)tableView;

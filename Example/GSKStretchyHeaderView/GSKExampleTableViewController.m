@@ -3,19 +3,12 @@
 
 @implementation GSKExampleTableViewController
 
-- (instancetype)initWithData:(GSKExampleData *)data {
-    self = [super initWithData:data];
-    if (self) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
-    return self;
-}
-
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.data.navigationBarVisible) {
         [self.navigationController gsk_setNavigationBarTransparent:YES animated:NO];
         self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     }
 }
 
