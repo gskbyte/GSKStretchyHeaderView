@@ -112,12 +112,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
         [self stopObservingScrollView];
         self.scrollView = nil;
     }
-
-    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-        self.scrollView = (UIScrollView *)self.superview;
-        [self observeScrollView];
-        [self setupScrollViewInsets];
-    }
 }
 
 #pragma mark - Private properties and methods
