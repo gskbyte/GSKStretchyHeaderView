@@ -4,6 +4,10 @@
 @interface GSKAirbnbExampleViewController () <GSKAirbnbStretchyHeaderViewDelegate>
 @end
 
+@interface GSKPresentableViewController : UIViewController
+
+@end
+
 @implementation GSKAirbnbExampleViewController
 
 - (void)viewDidLoad {
@@ -43,15 +47,36 @@
         contentOffset.y = -self.stretchyHeaderView.minimumContentHeight;
         [self.tableView setContentOffset:contentOffset animated:YES];
     }
+}
 
-    // show a child search view controller
+- (void)airbnbStretchyHeaderView:(GSKAirbnbStretchyHeaderView *)headerView didTapSearchBar:(id)sender {
+    // TODO improve this to make it look better
 
+    UIViewController *viewController = [[GSKPresentableViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:viewController];
+    [self presentViewController:navController animated:YES completion:nil];
 }
 
 - (void)beginRefreshing:(id)sender {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.refreshControl endRefreshing];
     });
+}
+
+@end
+
+
+
+@implementation GSKPresentableViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss" style:UIBarButtonItemStyleDone target:self action:@selector(dismissSelf:)];
+}
+
+- (void)dismissSelf:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

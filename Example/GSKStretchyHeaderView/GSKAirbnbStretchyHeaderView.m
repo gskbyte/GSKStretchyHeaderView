@@ -4,12 +4,6 @@
 
 static const CGFloat kButtonEdge = 64;
 static const CGFloat kAnimationDuration = 0.2;
-
-typedef NS_ENUM(NSUInteger, GSKAirbnbSearchViewMode) {
-    GSKAirbnbSearchViewModeButton,
-    GSKAirbnbSearchViewModeTextField
-};
-
 @interface GSKAirbnbSearchView : UIView
 
 @property (nonatomic, readonly) GSKAirbnbSearchViewMode mode;
@@ -96,6 +90,7 @@ typedef NS_ENUM(NSUInteger, GSKAirbnbSearchViewMode) {
 }
 
 - (void)setSearchViewMode:(GSKAirbnbSearchViewMode)mode animated:(BOOL)animated {
+    _mode = mode;
     [self.searchView setMode:mode animated:animated];
     [UIView animateWithDuration:animated ? kAnimationDuration : 0 animations:^{
         switch (mode) {
@@ -121,7 +116,16 @@ typedef NS_ENUM(NSUInteger, GSKAirbnbSearchViewMode) {
 }
 
 - (void)didTapSearchButton:(id)sender {
-    [self.delegate airbnbStretchyHeaderView:self didTapSearchButton:sender];
+    switch (self.mode) {
+        case GSKAirbnbSearchViewModeButton: {
+            [self.delegate airbnbStretchyHeaderView:self didTapSearchButton:sender];
+            break;
+        }
+        case GSKAirbnbSearchViewModeTextField: {
+            [self.delegate airbnbStretchyHeaderView:self didTapSearchBar:sender];
+            break;
+        }
+    }
 }
 
 @end
