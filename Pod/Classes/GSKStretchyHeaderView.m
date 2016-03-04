@@ -101,7 +101,6 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
         [self stopObservingScrollView];
     } else {
         [self observeScrollView];
-        [self setupScrollViewInsets];
     }
 }
 
