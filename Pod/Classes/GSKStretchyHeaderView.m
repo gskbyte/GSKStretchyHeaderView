@@ -99,6 +99,8 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     [super willMoveToWindow:newWindow];
     if (!newWindow) {
         [self stopObservingScrollView];
+    } else {
+        [self observeScrollView];
     }
 }
 
