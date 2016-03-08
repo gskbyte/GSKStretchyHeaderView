@@ -109,8 +109,6 @@
 		C03FC4F31C820C9C0015FAAA /* GSKNibStretchyHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSKNibStretchyHeaderView.xib; sourceTree = "<group>"; };
 		C03FC4F61C8348150015FAAA /* GSKCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKCollectionViewCell.h; sourceTree = "<group>"; };
 		C03FC4F71C8348150015FAAA /* GSKCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKCollectionViewCell.m; sourceTree = "<group>"; };
-		C03FC4F81C8348150015FAAA /* GSKExampleDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleDataSource.h; sourceTree = "<group>"; };
-		C03FC4F91C8348150015FAAA /* GSKExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleDataSource.m; sourceTree = "<group>"; };
 		C03FC4FA1C8348150015FAAA /* GSKExampleTabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleTabsViewController.h; sourceTree = "<group>"; };
 		C03FC4FB1C8348150015FAAA /* GSKExampleTabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleTabsViewController.m; sourceTree = "<group>"; };
 		C03FC4FC1C8348150015FAAA /* GSKTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTableViewCell.h; sourceTree = "<group>"; };
@@ -321,8 +319,6 @@
 		C086E0001C8462D6002A54C1 /* Data source */ = {
 			isa = PBXGroup;
 			children = (
-				C03FC4F81C8348150015FAAA /* GSKExampleDataSource.h */,
-				C03FC4F91C8348150015FAAA /* GSKExampleDataSource.m */,
 				C03FC5071C8349440015FAAA /* GSKExampleDataSource.h */,
 				C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */,
 			);
