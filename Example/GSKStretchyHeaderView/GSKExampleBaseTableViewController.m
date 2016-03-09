@@ -9,20 +9,12 @@ static const NSUInteger kNumberOfRows = 100;
 
 @implementation GSKExampleBaseTableViewController
 
-- (instancetype)initWithData:(GSKExampleData *)data {
-    self = [super initWithStyle:UITableViewStylePlain];
-    if (self) {
-        _data = data;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     _stretchyHeaderView = [self loadStretchyHeaderView];
     [self.tableView addSubview:self.stretchyHeaderView];
 
-    _dataSource = [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
+    _dataSource = [self loadDataSource];
     [self.dataSource registerForTableView:self.tableView];
 }
 
@@ -30,6 +22,10 @@ static const NSUInteger kNumberOfRows = 100;
 - (GSKStretchyHeaderView *)loadStretchyHeaderView {
     NSAssert(NO, @"please override %@", NSStringFromSelector(_cmd));
     return nil;
+}
+
+- (GSKExampleDataSource *)loadDataSource {
+    return [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
 }
 
 @end

@@ -3,6 +3,14 @@
 
 @implementation GSKExampleTableViewController
 
+- (instancetype)initWithData:(GSKExampleData *)data {
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        _data = data;
+    }
+    return self;
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     if (!self.data.navigationBarVisible) {

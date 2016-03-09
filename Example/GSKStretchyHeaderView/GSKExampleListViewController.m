@@ -11,6 +11,7 @@
 #import "GSKExampleTabsViewController.h"
 #import "GSKExampleNavigationBarViewController.h"
 #import "GSKAirbnbExampleViewController.h"
+#import "GSKVisibleSectionHeadersViewController.h"
 
 @interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -43,7 +44,10 @@
     GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Under navigation bar"
                                        viewControllerClass:[GSKExampleNavigationBarViewController class]];
 
-    self.exampleDatas = @[airbnb, spoty, firstExample, nib, tabs, navBar];
+    GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"
+                                               viewControllerClass:[GSKVisibleSectionHeadersViewController class]];
+
+    self.exampleDatas = @[airbnb, spoty, firstExample, nib, tabs, navBar, visibleHeaders];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

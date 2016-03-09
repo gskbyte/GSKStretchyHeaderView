@@ -127,6 +127,11 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
                           forKeyPath:@"contentOffset"
                              options:NSKeyValueObservingOptionNew
                              context:GSKStretchyHeaderViewObserverContext];
+        [self.scrollView.layer addObserver:self
+                           forKeyPath:@"sublayers"
+                              options:NSKeyValueObservingOptionNew
+                              context:GSKStretchyHeaderViewObserverContext];
+
         self.observingScrollView = YES;
     }
 }
@@ -136,6 +141,9 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
         [self.scrollView removeObserver:self
                              forKeyPath:@"contentOffset"
                                 context:GSKStretchyHeaderViewObserverContext];
+        [self.scrollView.layer removeObserver:self
+                                   forKeyPath:@"sublayers"
+                                      context:GSKStretchyHeaderViewObserverContext];
         self.observingScrollView = NO;
     }
 }
@@ -155,6 +163,9 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
         NSValue *newValue = change[NSKeyValueChangeNewKey];
         CGPoint contentOffset = newValue.CGPointValue;
         [self updateOriginForContentOffset:contentOffset];
+    } else if (object == self.scrollView.layer &&
+               [keyPath isEqualToString:@"sublayers"]) {
+        [self.scrollView bringSubviewToFront:self];
     }
 }
 
