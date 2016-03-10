@@ -43,6 +43,7 @@
 		C066207A1C87311000F1AEF5 /* GSKAirbnbExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06620791C87311000F1AEF5 /* GSKAirbnbExampleViewController.m */; };
 		C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */; };
 		C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */; };
+		C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +125,8 @@
 		C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleNavigationBarViewController.m; sourceTree = "<group>"; };
 		C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleBaseTableViewController.h; sourceTree = "<group>"; };
 		C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleBaseTableViewController.m; sourceTree = "<group>"; };
+		C09024791C901F2300264C0D /* GSKVisibleSectionHeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKVisibleSectionHeadersViewController.h; sourceTree = "<group>"; };
+		C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKVisibleSectionHeadersViewController.m; sourceTree = "<group>"; };
 		D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */,
 				C06620781C87311000F1AEF5 /* GSKAirbnbExampleViewController.h */,
 				C06620791C87311000F1AEF5 /* GSKAirbnbExampleViewController.m */,
+				C09024791C901F2300264C0D /* GSKVisibleSectionHeadersViewController.h */,
+				C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -552,6 +557,7 @@
 				C03FC4F41C820C9C0015FAAA /* GSKNibStretchyHeaderView.m in Sources */,
 				C066207A1C87311000F1AEF5 /* GSKAirbnbExampleViewController.m in Sources */,
 				C03FC5031C8348150015FAAA /* GSKExampleTabsViewController.m in Sources */,
+				C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */,
 				6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */,
 				C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */,
 				C0276CCC1C86F46700AFDA42 /* GSKAirbnbStretchyHeaderView.m in Sources */,
