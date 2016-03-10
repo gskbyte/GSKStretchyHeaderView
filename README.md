@@ -1,6 +1,6 @@
 # GSKStretchyHeaderView
 
-[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/Jose Alcalá Correa/GSKStretchyHeaderView)
+[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
 [![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
@@ -69,3 +69,25 @@ Jose Alcalá Correa, jose.alcala.correa@gmail.com
 ## License
 
 GSKStretchyHeaderView is available under the MIT license. See the LICENSE file for more info.
+
+## Changelog
+
+# 0.7.0 Initial version
+
+Initial working version
+
+# 0.8.0 Improved API
+
+- Add new anchorMode
+- Add `contentInset` property
+- Add code documentation
+- Unify stretchFactor properties
+
+# 0.8.1
+
+- `contentInset` recalculation bugfixes
+- Add airbnb-like example
+
+# 0.8.2
+
+- Make stretchy header view stay always on top, so that section headers and footers do not overlap it.
