@@ -15,6 +15,6 @@ target 'Tests', :exclusive => true do
 
   pod 'Specta'
   pod 'Expecta'
-  pod 'FBSnapshotTestCase'
+  pod 'FBSnapshotTestCase', git: 'https://github.com/facebook/ios-snapshot-test-case.git'
   pod 'Expecta+Snapshots'
 end
