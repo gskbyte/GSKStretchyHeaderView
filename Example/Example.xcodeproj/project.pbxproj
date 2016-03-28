@@ -41,9 +41,11 @@
 		C03FC5061C8348150015FAAA /* GSKTabsStretchyHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */; };
 		C03FC5091C8349440015FAAA /* GSKExampleDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */; };
 		C066207A1C87311000F1AEF5 /* GSKAirbnbExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C06620791C87311000F1AEF5 /* GSKAirbnbExampleViewController.m */; };
+		C0752A5D1C95EF9C000543E3 /* GSKTwitterExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */; };
 		C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */; };
 		C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */; };
 		C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */; };
+		C0F6F5B71CA9571F00026142 /* GSKTwitterStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F6F5B61CA9571F00026142 /* GSKTwitterStretchyHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,12 +123,16 @@
 		C03FC5081C8349440015FAAA /* GSKExampleDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleDataSource.m; sourceTree = "<group>"; };
 		C06620781C87311000F1AEF5 /* GSKAirbnbExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKAirbnbExampleViewController.h; sourceTree = "<group>"; };
 		C06620791C87311000F1AEF5 /* GSKAirbnbExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKAirbnbExampleViewController.m; sourceTree = "<group>"; };
+		C0752A5B1C95EF9C000543E3 /* GSKTwitterExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTwitterExampleViewController.h; sourceTree = "<group>"; };
+		C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTwitterExampleViewController.m; sourceTree = "<group>"; };
 		C086E0011C846309002A54C1 /* GSKExampleNavigationBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleNavigationBarViewController.h; sourceTree = "<group>"; };
 		C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleNavigationBarViewController.m; sourceTree = "<group>"; };
 		C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleBaseTableViewController.h; sourceTree = "<group>"; };
 		C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleBaseTableViewController.m; sourceTree = "<group>"; };
 		C09024791C901F2300264C0D /* GSKVisibleSectionHeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKVisibleSectionHeadersViewController.h; sourceTree = "<group>"; };
 		C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKVisibleSectionHeadersViewController.m; sourceTree = "<group>"; };
+		C0F6F5B51CA9571F00026142 /* GSKTwitterStretchyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTwitterStretchyHeaderView.h; sourceTree = "<group>"; };
+		C0F6F5B61CA9571F00026142 /* GSKTwitterStretchyHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTwitterStretchyHeaderView.m; sourceTree = "<group>"; };
 		D1AD58004EA1E848A413AC19 /* Pods-Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.release.xcconfig"; sourceTree = "<group>"; };
 		E1102AD940C5DCD6E40E9838 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
 		EF8E73D1214505001DFDBCBC /* Pods-Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tests/Pods-Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -277,6 +283,8 @@
 				C06620791C87311000F1AEF5 /* GSKAirbnbExampleViewController.m */,
 				C09024791C901F2300264C0D /* GSKVisibleSectionHeadersViewController.h */,
 				C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */,
+				C0752A5B1C95EF9C000543E3 /* GSKTwitterExampleViewController.h */,
+				C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -297,6 +305,8 @@
 				C03FC5001C8348150015FAAA /* GSKTabsStretchyHeaderView.xib */,
 				C0276CCA1C86F46700AFDA42 /* GSKAirbnbStretchyHeaderView.h */,
 				C0276CCB1C86F46700AFDA42 /* GSKAirbnbStretchyHeaderView.m */,
+				C0F6F5B51CA9571F00026142 /* GSKTwitterStretchyHeaderView.h */,
+				C0F6F5B61CA9571F00026142 /* GSKTwitterStretchyHeaderView.m */,
 			);
 			name = "Header Views";
 			sourceTree = "<group>";
@@ -557,6 +567,7 @@
 				C03FC4F41C820C9C0015FAAA /* GSKNibStretchyHeaderView.m in Sources */,
 				C066207A1C87311000F1AEF5 /* GSKAirbnbExampleViewController.m in Sources */,
 				C03FC5031C8348150015FAAA /* GSKExampleTabsViewController.m in Sources */,
+				C0752A5D1C95EF9C000543E3 /* GSKTwitterExampleViewController.m in Sources */,
 				C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */,
 				6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */,
 				C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */,
@@ -573,6 +584,7 @@
 				C03FC4EC1C81B3250015FAAA /* GSKExampleCollectionViewController.m in Sources */,
 				C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */,
 				C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */,
+				C0F6F5B71CA9571F00026142 /* GSKTwitterStretchyHeaderView.m in Sources */,
 				C03FC4E41C81B1E30015FAAA /* GSKExampleListViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 			);
@@ -666,7 +678,7 @@
 				INFOPLIST_FILE = "GSKStretchyHeaderView/GSKStretchyHeaderView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MODULE_NAME = ExampleApp;
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_BUNDLE_IDENTIFIER = org.gskbyte.GSKStretchyHeaderView.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

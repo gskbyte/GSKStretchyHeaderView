@@ -80,6 +80,17 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
 @end
 
 
+@interface GSKStretchyHeaderView (Layout)
+
+/**
+ This method will be called after the contentView performs -layoutSubviews. It can be useful to
+ retrieve initial values for views added to the contentView. The default implementation does nothing.
+ */
+- (void)contentViewDidLayoutSubviews;
+
+@end
+
+
 @protocol GSKStretchyHeaderViewStretchDelegate <NSObject>
 
 - (void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView

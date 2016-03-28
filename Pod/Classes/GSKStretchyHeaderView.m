@@ -244,9 +244,22 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     // to be implemented in subclasses
 }
 
+#pragma mark - Layout
+
+- (void)contentViewDidLayoutSubviews {
+    // default implementation does not do anything
+}
+
 @end
 
 @implementation GSKStretchyHeaderContentView
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    if ([self.superview isKindOfClass:[GSKStretchyHeaderView class]]) {
+        [(GSKStretchyHeaderView *)self.superview contentViewDidLayoutSubviews];
+    }
+}
 
 @end
 

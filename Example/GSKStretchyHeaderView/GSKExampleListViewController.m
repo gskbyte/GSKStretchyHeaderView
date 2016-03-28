@@ -12,6 +12,7 @@
 #import "GSKExampleNavigationBarViewController.h"
 #import "GSKAirbnbExampleViewController.h"
 #import "GSKVisibleSectionHeadersViewController.h"
+#import "GSKTwitterExampleViewController.h"
 
 @interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
@@ -27,6 +28,9 @@
 
     GSKExampleData *airbnb = [GSKExampleData dataWithTitle:@"airbnb-like header view"
                                        viewControllerClass:[GSKAirbnbExampleViewController class]];
+
+    GSKExampleData *twitter = [GSKExampleData dataWithTitle:@"Twitter-like header view"
+                                        viewControllerClass:[GSKTwitterExampleViewController class]];
 
     GSKExampleData *firstExample = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
                                          headerViewClass:[GSKTestStretchyHeaderView class]];
@@ -47,7 +51,7 @@
     GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"
                                                viewControllerClass:[GSKVisibleSectionHeadersViewController class]];
 
-    self.exampleDatas = @[airbnb, spoty, firstExample, nib, tabs, navBar, visibleHeaders];
+    self.exampleDatas = @[airbnb, twitter, spoty, firstExample, nib, tabs, navBar, visibleHeaders];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

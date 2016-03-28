@@ -11,6 +11,9 @@ static const NSUInteger kNumberOfRows = 100;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
+    self.automaticallyAdjustsScrollViewInsets = NO;
+
     _stretchyHeaderView = [self loadStretchyHeaderView];
     [self.tableView addSubview:self.stretchyHeaderView];
 

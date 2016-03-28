@@ -4,6 +4,7 @@
 #import "UINavigationController+Transparency.h"
 
 @interface GSKExampleTabsViewController () <GSKTabsStretchyHeaderViewDelegate>
+
 @property (nonatomic) GSKTabsStretchyHeaderView *stretchyHeaderView;
 @property (nonatomic) NSArray<GSKExampleDataSource *> *dataSources;
 
