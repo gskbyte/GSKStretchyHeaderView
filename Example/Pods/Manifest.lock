@@ -1,45 +1,25 @@
 PODS:
   - Expecta (1.0.5)
-  - Expecta+Snapshots (3.0.0):
-    - Expecta (~> 1.0)
-    - FBSnapshotTestCase/Core (~> 2.0)
-    - Specta (~> 1.0)
-  - FBSnapshotTestCase (2.0.7):
-    - FBSnapshotTestCase/SwiftSupport (= 2.0.7)
-  - FBSnapshotTestCase/Core (2.0.7)
-  - FBSnapshotTestCase/SwiftSupport (2.0.7):
-    - FBSnapshotTestCase/Core
   - GSKStretchyHeaderView (0.8.4)
-  - Masonry (0.6.4)
-  - Specta (1.0.5)
+  - Masonry (1.0.0)
+  - OCMock (3.2.2)
 
 DEPENDENCIES:
   - Expecta
-  - Expecta+Snapshots
-  - FBSnapshotTestCase (from `https://github.com/facebook/ios-snapshot-test-case.git`)
   - GSKStretchyHeaderView (from `../`)
   - Masonry
-  - Specta
+  - OCMock
 
 EXTERNAL SOURCES:
-  FBSnapshotTestCase:
-    :git: https://github.com/facebook/ios-snapshot-test-case.git
   GSKStretchyHeaderView:
-    :path: "../"
-
-CHECKOUT OPTIONS:
-  FBSnapshotTestCase:
-    :commit: 2c840434a5a3e46d9da4434f42c9a99c7f908fbe
-    :git: https://github.com/facebook/ios-snapshot-test-case.git
+    :path: ../
 
 SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  Expecta+Snapshots: c343f410c7a6392f3e22e78f94c44b6c0749a516
-  FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
   GSKStretchyHeaderView: a1af55eda7048028c7e30306c332578c1d987eb9
-  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
-  Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
+  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  OCMock: 18c9b7e67d4c2770e95bb77a9cc1ae0c91fe3835
 
-PODFILE CHECKSUM: 86356e6e06810425e28e918a5a88f85878b6ce1d
+PODFILE CHECKSUM: 06ea78cbed48d7134878553f01c2f4e8790c20e5
 
 COCOAPODS: 1.0.0.beta.5

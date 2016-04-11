@@ -1,8 +1,6 @@
-EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Expecta" "$CONFIGURATION_BUILD_DIR/Expecta+Snapshots" "$CONFIGURATION_BUILD_DIR/FBSnapshotTestCase" "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView" "$CONFIGURATION_BUILD_DIR/Specta"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Expecta" "$CONFIGURATION_BUILD_DIR/OCMock" "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView" "$CONFIGURATION_BUILD_DIR/Masonry"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Expecta+Snapshots/Expecta_Snapshots.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Expecta/Expecta.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/FBSnapshotTestCase/FBSnapshotTestCase.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Specta/Specta.framework/Headers"
-OTHER_LDFLAGS = $(inherited) -framework "Expecta" -framework "Expecta_Snapshots" -framework "FBSnapshotTestCase" -framework "GSKStretchyHeaderView" -framework "Specta"
-OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
+OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Expecta/Expecta.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/OCMock/OCMock.framework/Headers" $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "Expecta" -framework "OCMock"
 PODS_ROOT = ${SRCROOT}/Pods

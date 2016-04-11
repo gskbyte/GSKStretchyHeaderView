@@ -12,7 +12,7 @@ For examples take a look at the **Masonry iOS Examples** project in the Masonry 
 Under the hood Auto Layout is a powerful and flexible way of organising and laying out your views. However creating constraints from code is verbose and not very descriptive.
 Imagine a simple example in which you want to have a view fill its superview but inset by 10 pixels on every side
 ```obj-c
-UIView *superview = self;
+UIView *superview = self.view;
 
 UIView *view1 = [[UIView alloc] init];
 view1.translatesAutoresizingMaskIntoConstraints = NO;
@@ -274,7 +274,7 @@ Alternatively if you are only updating the constant value of the constraint you 
 ### 3. mas_remakeConstraints
 `mas_updateConstraints` is useful for updating a set of constraints, but doing anything beyond updating constant values can get exhausting. That's where `mas_remakeConstraints` comes in.
 
-`mas_remakeConstraints` is similar to `mas_updateConstraints`, but instead of updating constant values, it will remove all of its contraints before installing them again. This lets you provide different constraints without having to keep around references to ones which you want to remove.
+`mas_remakeConstraints` is similar to `mas_updateConstraints`, but instead of updating constant values, it will remove all of its constraints before installing them again. This lets you provide different constraints without having to keep around references to ones which you want to remove.
 
 ```obj-c
 - (void)changeButtonPosition {

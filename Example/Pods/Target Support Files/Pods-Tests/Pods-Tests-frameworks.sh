@@ -84,9 +84,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"
   install_framework "$CONFIGURATION_BUILD_DIR/Expecta/Expecta.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Expecta+Snapshots/Expecta_Snapshots.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/FBSnapshotTestCase/FBSnapshotTestCase.framework"
-  install_framework "$CONFIGURATION_BUILD_DIR/Specta/Specta.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/OCMock/OCMock.framework"
 fi
