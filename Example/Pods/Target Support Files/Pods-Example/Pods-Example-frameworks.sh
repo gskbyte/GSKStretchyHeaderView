@@ -84,6 +84,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Example/GSKStretchyHeaderView.framework"
-  install_framework "Pods-Example/Masonry.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"
+  install_framework "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework"
 fi

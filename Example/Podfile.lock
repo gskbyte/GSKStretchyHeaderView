@@ -9,7 +9,7 @@ PODS:
   - FBSnapshotTestCase/Core (2.0.7)
   - FBSnapshotTestCase/SwiftSupport (2.0.7):
     - FBSnapshotTestCase/Core
-  - GSKStretchyHeaderView (0.8.3)
+  - GSKStretchyHeaderView (0.8.4)
   - Masonry (0.6.4)
   - Specta (1.0.5)
 
@@ -36,8 +36,10 @@ SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
   Expecta+Snapshots: c343f410c7a6392f3e22e78f94c44b6c0749a516
   FBSnapshotTestCase: 7e85180d0d141a0cf472352edda7e80d7eaeb547
-  GSKStretchyHeaderView: 45d7c1c1a8bca1ac90373d02fa68480a8bfde139
+  GSKStretchyHeaderView: a1af55eda7048028c7e30306c332578c1d987eb9
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   Specta: ac94d110b865115fe60ff2c6d7281053c6f8e8a2
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 86356e6e06810425e28e918a5a88f85878b6ce1d
+
+COCOAPODS: 1.0.0.beta.5
