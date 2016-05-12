@@ -16,6 +16,11 @@
     "git": "https://github.com/gskbyte/GSKStretchyHeaderView.git",
     "tag": "0.8.4"
   },
+  "dependencies": {
+    "KVOController": [
+      "~> 1.1"
+    ]
+  },
   "social_media_url": "https://twitter.com/gskbyte",
   "platforms": {
     "ios": "7.0"

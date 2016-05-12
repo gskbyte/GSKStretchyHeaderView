@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.title = @"GSKStretchyHeaderView examples";
+    self.title = @"GSKStretchyHeaderView";
     [GSKExampleDataCell registerIn:self.tableView];
 
     GSKExampleData *airbnb = [GSKExampleData dataWithTitle:@"airbnb-like header view"
@@ -45,7 +45,7 @@
     GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"With tabs"
                                      viewControllerClass:[GSKExampleTabsViewController class]];
 
-    GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Under navigation bar"
+    GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Below the navigation bar"
                                        viewControllerClass:[GSKExampleNavigationBarViewController class]];
 
     GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"

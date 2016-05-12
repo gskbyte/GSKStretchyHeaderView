@@ -1,6 +1,8 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$CONFIGURATION_BUILD_DIR/Expecta" "$CONFIGURATION_BUILD_DIR/OCMock" "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView" "$CONFIGURATION_BUILD_DIR/Masonry"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/Expecta" "$PODS_CONFIGURATION_BUILD_DIR/OCMock" "$PODS_CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView" "$PODS_CONFIGURATION_BUILD_DIR/KVOController" "$PODS_CONFIGURATION_BUILD_DIR/Masonry"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_CFLAGS = $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/Expecta/Expecta.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/OCMock/OCMock.framework/Headers" $(inherited) -iquote "$CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework/Headers" -iquote "$CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers"
+OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/Expecta/Expecta.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/OCMock/OCMock.framework/Headers" $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/GSKStretchyHeaderView/GSKStretchyHeaderView.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/KVOController/KVOController.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/Masonry/Masonry.framework/Headers"
 OTHER_LDFLAGS = $(inherited) -framework "Expecta" -framework "OCMock"
+PODS_BUILD_DIR = $BUILD_DIR
+PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_ROOT = ${SRCROOT}/Pods

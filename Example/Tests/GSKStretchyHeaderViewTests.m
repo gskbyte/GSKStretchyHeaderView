@@ -1,43 +1,53 @@
 #import <XCTest/XCTest.h>
+
 #import <GSKStretchyHeaderView/GSKStretchyHeaderView.h>
 #import <Expecta/Expecta.h>
+#import <OCMock/OCMock.h>
+
+static const CGFloat kInitialHeaderViewHeight = 280;
 
 @interface GSKStretchyHeaderViewTests : XCTestCase
-@property (nonatomic) GSKStretchyHeaderView *headerView;
 @end
 
 @implementation GSKStretchyHeaderViewTests
 
-- (void)setUp {
-    [super setUp];
-    self.headerView = [[GSKStretchyHeaderView alloc] init];
-}
-
-- (void)tearDown {
-    [super tearDown];
+- (void)testThrowExceptionIfHeightIsZero {
+    
 }
 
 - (void)testDefaultValues {
+    UIWindow *mockWindow = [self mockWindow];
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    [scrollView addSubview:self.headerView];
+    [mockWindow addSubview:scrollView];
     
-    expect(self.headerView.maximumContentHeight).to.equal(320);
+    [scrollView addSubview:[self headerView]];
+    
+    expect(self.headerView.maximumContentHeight).to.equal(kInitialHeaderViewHeight);
     expect(self.headerView.minimumContentHeight).to.equal(0);
-    expect(self.headerView.frame.size.height).to.equal(320);
-    expect(scrollView.contentInset.top).to.equal(320);
+    expect(self.headerView.frame.size.height).to.equal(kInitialHeaderViewHeight);
+    expect(scrollView.contentInset.top).to.equal(kInitialHeaderViewHeight);
 }
 
 - (void)testTableView {
+    UIWindow *mockWindow = [self mockWindow];
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 320, 640) style:UITableViewStylePlain];
-    [tableView addSubview:self.headerView];
+    [mockWindow addSubview:tableView];
+    
+    [tableView addSubview:[self headerView]];
     
     
     
 }
 
-- (void)testExample {
-    // Use recording to get started writing UI tests.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+#pragma mark - Helper methods
+
+- (UIWindow *)mockWindow {
+    return [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
 }
+
+- (GSKStretchyHeaderView *)headerView {
+    return [[GSKStretchyHeaderView alloc] initWithFrame:CGRectMake(0, 0, 120, kInitialHeaderViewHeight)];
+}
+
 
 @end

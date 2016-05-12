@@ -10,6 +10,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = { "Jose Alcalá Correa" => "jose.alcala@xing.com" }
   s.source           = { :git => "https://github.com/gskbyte/GSKStretchyHeaderView.git", :tag => s.version.to_s }
+  s.dependency 'KVOController', '~> 1.1'
   s.social_media_url = 'https://twitter.com/gskbyte'
 
   s.platform     = :ios, '7.0'

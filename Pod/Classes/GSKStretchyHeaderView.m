@@ -1,6 +1,7 @@
 #import "GSKStretchyHeaderView.h"
 #import "GSKGeometry.h"
 #import "UIView+GSKTransplantSubviews.h"
+#import <KVOController/NSObject+FBKVOController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -8,15 +9,12 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 @interface GSKStretchyHeaderView ()
 @property (nonatomic, weak) UIScrollView *scrollView;
-@property (nonatomic) BOOL observingScrollView;
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) CGFloat stretchFactor;
 @end
 
 @interface GSKStretchyHeaderContentView : UIView
 @end
-
-static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserverContext;
 
 @implementation GSKStretchyHeaderView
 
@@ -95,78 +93,44 @@ static void *GSKStretchyHeaderViewObserverContext = &GSKStretchyHeaderViewObserv
     }
 }
 
-- (void)willMoveToWindow:(nullable UIWindow *)newWindow {
-    [super willMoveToWindow:newWindow];
-    if (!newWindow) {
-        [self stopObservingScrollView];
-    } else {
-        [self observeScrollView];
-    }
-}
-
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
-
+    
     if (self.superview != self.scrollView) {
-        [self stopObservingScrollView];
+        [self.KVOController unobserveAll];
         self.scrollView = nil;
     }
-
-    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-        self.scrollView = (UIScrollView *)self.superview;
-        [self observeScrollView];
-        [self setupScrollViewInsets];
+    
+    if (![self.superview isKindOfClass:[UIScrollView class]]) {
+        return;
     }
+    
+    self.scrollView = (UIScrollView *)self.superview;
+    [self setupScrollViewInsets];
+    
+    [self.KVOController observe:self.scrollView
+                        keyPath:NSStringFromSelector(@selector(contentOffset))
+                        options:NSKeyValueObservingOptionNew
+                          block:^(id observer, id object, NSDictionary<NSString *,id> *change) {
+                              NSValue *newValue = change[NSKeyValueChangeNewKey];
+                              CGPoint contentOffset = newValue.CGPointValue;
+                              [self updateOriginForContentOffset:contentOffset];
+    }];
+    
+    [self.KVOController observe:self.scrollView.layer
+                        keyPath:NSStringFromSelector(@selector(sublayers))
+                        options:NSKeyValueObservingOptionNew
+                          block:^(id observer, id object, NSDictionary<NSString *,id> *change) {
+                              [self.scrollView bringSubviewToFront:self];
+    }];
 }
 
 #pragma mark - Private properties and methods
-
-- (void)observeScrollView {
-    if (!self.observingScrollView && self.scrollView) {
-        [self.scrollView addObserver:self
-                          forKeyPath:@"contentOffset"
-                             options:NSKeyValueObservingOptionNew
-                             context:GSKStretchyHeaderViewObserverContext];
-        [self.scrollView.layer addObserver:self
-                           forKeyPath:@"sublayers"
-                              options:NSKeyValueObservingOptionNew
-                              context:GSKStretchyHeaderViewObserverContext];
-
-        self.observingScrollView = YES;
-    }
-}
-
-- (void)stopObservingScrollView {
-    if (self.observingScrollView && self.scrollView) {
-        [self.scrollView removeObserver:self
-                             forKeyPath:@"contentOffset"
-                                context:GSKStretchyHeaderViewObserverContext];
-        [self.scrollView.layer removeObserver:self
-                                   forKeyPath:@"sublayers"
-                                      context:GSKStretchyHeaderViewObserverContext];
-        self.observingScrollView = NO;
-    }
-}
 
 - (void)setupScrollViewInsets {
     UIEdgeInsets scrollViewContentInset = self.scrollView.contentInset;
     scrollViewContentInset.top = self.maximumContentHeight + self.contentInset.top + self.contentInset.bottom;
     self.scrollView.contentInset = scrollViewContentInset;
-}
-
-- (void)observeValueForKeyPath:(nullable NSString *)keyPath
-                      ofObject:(nullable id)object
-                        change:(nullable NSDictionary<NSString *,id> *)change
-                       context:(nullable void *)context {
-    if (object == self.scrollView &&
-        [keyPath isEqualToString:@"contentOffset"]) {
-        NSValue *newValue = change[NSKeyValueChangeNewKey];
-        CGPoint contentOffset = newValue.CGPointValue;
-        [self updateOriginForContentOffset:contentOffset];
-    } else if (object == self.scrollView.layer &&
-               [keyPath isEqualToString:@"sublayers"]) {
-        [self.scrollView bringSubviewToFront:self];
-    }
 }
 
 - (void)updateOriginForContentOffset:(CGPoint)contentOffset {

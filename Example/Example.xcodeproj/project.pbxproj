@@ -45,7 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		82DC332A1CBBED82002C80E9 /* PBXContainerItemProxy */ = {
+		82B206581CE503ED00E4C97E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6003F582195388D10070C39A /* Project object */;
 			proxyType = 1;
@@ -380,7 +380,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				82DC332B1CBBED82002C80E9 /* PBXTargetDependency */,
+				82B206591CE503ED00E4C97E /* PBXTargetDependency */,
 			);
 			name = Tests;
 			productName = Tests;
@@ -581,10 +581,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		82DC332B1CBBED82002C80E9 /* PBXTargetDependency */ = {
+		82B206591CE503ED00E4C97E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6003F589195388D20070C39A /* Example */;
-			targetProxy = 82DC332A1CBBED82002C80E9 /* PBXContainerItemProxy */;
+			targetProxy = 82B206581CE503ED00E4C97E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -668,7 +668,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 73D2C38BE2B5180040348C35 /* Pods-Tests.debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
