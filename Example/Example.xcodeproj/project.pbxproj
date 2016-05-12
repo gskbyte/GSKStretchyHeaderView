@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145374BDF4557B96E924E150 /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D126D82A8C6F7770F75E1EE3 /* Pods_Tests.framework */; };
 		40EB1F65F2E923AC9F2FA822 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC2BB5432A7D0333EB953727 /* Pods_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -16,7 +17,12 @@
 		6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* GSKAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		82134A861CBBF11200BF3173 /* GSKStretchyHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */; };
+		825B317E1CE52F25009E1B79 /* GSKTestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */; };
+		825B31821CE52F4F009E1B79 /* GSKTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */; };
 		828FDA201CE512DD001FB1CF /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828FDA1F1CE512DD001FB1CF /* Pods_Tests.framework */; };
+		828FDA241CE5138E001FB1CF /* GSKGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */; };
+		828FDA261CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */; };
+		828FDA281CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */; };
 		C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */; };
 		C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */; };
 		C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C361C81A56F003EDACA /* GSKGradientView.m */; };
@@ -74,6 +80,9 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6F608CEB51797022B7A6DBF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		74798159CA4EB05E512059FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSKTestHeaderView.xib; sourceTree = "<group>"; };
+		825B31801CE52F4F009E1B79 /* GSKTestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTestHeaderView.h; sourceTree = "<group>"; };
+		825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTestHeaderView.m; sourceTree = "<group>"; };
 		828FDA131CE50E3A001FB1CF /* GSKStretchyHeaderView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GSKStretchyHeaderView.framework; path = "Pods/../build/Debug-iphoneos/GSKStretchyHeaderView/GSKStretchyHeaderView.framework"; sourceTree = "<group>"; };
 		828FDA151CE50E6A001FB1CF /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = "Pods/../build/Debug-iphoneos/Expecta/Expecta.framework"; sourceTree = "<group>"; };
 		828FDA161CE50E6A001FB1CF /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "Pods/../build/Debug-iphoneos/OCMock/OCMock.framework"; sourceTree = "<group>"; };
@@ -81,6 +90,9 @@
 		828FDA1B1CE512C8001FB1CF /* Expecta.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Expecta.framework; path = "Pods/../build/Debug-iphoneos/Expecta/Expecta.framework"; sourceTree = "<group>"; };
 		828FDA1D1CE512D2001FB1CF /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "Pods/../build/Debug-iphoneos/OCMock/OCMock.framework"; sourceTree = "<group>"; };
 		828FDA1F1CE512DD001FB1CF /* Pods_Tests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Tests.framework; path = "Pods/../build/Debug-iphoneos/Pods_Tests.framework"; sourceTree = "<group>"; };
+		828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKGeometryTests.m; sourceTree = "<group>"; };
+		828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKLayoutHelperTests.m"; sourceTree = "<group>"; };
+		828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKTransplantSubviewsTests.m"; sourceTree = "<group>"; };
 		82DC33251CBBED82002C80E9 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKStretchyHeaderViewTests.m; sourceTree = "<group>"; };
 		C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -152,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				828FDA201CE512DD001FB1CF /* Pods_Tests.framework in Frameworks */,
+				145374BDF4557B96E924E150 /* Pods_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,8 +247,12 @@
 		6003F5B5195388D20070C39A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				6003F5B6195388D20070C39A /* Supporting Files */,
+				825B317F1CE52F2F009E1B79 /* Header views */,
+				828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */,
+				828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */,
+				828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */,
 				82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */,
+				6003F5B6195388D20070C39A /* Supporting Files */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -258,6 +275,16 @@
 				74798159CA4EB05E512059FF /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		825B317F1CE52F2F009E1B79 /* Header views */ = {
+			isa = PBXGroup;
+			children = (
+				825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */,
+				825B31801CE52F4F009E1B79 /* GSKTestHeaderView.h */,
+				825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */,
+			);
+			name = "Header views";
 			sourceTree = "<group>";
 		};
 		952A8F543BD92EADD8164E1A /* Pods */ = {
@@ -452,6 +479,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				825B317E1CE52F25009E1B79 /* GSKTestHeaderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,7 +614,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				828FDA261CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m in Sources */,
+				825B31821CE52F4F009E1B79 /* GSKTestHeaderView.m in Sources */,
+				828FDA281CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m in Sources */,
 				82134A861CBBF11200BF3173 /* GSKStretchyHeaderViewTests.m in Sources */,
+				828FDA241CE5138E001FB1CF /* GSKGeometryTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

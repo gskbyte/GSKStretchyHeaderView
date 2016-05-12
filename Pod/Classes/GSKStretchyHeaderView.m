@@ -106,7 +106,6 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     }
     
     self.scrollView = (UIScrollView *)self.superview;
-    [self setupScrollViewInsets];
     
     [self.KVOController observe:self.scrollView
                         keyPath:NSStringFromSelector(@selector(contentOffset))
@@ -123,6 +122,8 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
                           block:^(id observer, id object, NSDictionary<NSString *,id> *change) {
                               [self.scrollView bringSubviewToFront:self];
     }];
+    
+    [self setupScrollViewInsets];
 }
 
 #pragma mark - Private properties and methods
@@ -195,14 +196,6 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 }
 
 #pragma mark - Stretch factor
-
-- (CGFloat)minStretchFactor {
-    return self.minimumContentHeight / self.maximumContentHeight;
-}
-
-- (CGFloat)normalizedStretchFactor {
-    return CGFloatTranslateRange(self.stretchFactor, self.minStretchFactor, 1, 0, 1);
-}
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor {
     // to be implemented in subclasses

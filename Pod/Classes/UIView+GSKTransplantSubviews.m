@@ -8,27 +8,6 @@
 
 @implementation UIView (GSKTransplantSubviews)
 
-- (void)gsk_transplantToView:(UIView *)newSuperview {
-    NSMutableArray *parentConstraints = [NSMutableArray array];
-    for (NSLayoutConstraint *parentConstraint in self.superview.constraints) {
-        if (parentConstraint.firstItem == self || parentConstraint.secondItem == self) {
-            [parentConstraints addObject:parentConstraint];
-        }
-    }
-
-    [self removeFromSuperview];
-    [self.superview removeConstraints:parentConstraints];
-    [newSuperview addSubview:self];
-
-    for (NSLayoutConstraint *oldConstraint in parentConstraints) {
-        id firstItem = oldConstraint.firstItem == self ? self : newSuperview;
-        id secondItem = oldConstraint.secondItem == self ? self : newSuperview;
-        NSLayoutConstraint *constraint = [oldConstraint gsk_copyWithFirstItem:firstItem
-                                                                   secondItem:secondItem];
-        [newSuperview addConstraint:constraint];
-    }
-}
-
 - (void)gsk_transplantSubviewsToView:(UIView *)newSuperview {
     NSArray<UIView *> *oldSubviews = self.subviews;
     NSArray<NSLayoutConstraint *> *oldConstraints = self.constraints;
