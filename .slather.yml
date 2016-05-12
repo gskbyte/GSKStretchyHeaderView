@@ -4,3 +4,4 @@ source_directory: Classes
 build_directory: build
 ignore:
   - Example/*
+  - Example/GSKStretchyHeaderView/*
