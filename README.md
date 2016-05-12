@@ -1,7 +1,13 @@
 # GSKStretchyHeaderView
 
+Master: 
 [![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
+[![Coverage Status](https://coveralls.io/repos/github/gskbyte/GSKStretchyHeaderView/badge.svg?branch=master)](https://coveralls.io/github/gskbyte/GSKStretchyHeaderView?branch=master)
+
+Latest stable: 
 [![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
+[![Coverage Status](https://coveralls.io/repos/github/gskbyte/GSKStretchyHeaderView/badge.svg?branch=0.8.2)](https://coveralls.io/github/gskbyte/GSKStretchyHeaderView?branch=master)
+
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 
