@@ -73,7 +73,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cocoapods (= 1.0.0)
+  cocoapods (~> 1.0)
   rake
   slather (~> 2.0.0)
   xcpretty
