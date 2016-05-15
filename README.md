@@ -21,7 +21,6 @@ GSKStretchyHeaderView is an implementation of the stretchy header paradigm as se
 - Provide support for frame layout, auto layout and Interface Builder `.xib` files
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
-- Compatibility with Interface Builder
 
 ## Usage
 
@@ -81,7 +80,7 @@ GSKStretchyHeaderView is available under the MIT license. See the LICENSE file f
 
 # 0.9.0
 
-- Simplify internal code thanks to `[KVOController](https://github.com/facebook/KVOController)`
+- Simplify internal code thanks to [`KVOController`](https://github.com/facebook/KVOController)
 - Add lots of tests (coverage **above 94%**)
 - Add Twitter example
 - Fix a couple of smaller issues
