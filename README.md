@@ -1,26 +1,27 @@
 # GSKStretchyHeaderView
 
-Master: 
-[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
-[![Coverage Status](https://coveralls.io/repos/github/gskbyte/GSKStretchyHeaderView/badge.svg?branch=master)](https://coveralls.io/github/gskbyte/GSKStretchyHeaderView?branch=master)
-
-Latest stable: 
-[![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
-[![Coverage Status](https://coveralls.io/repos/github/gskbyte/GSKStretchyHeaderView/badge.svg?branch=0.8.2)](https://coveralls.io/github/gskbyte/GSKStretchyHeaderView?branch=master)
-
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 
-![Example 1](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/airbnb.gif)
-![Example 2](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_blur.gif)
-![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_tabs.gif)
+Master: 
+[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
+
+Latest stable: 
+[![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
+
+![Example 1](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/airbnb_small.gif)
+![Example 2](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_blur_small.gif)
+![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/tabs_small.gif)
+![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/twitter_small.gif)
 
 GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on the Twitter app or the Spotify app. It's designed in order to accomplish the following requirements:
 
 - Compatibility with `UITableView` and `UICollectionView`
+- Data source and delegate independency: can be added to an existing view controller
 - Provide support for frame layout, auto layout and Interface Builder `.xib` files
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
+- Compatibility with Interface Builder
 
 ## Usage
 
@@ -78,9 +79,21 @@ GSKStretchyHeaderView is available under the MIT license. See the LICENSE file f
 
 ## Changelog
 
-# 0.7.0 Initial version
+# 0.9.0
 
-Initial working version
+- Simplify internal code thanks to `[KVOController](https://github.com/facebook/KVOController)`
+- Add lots of tests (coverage **above 94%**)
+- Add Twitter example
+- Fix a couple of smaller issues
+
+# 0.8.2
+
+- Make stretchy header view stay always on top, so that section headers and footers do not overlap it.
+
+# 0.8.1
+
+- `contentInset` recalculation bugfixes
+- Add airbnb-like example
 
 # 0.8.0 Improved API
 
@@ -89,11 +102,6 @@ Initial working version
 - Add code documentation
 - Unify stretchFactor properties
 
-# 0.8.1
+# 0.7.0 Initial version
 
-- `contentInset` recalculation bugfixes
-- Add airbnb-like example
-
-# 0.8.2
-
-- Make stretchy header view stay always on top, so that section headers and footers do not overlap it.
+Initial working version
