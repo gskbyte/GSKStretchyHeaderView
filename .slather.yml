@@ -1,8 +1,9 @@
 coverage_service: coveralls
 workspace: GSKStretchyHeaderView.xcworkspace
+xcodeproj: Example/Example.xcodeproj
 scheme: Example
 source_directory: Pod/Classes
-build_directory: build
+build_directory: build/GSKStretchyHeaderView/
 ignore:
   - Example/*
-  - Example/GSKStretchyHeaderView/*
+  - ../**
