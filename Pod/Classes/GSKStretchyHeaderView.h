@@ -7,7 +7,6 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
     GSKStretchyHeaderViewContentAnchorBottom = 1
 };
 
-@protocol GSKStretchyHeaderViewStretchDelegate;
 @interface GSKStretchyHeaderView : UIView
 
 /**
@@ -47,7 +46,7 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
 /**
  Specifies wether the contentView height will be increased when scrolling down. Default is YES.
  */
-@property (nonatomic) IBInspectable BOOL contentBounces; // default YES
+@property (nonatomic) IBInspectable BOOL contentBounces;
 
 /**
  Sets a new maximumContent height and scrolls to the top.
@@ -58,10 +57,18 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
 @end
 
 
+@protocol GSKStretchyHeaderViewStretchDelegate <NSObject>
+
+- (void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView
+    didChangeStretchFactor:(CGFloat)stretchFactor;
+
+@end
+
+
 @interface GSKStretchyHeaderView (StretchFactor)
 
 /**
- The stretch factor is the relation between the current content height and the maximum (1) and minimum (2) contentHeight.
+ The stretch factor is the relation between the current content height and the maximum (1) and minimum (0) contentHeight.
  Can be greater than 1 if contentViewBounces equals YES.
  */
 @property (nonatomic, readonly) CGFloat stretchFactor;
@@ -87,14 +94,6 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
  retrieve initial values for views added to the contentView. The default implementation does nothing.
  */
 - (void)contentViewDidLayoutSubviews;
-
-@end
-
-
-@protocol GSKStretchyHeaderViewStretchDelegate <NSObject>
-
-- (void)stretchyHeaderView:(GSKStretchyHeaderView *)headerView
-    didChangeStretchFactor:(CGFloat)stretchFactor;
 
 @end
 
