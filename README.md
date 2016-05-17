@@ -14,7 +14,7 @@ Latest stable:
 ![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/tabs_small.gif)
 ![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/twitter_small.gif)
 
-GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on the Twitter app or the Spotify app. It's designed in order to accomplish the following requirements:
+GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on many apps, like Twitter, Spotify or airbnb. It's designed in order to accomplish the following requirements:
 
 - Compatibility with `UITableView` and `UICollectionView`
 - Data source and delegate independency: can be added to an existing view controller
@@ -78,29 +78,29 @@ GSKStretchyHeaderView is available under the MIT license. See the LICENSE file f
 
 ## Changelog
 
-# 0.9.0
+### 0.9.0
 
 - Simplify internal code thanks to [`KVOController`](https://github.com/facebook/KVOController)
 - Add lots of tests (coverage **above 94%**)
 - Add Twitter example
 - Fix a couple of smaller issues
 
-# 0.8.2
+### 0.8.2
 
 - Make stretchy header view stay always on top, so that section headers and footers do not overlap it.
 
-# 0.8.1
+### 0.8.1
 
 - `contentInset` recalculation bugfixes
 - Add airbnb-like example
 
-# 0.8.0 Improved API
+### 0.8.0 Improved API
 
 - Add new anchorMode
 - Add `contentInset` property
 - Add code documentation
 - Unify stretchFactor properties
 
-# 0.7.0 Initial version
+### 0.7.0 Initial version
 
 Initial working version
