@@ -55,4 +55,11 @@ static const NSUInteger kNumberOfRows = 100;
     }
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(self.collectionView.frame.size.width,
+                      [self.dataSource heightForItemAtIndexPath:indexPath]);
+}
+
 @end

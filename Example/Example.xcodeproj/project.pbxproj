@@ -17,6 +17,8 @@
 		6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* GSKAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		82134A861CBBF11200BF3173 /* GSKStretchyHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */; };
+		82469C501CF39CB800D3335A /* ScalableLabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */; };
+		82469C521CF3A0D600D3335A /* ScalableLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */; };
 		825B317E1CE52F25009E1B79 /* GSKTestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */; };
 		825B31821CE52F4F009E1B79 /* GSKTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */; };
 		828FDA201CE512DD001FB1CF /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828FDA1F1CE512DD001FB1CF /* Pods_Tests.framework */; };
@@ -80,6 +82,9 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6F608CEB51797022B7A6DBF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		74798159CA4EB05E512059FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelHeaderView.swift; sourceTree = "<group>"; };
+		82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelViewController.swift; sourceTree = "<group>"; };
 		825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GSKTestHeaderView.xib; sourceTree = "<group>"; };
 		825B31801CE52F4F009E1B79 /* GSKTestHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTestHeaderView.h; sourceTree = "<group>"; };
 		825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKTestHeaderView.m; sourceTree = "<group>"; };
@@ -215,6 +220,7 @@
 		6003F593195388D20070C39A /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */,
 				C086DFFD1C846295002A54C1 /* Header Views */,
 				C086DFFC1C846281002A54C1 /* View Controllers */,
 				C03FC4DC1C81B1E30015FAAA /* GSKExampleData.h */,
@@ -318,6 +324,7 @@
 				C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */,
 				C0752A5B1C95EF9C000543E3 /* GSKTwitterExampleViewController.h */,
 				C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */,
+				82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -340,6 +347,7 @@
 				C0276CCB1C86F46700AFDA42 /* GSKAirbnbStretchyHeaderView.m */,
 				C0F6F5B51CA9571F00026142 /* GSKTwitterStretchyHeaderView.h */,
 				C0F6F5B61CA9571F00026142 /* GSKTwitterStretchyHeaderView.m */,
+				82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */,
 			);
 			name = "Header Views";
 			sourceTree = "<group>";
@@ -433,6 +441,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = GSK;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Jose Alcalá Correa";
 				TargetAttributes = {
@@ -597,9 +606,11 @@
 				C03FC4F01C81EC140015FAAA /* GSKSpotyLikeHeaderView.m in Sources */,
 				C03FC5011C8348150015FAAA /* GSKCollectionViewCell.m in Sources */,
 				C03FC4E21C81B1E30015FAAA /* GSKExampleData.m in Sources */,
+				82469C521CF3A0D600D3335A /* ScalableLabelViewController.swift in Sources */,
 				C03FC4E31C81B1E30015FAAA /* GSKExampleDataCell.m in Sources */,
 				C03FC5091C8349440015FAAA /* GSKExampleDataSource.m in Sources */,
 				C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */,
+				82469C501CF39CB800D3335A /* ScalableLabelHeaderView.swift in Sources */,
 				C03FC4ED1C81B3250015FAAA /* GSKExampleTableViewController.m in Sources */,
 				C03FC4EC1C81B3250015FAAA /* GSKExampleCollectionViewController.m in Sources */,
 				C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */,
@@ -697,13 +708,18 @@
 			baseConfigurationReference = 46FF5C1CE2A6CC16CD4CD250 /* Pods-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GSKStretchyHeaderView/GSKStretchyHeaderView-Prefix.pch";
 				INFOPLIST_FILE = "GSKStretchyHeaderView/GSKStretchyHeaderView-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = org.gskbyte.GSKStretchyHeaderView.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GSKStretchyHeaderView/Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;

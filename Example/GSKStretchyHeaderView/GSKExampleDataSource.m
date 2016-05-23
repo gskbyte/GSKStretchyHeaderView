@@ -27,13 +27,11 @@
     _scrollView = tableView;
     
     tableView.dataSource = self;
-    tableView.delegate = self;
     [GSKTableViewCell registerIn:tableView];
 }
 
 - (void)registerForCollectionView:(UICollectionView *)collectionView {
     collectionView.dataSource = self;
-    collectionView.delegate = self;
     [GSKCollectionViewCell registerIn:collectionView];
 }
 
@@ -43,9 +41,6 @@
     return self.numberOfRows;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [self.rowHeights[indexPath.row] floatValue];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     GSKTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[GSKTableViewCell reuseIdentifier]];
@@ -66,11 +61,8 @@
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView
-                  layout:(UICollectionViewLayout *)collectionViewLayout
-  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    return CGSizeMake(collectionView.frame.size.width,
-                      [self.rowHeights[indexPath.item] floatValue]);
+- (CGFloat)heightForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.rowHeights[indexPath.item] floatValue];
 }
 
 @end

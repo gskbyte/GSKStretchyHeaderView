@@ -31,4 +31,8 @@ static const NSUInteger kNumberOfRows = 100;
     return [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return [self.dataSource heightForItemAtIndexPath:indexPath];
+}
+
 @end

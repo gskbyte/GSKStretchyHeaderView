@@ -3,6 +3,8 @@
 
 #import "GSKExampleDataSource.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface GSKExampleBaseTableViewController : UITableViewController
 
 @property (nonatomic, readonly) GSKStretchyHeaderView *stretchyHeaderView;
@@ -12,3 +14,5 @@
 - (GSKStretchyHeaderView *)loadStretchyHeaderView;
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -14,6 +14,8 @@
 #import "GSKVisibleSectionHeadersViewController.h"
 #import "GSKTwitterExampleViewController.h"
 
+#import "Example-Swift.h"
+
 @interface GSKExampleListViewController () <GSKExampleDataCellDelegate>
 @property (nonatomic) NSArray *exampleDatas;
 @end
@@ -32,12 +34,15 @@
     GSKExampleData *twitter = [GSKExampleData dataWithTitle:@"Twitter-like header view"
                                         viewControllerClass:[GSKTwitterExampleViewController class]];
 
-    GSKExampleData *firstExample = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
-                                         headerViewClass:[GSKTestStretchyHeaderView class]];
-    firstExample.headerViewInitialHeight = 200;
-
     GSKExampleData *spoty = [GSKExampleData dataWithTitle:@"Spotify-like header view (Auto Layout)"
                                           headerViewClass:[GSKSpotyLikeHeaderView class]];
+    
+    GSKExampleData *scalableLabel = [GSKExampleData dataWithTitle:@"Scalable text"
+                                              viewControllerClass:[ScalableLabelViewController class]];
+    
+    GSKExampleData *firstExample = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
+                                                 headerViewClass:[GSKTestStretchyHeaderView class]];
+    firstExample.headerViewInitialHeight = 200;
 
     GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
                                       headerViewNibName:@"GSKNibStretchyHeaderView"];
@@ -51,7 +56,7 @@
     GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"
                                                viewControllerClass:[GSKVisibleSectionHeadersViewController class]];
 
-    self.exampleDatas = @[airbnb, twitter, spoty, firstExample, nib, tabs, navBar, visibleHeaders];
+    self.exampleDatas = @[airbnb, twitter, spoty, scalableLabel, firstExample, nib, tabs, navBar, visibleHeaders];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

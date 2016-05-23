@@ -945,8 +945,8 @@
 		C46A5D3C032C5409E55614137F053D16 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				A24684FE31803A9D4CB323A6B6649D30 /* GSKGeometry.c */,
 				1015BFF90E165687C05F16B65D99BD44 /* GSKGeometry.h */,
+				A24684FE31803A9D4CB323A6B6649D30 /* GSKGeometry.c */,
 				F54ADD02322FFA404DCEFB631B05F2A4 /* GSKStretchyHeaderView.h */,
 				CF3E51FE6F5EAB92923B8EE3D6566CF0 /* GSKStretchyHeaderView.m */,
 				042B70E77E20FB796D1981DF9111C4E2 /* UIView+GSKLayoutHelper.h */,
@@ -1762,6 +1762,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D77E86091CAE3EAD93E4F77C74933A2 /* KVOController.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1857,6 +1858,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D77E86091CAE3EAD93E4F77C74933A2 /* KVOController.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
