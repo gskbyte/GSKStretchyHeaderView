@@ -59,11 +59,11 @@ To modify the behaviour and layout of your stretchy header, just override the me
 
 ## Example project
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+To run the example project, clone the repo and open the workspace file `GSKStretchyHeaderView.xcworkspace`.
 
 ## Installation
 
-GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile:
+GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile, [you can check the Example Podfile to see how it looks like](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Example/Podfile):
 
 ```ruby
 pod "GSKStretchyHeaderView"
@@ -109,4 +109,4 @@ GSKStretchyHeaderView is available under the MIT license. See the LICENSE file f
 
 ### 0.7.0 Initial version
 
-Initial working version
+- Initial working version
