@@ -1,7 +1,7 @@
 #import <XCTest/XCTest.h>
 
 #import <GSKStretchyHeaderView/GSKStretchyHeaderView.h>
-#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
+#import "UIView+GSKLayoutHelper.h"
 #import <Expecta/Expecta.h>
 #import <OCMock/OCMock.h>
 

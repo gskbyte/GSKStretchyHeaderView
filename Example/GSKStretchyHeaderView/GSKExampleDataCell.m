@@ -1,5 +1,5 @@
 #import "GSKExampleDataCell.h"
-#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
+#import "UIView+GSKLayoutHelper.h"
 
 @interface GSKExampleDataCell ()
 @property (nonatomic) UIButton *titleButton;

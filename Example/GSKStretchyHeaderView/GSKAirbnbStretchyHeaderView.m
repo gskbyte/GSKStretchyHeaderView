@@ -1,5 +1,5 @@
 #import "GSKAirbnbStretchyHeaderView.h"
-#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
+#import "UIView+GSKLayoutHelper.h"
 #import <GSKStretchyHeaderView/GSKGeometry.h>
 
 static const CGFloat kButtonEdge = 64;

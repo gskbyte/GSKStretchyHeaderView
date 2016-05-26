@@ -1,6 +1,6 @@
 PODS:
   - Expecta (1.0.5)
-  - GSKStretchyHeaderView (0.9):
+  - GSKStretchyHeaderView (0.9.1):
     - KVOController (~> 1.1)
   - KVOController (1.1.0)
   - Masonry (1.0.0)
@@ -18,7 +18,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  GSKStretchyHeaderView: 7ee706250b149e6b33a3b01c35346b3329c9c02d
+  GSKStretchyHeaderView: d7a234a2570e97b592753b561552d4dface429d0
   KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
   Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
   OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed

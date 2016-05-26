@@ -1,6 +1,7 @@
 #import "GSKVisibleSectionHeadersViewController.h"
 #import "GSKSpotyLikeHeaderView.h"
 #import "UINavigationController+Transparency.h"
+#import "UIView+GSKLayoutHelper.h"
 
 @interface GSKVisibleSectionHeadersDataSource : GSKExampleDataSource
 @property (nonatomic) CGFloat stretchyHeaderViewMaximumContentHeight;

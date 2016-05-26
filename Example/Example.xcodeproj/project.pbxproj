@@ -17,13 +17,13 @@
 		6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* GSKAppDelegate.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		82134A861CBBF11200BF3173 /* GSKStretchyHeaderViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */; };
+		82278BB21CF783E9008ABBAA /* UIView+GSKLayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 82278BB11CF783E9008ABBAA /* UIView+GSKLayoutHelper.m */; };
 		82469C501CF39CB800D3335A /* ScalableLabelHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */; };
 		82469C521CF3A0D600D3335A /* ScalableLabelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */; };
 		825B317E1CE52F25009E1B79 /* GSKTestHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 825B317D1CE52F25009E1B79 /* GSKTestHeaderView.xib */; };
 		825B31821CE52F4F009E1B79 /* GSKTestHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 825B31811CE52F4F009E1B79 /* GSKTestHeaderView.m */; };
 		828FDA201CE512DD001FB1CF /* Pods_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 828FDA1F1CE512DD001FB1CF /* Pods_Tests.framework */; };
 		828FDA241CE5138E001FB1CF /* GSKGeometryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */; };
-		828FDA261CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */; };
 		828FDA281CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */; };
 		C0116C2A1C81A3D9003EDACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */; };
 		C0116C2D1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0116C2C1C81A4E7003EDACA /* GSKTestStretchyHeaderView.m */; };
@@ -82,6 +82,8 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		6F608CEB51797022B7A6DBF0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		74798159CA4EB05E512059FF /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		82278BB01CF783E9008ABBAA /* UIView+GSKLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GSKLayoutHelper.h"; sourceTree = "<group>"; };
+		82278BB11CF783E9008ABBAA /* UIView+GSKLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKLayoutHelper.m"; sourceTree = "<group>"; };
 		82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelHeaderView.swift; sourceTree = "<group>"; };
 		82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelViewController.swift; sourceTree = "<group>"; };
@@ -96,7 +98,6 @@
 		828FDA1D1CE512D2001FB1CF /* OCMock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OCMock.framework; path = "Pods/../build/Debug-iphoneos/OCMock/OCMock.framework"; sourceTree = "<group>"; };
 		828FDA1F1CE512DD001FB1CF /* Pods_Tests.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Tests.framework; path = "Pods/../build/Debug-iphoneos/Pods_Tests.framework"; sourceTree = "<group>"; };
 		828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKGeometryTests.m; sourceTree = "<group>"; };
-		828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKLayoutHelperTests.m"; sourceTree = "<group>"; };
 		828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKTransplantSubviewsTests.m"; sourceTree = "<group>"; };
 		82DC33251CBBED82002C80E9 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKStretchyHeaderViewTests.m; sourceTree = "<group>"; };
@@ -220,7 +221,7 @@
 		6003F593195388D20070C39A /* Example */ = {
 			isa = PBXGroup;
 			children = (
-				82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */,
+				82278BAF1CF783DF008ABBAA /* Helpers */,
 				C086DFFD1C846295002A54C1 /* Header Views */,
 				C086DFFC1C846281002A54C1 /* View Controllers */,
 				C03FC4DC1C81B1E30015FAAA /* GSKExampleData.h */,
@@ -231,6 +232,7 @@
 				C03FC4E11C81B1E30015FAAA /* GSKExampleListViewController.m */,
 				6003F59C195388D20070C39A /* GSKAppDelegate.h */,
 				6003F59D195388D20070C39A /* GSKAppDelegate.m */,
+				82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 				C0116C291C81A3D9003EDACA /* LaunchScreen.storyboard */,
@@ -254,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				825B317F1CE52F2F009E1B79 /* Header views */,
-				828FDA251CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m */,
 				828FDA231CE5138E001FB1CF /* GSKGeometryTests.m */,
 				828FDA271CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m */,
 				82FDF2431CBBD73C0045EBC4 /* GSKStretchyHeaderViewTests.m */,
@@ -281,6 +282,15 @@
 				74798159CA4EB05E512059FF /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		82278BAF1CF783DF008ABBAA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				82278BB01CF783E9008ABBAA /* UIView+GSKLayoutHelper.h */,
+				82278BB11CF783E9008ABBAA /* UIView+GSKLayoutHelper.m */,
+			);
+			name = Helpers;
 			sourceTree = "<group>";
 		};
 		825B317F1CE52F2F009E1B79 /* Header views */ = {
@@ -608,6 +618,7 @@
 				C03FC4E21C81B1E30015FAAA /* GSKExampleData.m in Sources */,
 				82469C521CF3A0D600D3335A /* ScalableLabelViewController.swift in Sources */,
 				C03FC4E31C81B1E30015FAAA /* GSKExampleDataCell.m in Sources */,
+				82278BB21CF783E9008ABBAA /* UIView+GSKLayoutHelper.m in Sources */,
 				C03FC5091C8349440015FAAA /* GSKExampleDataSource.m in Sources */,
 				C0116C371C81A56F003EDACA /* GSKGradientView.m in Sources */,
 				82469C501CF39CB800D3335A /* ScalableLabelHeaderView.swift in Sources */,
@@ -625,7 +636,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				828FDA261CE513B2001FB1CF /* UIView+GSKLayoutHelperTests.m in Sources */,
 				825B31821CE52F4F009E1B79 /* GSKTestHeaderView.m in Sources */,
 				828FDA281CE513C4001FB1CF /* UIView+GSKTransplantSubviewsTests.m in Sources */,
 				82134A861CBBF11200BF3173 /* GSKStretchyHeaderViewTests.m in Sources */,

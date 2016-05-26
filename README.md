@@ -12,7 +12,8 @@ Latest stable:
 ![Example 1](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/airbnb_small.gif)
 ![Example 2](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_blur_small.gif)
 ![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/tabs_small.gif)
-![Example 3](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/twitter_small.gif)
+![Example 4](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/twitter_small.gif)
+![Example 5](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/scalable_text_small.gif)
 
 GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on many apps, like Twitter, Spotify or airbnb. It's designed in order to accomplish the following requirements:
 
@@ -77,6 +78,11 @@ Jose Alcalá Correa, jose.alcala.correa@gmail.com
 GSKStretchyHeaderView is available under the MIT license. See the LICENSE file for more info.
 
 ## Changelog
+
+### 0.10.0
+
+- Move UIView+GSKLayoutHelper to the example project, as its functionality doesn't belong to the library
+- Add a new example resizing a `UILabel`
 
 ### 0.9.0
 

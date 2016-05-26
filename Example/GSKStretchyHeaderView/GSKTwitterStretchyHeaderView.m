@@ -1,6 +1,6 @@
 #import "GSKTwitterStretchyHeaderView.h"
+#import "UIView+GSKLayoutHelper.h"
 #import <Masonry/Masonry.h>
-#import <GSKStretchyHeaderView/UIView+GSKLayoutHelper.h>
 #import <GSKStretchyHeaderView/GSKGeometry.h>
 
 static const CGFloat kMaxImageSize = 64;
