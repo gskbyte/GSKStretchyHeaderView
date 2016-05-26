@@ -81,7 +81,7 @@ GSKStretchyHeaderView is available under the MIT license. See the LICENSE file f
 
 ### 0.10.0
 
-- Move UIView+GSKLayoutHelper to the example project, as its functionality doesn't belong to the library
+- Move `UIView+GSKLayoutHelper` to the example project, because its functionality shouldn't belong to the library and the method names may collide with others
 - Add a new example resizing a `UILabel`
 
 ### 0.9.0
