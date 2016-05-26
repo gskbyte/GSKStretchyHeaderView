@@ -61,6 +61,8 @@ To modify the behaviour and layout of your stretchy header, just override the me
 
 To run the example project, clone the repo and open the workspace file `GSKStretchyHeaderView.xcworkspace`.
 
+You can also use `pod try GSKStretchyHeaderView`.
+
 ## Installation
 
 GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To install it, simply add the following line to your Podfile, [you can check the Example Podfile to see how it looks like](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Example/Podfile):
