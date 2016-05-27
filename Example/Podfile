@@ -3,7 +3,6 @@ use_frameworks!
 
 workspace '../GSKStretchyHeaderView'
 project 'Example.xcodeproj'
-plugin 'slather'
 
 target 'Example' do
   pod 'GSKStretchyHeaderView', :path => '../'
