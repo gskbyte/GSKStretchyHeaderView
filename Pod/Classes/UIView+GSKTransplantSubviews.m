@@ -32,6 +32,13 @@
 - (void)gsk_transplantSubviewsToView:(UIView *)newSuperview {
     NSArray<UIView *> *oldSubviews = self.subviews;
     NSArray<NSLayoutConstraint *> *oldConstraints = self.constraints;
+    NSMutableArray<NSNumber *> *oldConstraintsActiveValues = [NSMutableArray array];
+    
+    if ([NSLayoutConstraint instancesRespondToSelector:@selector(isActive)]) {
+        for (NSLayoutConstraint *constraint in oldConstraints) {
+            [oldConstraintsActiveValues addObject:@(constraint.active)];
+        }
+    }
 
     for (UIView *view in oldSubviews) {
         [view removeFromSuperview];
@@ -39,13 +46,17 @@
     }
 
     [self removeConstraints:oldConstraints];
-    for (NSLayoutConstraint *oldConstraint in oldConstraints) {
+    [oldConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *oldConstraint, NSUInteger index, BOOL *stop) {
         id firstItem = oldConstraint.firstItem == self ? newSuperview : oldConstraint.firstItem;
         id secondItem = oldConstraint.secondItem == self ? newSuperview : oldConstraint.secondItem;
         NSLayoutConstraint *constraint = [oldConstraint gsk_copyWithFirstItem:firstItem
                                                                    secondItem:secondItem];
-        [newSuperview addConstraint:constraint];
-    }
+        if ([constraint respondsToSelector:@selector(setActive:)]) {
+            constraint.active = oldConstraintsActiveValues[index].boolValue;
+        } else {
+            [newSuperview addConstraint:constraint];
+        }
+    }];
 }
 
 @end
