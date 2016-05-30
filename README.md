@@ -18,7 +18,7 @@ Latest stable:
 GSKStretchyHeaderView is an implementation of the stretchy header paradigm as seen on many apps, like Twitter, Spotify or airbnb. It's designed in order to accomplish the following requirements:
 
 - Compatibility with `UITableView` and `UICollectionView`
-- Data source and delegate independency: can be added to an existing view controller
+- Data source and delegate independency: can be added to an existing view controller withouth interfering with your existing `delegate` or `dataSource`
 - Provide support for frame layout, auto layout and Interface Builder `.xib` files
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
