@@ -85,6 +85,7 @@
 		82278BB01CF783E9008ABBAA /* UIView+GSKLayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GSKLayoutHelper.h"; sourceTree = "<group>"; };
 		82278BB11CF783E9008ABBAA /* UIView+GSKLayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GSKLayoutHelper.m"; sourceTree = "<group>"; };
 		823DBB691D0615D0007805FA /* CHANGELOG.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = CHANGELOG.md; path = ../CHANGELOG.md; sourceTree = "<group>"; };
+		823DBB6A1D061780007805FA /* Rakefile */ = {isa = PBXFileReference; lastKnownFileType = text; name = Rakefile; path = ../Rakefile; sourceTree = "<group>"; };
 		82469C4E1CF39CB800D3335A /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		82469C4F1CF39CB800D3335A /* ScalableLabelHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelHeaderView.swift; sourceTree = "<group>"; };
 		82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScalableLabelViewController.swift; sourceTree = "<group>"; };
@@ -282,6 +283,7 @@
 				6F608CEB51797022B7A6DBF0 /* README.md */,
 				823DBB691D0615D0007805FA /* CHANGELOG.md */,
 				74798159CA4EB05E512059FF /* LICENSE */,
+				823DBB6A1D061780007805FA /* Rakefile */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";

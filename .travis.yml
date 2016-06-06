@@ -1,5 +1,4 @@
 language: objective-c
-before_install: bundle; rake bootstrap
 script: rake spec
 after_success: bundle exec slather coverage --verbose Example/Example.xcodeproj
 osx_image: xcode7.3
