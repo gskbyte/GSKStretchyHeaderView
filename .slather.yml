@@ -3,7 +3,7 @@ workspace: GSKStretchyHeaderView.xcworkspace
 xcodeproj: Example/Example.xcodeproj
 scheme: Example
 source_directory: Pod/Classes
-build_directory: build/GSKStretchyHeaderView/
+build_directory: build/
 ignore:
   - Example/*
   - ../**
