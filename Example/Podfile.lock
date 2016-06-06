@@ -1,9 +1,9 @@
 PODS:
   - Expecta (1.0.5)
-  - GSKStretchyHeaderView (0.10.2):
+  - GSKStretchyHeaderView (1.0.0):
     - KVOController (~> 1.1)
   - KVOController (1.1.0)
-  - Masonry (1.0.0)
+  - Masonry (1.0.1)
   - OCMock (3.3)
 
 DEPENDENCIES:
@@ -14,13 +14,13 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   GSKStretchyHeaderView:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
   Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  GSKStretchyHeaderView: 04aaed476b0422ba3bb4e9526dc0b03300370175
+  GSKStretchyHeaderView: 243ab55641d8290f3f18745f4105d50f4d24a1a9
   KVOController: 321b5fc59300fcaabd42c0f679baa7a27efbb2fd
-  Masonry: b529bb169217897b6354d4b56b1fada6d475b13d
+  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   OCMock: d68685bde31f69cb61d518dcb39269080c78b5ed
 
 PODFILE CHECKSUM: 06ea78cbed48d7134878553f01c2f4e8790c20e5
