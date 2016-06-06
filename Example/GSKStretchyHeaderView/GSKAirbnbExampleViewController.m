@@ -25,7 +25,7 @@
     GSKAirbnbStretchyHeaderView *headerView = [[GSKAirbnbStretchyHeaderView alloc] initWithFrame:frame];
     headerView.maximumContentHeight = 300;
     headerView.minimumContentHeight = 84;
-    headerView.contentBounces = NO;
+    headerView.contentExpands = NO;
     headerView.delegate = self;
     return headerView;
 }

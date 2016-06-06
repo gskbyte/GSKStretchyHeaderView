@@ -65,8 +65,8 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 120;
-    headerView.contentBounces = NO;
-    headerView.contentStretches = NO;
+    headerView.contentExpands = NO;
+    headerView.contentShrinks = NO;
     headerView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     [scrollView addSubview:headerView];
     
@@ -110,7 +110,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 120;
-    headerView.contentStretches = NO;
+    headerView.contentShrinks = NO;
     headerView.contentAnchor = GSKStretchyHeaderViewContentAnchorBottom;
     headerView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
     [scrollView addSubview:headerView];
@@ -163,8 +163,8 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.maximumContentHeight).to.equal(250);
     expect(headerView.minimumContentHeight).to.equal(64);
     expect(headerView.contentAnchor).to.equal(GSKStretchyHeaderViewContentAnchorBottom);
-    expect(headerView.contentStretches).to.beFalsy();
-    expect(headerView.contentBounces).to.beFalsy();
+    expect(headerView.contentShrinks).to.beFalsy();
+    expect(headerView.contentExpands).to.beFalsy();
     
     [headerView.contentView layoutSubviews];
     

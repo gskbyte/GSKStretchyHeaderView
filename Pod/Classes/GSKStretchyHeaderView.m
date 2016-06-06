@@ -63,8 +63,8 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     self.clipsToBounds = YES;
     self.minimumContentHeight = 0;
     self.contentAnchor = GSKStretchyHeaderViewContentAnchorTop;
-    self.contentBounces = YES;
-    self.contentStretches = YES;
+    self.contentExpands = YES;
+    self.contentShrinks = YES;
 }
 
 - (void)setupContentView {
@@ -131,16 +131,15 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     [self.KVOController observe:self.scrollView
                         keyPath:NSStringFromSelector(@selector(contentOffset))
                         options:NSKeyValueObservingOptionNew
-                          block:^(id observer, id object, NSDictionary<NSString *,id> *change) {
-                              NSValue *newValue = change[NSKeyValueChangeNewKey];
-                              CGPoint contentOffset = newValue.CGPointValue;
+                          block:^(id observer, id object, NSDictionary<NSString *, NSValue *> *change) {
+                              CGPoint contentOffset = change[NSKeyValueChangeNewKey].CGPointValue;
                               [self updateOriginForContentOffset:contentOffset];
     }];
     
     [self.KVOController observe:self.scrollView.layer
                         keyPath:NSStringFromSelector(@selector(sublayers))
                         options:NSKeyValueObservingOptionNew
-                          block:^(id observer, id object, NSDictionary<NSString *,id> *change) {
+                          block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
                               [self.scrollView bringSubviewToFront:self];
     }];
     
@@ -181,10 +180,10 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
     const CGFloat visibleContentViewHeight = frame.size.height - verticalInset;
     CGFloat contentViewHeight = visibleContentViewHeight;
-    if (!self.contentBounces) {
+    if (!self.contentExpands) {
         contentViewHeight = MIN(contentViewHeight, self.maximumContentHeight);
     }
-    if (!self.contentStretches) {
+    if (!self.contentShrinks) {
         contentViewHeight = MAX(contentViewHeight, self.maximumContentHeight);
     }
 
@@ -196,7 +195,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
         }
         case GSKStretchyHeaderViewContentAnchorBottom: {
             contentViewTop = frame.size.height - contentViewHeight;
-            if (!self.contentBounces) {
+            if (!self.contentExpands) {
                 contentViewTop = MIN(0, contentViewTop);
             }
             break;

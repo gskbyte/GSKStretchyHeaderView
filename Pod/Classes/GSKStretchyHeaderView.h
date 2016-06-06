@@ -23,6 +23,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ Specifies where the contentView will stick to the top or the bottom of the
+ header view.
+ */
 typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
     GSKStretchyHeaderViewContentAnchorTop = 0,
     GSKStretchyHeaderViewContentAnchorBottom = 1
@@ -33,41 +37,44 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
 /**
  The main view to which you add your custom content.
  */
-@property (nonatomic, readonly) UIView *contentView;
+@property(nonatomic, readonly) UIView *contentView;
 
 /**
  The height of the header view when it's expanded. Default value is equal to the initial frame height, or 240 if unspecified.
  */
-@property (nonatomic) IBInspectable CGFloat maximumContentHeight; // defaults to initial frame height
+@property(nonatomic) IBInspectable CGFloat maximumContentHeight; // defaults to initial frame height
 
 /**
  The minimum height of the header view. You usually want to set it to a value larger than 64 if you want to simulate a navigation bar. Defaults to 0.
  */
-@property (nonatomic) IBInspectable CGFloat minimumContentHeight; // defaults to 0
+@property(nonatomic) IBInspectable CGFloat minimumContentHeight; // defaults to 0
 
 /**
  The contentInset for the contentView. Defaults to UIEdgeInsetsZero.
  */
-@property (nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
+@property(nonatomic) IBInspectable UIEdgeInsets contentInset; // default UIEdgeInsetsZero
 
 /**
  Specifies wether the contentView sticks to the top or the bottom of the headerView. Default value is GSKStretchyHeaderContentViewAnchorTop.
+ This has effect only if contentShrinks and/or contentExpands are set to NO.
  */
 #if TARGET_INTERFACE_BUILDER
-@property (nonatomic) IBInspectable NSUInteger contentAnchor;
+@property(nonatomic) IBInspectable NSUInteger contentAnchor;
 #else
-@property (nonatomic) GSKStretchyHeaderViewContentAnchor contentAnchor;
+@property(nonatomic) GSKStretchyHeaderViewContentAnchor contentAnchor;
 #endif
 
 /**
- Specifies wether the contentView height stretches when scrolling up. Default is YES.
+ Specifies wether the contentView height shrinks when scrolling up. 
+ Default is YES.
  */
-@property (nonatomic) IBInspectable BOOL contentStretches;
+@property(nonatomic) IBInspectable BOOL contentShrinks;
 
 /**
- Specifies wether the contentView height will be increased when scrolling down. Default is YES.
+ Specifies wether the contentView height will be increased when scrolling down. 
+ Default is YES.
  */
-@property (nonatomic) IBInspectable BOOL contentBounces;
+@property(nonatomic) IBInspectable BOOL contentExpands;
 
 /**
  Sets a new maximumContent height and scrolls to the top.

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -32,7 +32,7 @@
                                 <action selector="didTapTabButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="a76-Zw-g6A"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJp-YM-NAk">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJp-YM-NAk">
                             <rect key="frame" x="201" y="0.0" width="199" height="36"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <state key="normal" title="Second tab">
@@ -78,8 +78,8 @@
                 <userDefinedRuntimeAttribute type="number" keyPath="contentAnchor">
                     <integer key="value" value="1"/>
                 </userDefinedRuntimeAttribute>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="contentStretches" value="NO"/>
-                <userDefinedRuntimeAttribute type="boolean" keyPath="contentBounces" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="contentShrinks" value="NO"/>
+                <userDefinedRuntimeAttribute type="boolean" keyPath="contentExpands" value="NO"/>
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="firstTab" destination="XK0-Ht-YnQ" id="Ter-W2-KXg"/>
