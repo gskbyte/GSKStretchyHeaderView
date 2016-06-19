@@ -150,6 +150,39 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.beGreaterThan(1);
 }
 
+- (void)testExpansionModeImmediate {
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    
+    GSKStretchyHeaderView *headerView = [self headerView];
+    headerView.minimumContentHeight = 120;
+    headerView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
+    headerView.contentExpands = NO;
+    [scrollView addSubview:headerView];
+    
+    expect(headerView.frame).to.equal(CGRectMake(0, -kInitialHeaderViewHeight, 320, kInitialHeaderViewHeight));
+
+    // Scroll to a point between maximumContentHeight and minimumContentHeight
+    scrollView.contentOffset = CGPointMake(0, -200);
+    expect(headerView.frame).to.equal(CGRectMake(0, -200, 320, 200));
+    expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 200));
+    
+    // Scroll down more than the maximumContentHeight
+    scrollView.contentOffset = CGPointMake(0, -400);
+    expect(headerView.frame).to.equal(CGRectMake(0, -400, 320, 400));
+    expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, kInitialHeaderViewHeight)); // beacuse contentExpands = NO
+
+    // Scroll up more than the minimumContentHeight
+    scrollView.contentOffset = CGPointMake(0, 500);
+    expect(headerView.frame).to.equal(CGRectMake(0, 500, 320, 120));
+    expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 120));
+
+    // As soon as we scroll down a little bit, the height of the header view increases
+    scrollView.contentOffset = CGPointMake(0, 400);
+    expect(headerView.frame).to.equal(CGRectMake(0, 400, 320, 220)); // because we scroll down 100 points, height increases 100 points
+    expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 220));
+
+}
+
 - (void)testLoadFromXib {
     UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
     NSArray* nibViews = [[NSBundle bundleForClass:self.class] loadNibNamed:@"GSKTestHeaderView"

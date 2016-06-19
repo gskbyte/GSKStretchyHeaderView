@@ -41,9 +41,6 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
 /**
  *  Specifies wether how the stretchy header view will be expanded
  */
-/**
- *  <#Description#>
- */
 typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
     /**
      *  The header view will expand only at the top of the scroll view
