@@ -1,6 +1,7 @@
 # 0.11.0
 
-- **New functionality**: add [new mode](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Pod/Classes/GSKStretchyHeaderView.h#L64) for immediate expansion when scrolling down. 
+- **New functionality**: add [new mode](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Pod/Classes/GSKStretchyHeaderView.h#L64) for immediate expansion when scrolling down
+- Improved how the header view is rearranged inside the scroll view: it won't cover the scrollbars anymore
 - Rename `contentBounces` to `contentExpands`
 - Rename `contentStretches` to `contentShrinks`
 - Refactor layout code: stretchy header frame is configured in the scrollview

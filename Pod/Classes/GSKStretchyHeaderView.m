@@ -32,6 +32,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 @interface GSKStretchyHeaderView ()
 @property (nonatomic) BOOL needsLayoutContentView;
+@property (nonatomic) BOOL arrangingSelfInScrollView;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) CGFloat stretchFactor;
@@ -154,7 +155,11 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
                         keyPath:NSStringFromSelector(@selector(sublayers))
                         options:NSKeyValueObservingOptionNew
                           block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
-                              [self.scrollView gsk_arrangeSubviewsWithStretchyHeaderView:self];
+                              if (!self.arrangingSelfInScrollView) {
+                                  self.arrangingSelfInScrollView = YES;
+                                  [self.scrollView gsk_arrangeStretchyHeaderView:self];
+                                  self.arrangingSelfInScrollView = NO;
+                              }
     }];
     
     [self setupScrollViewInsets];

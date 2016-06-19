@@ -23,13 +23,28 @@
 #import "GSKStretchyHeaderView.h"
 #import "GSKStretchyHeaderView+Protected.h"
 
+@interface UIView (GSKStretchyHeaderViewArrangement)
+- (BOOL)gsk_shouldBeBelowStretchyHeaderView;
+@end
+
 @implementation UIScrollView (GSKStretchyHeaderView)
 
-- (void)gsk_arrangeSubviewsWithStretchyHeaderView:(GSKStretchyHeaderView *)headerView {
+- (void)gsk_arrangeStretchyHeaderView:(GSKStretchyHeaderView *)headerView {
     NSAssert(headerView.superview == self, @"The provided header view must be a subview of %@", self);
-    
-    // TODO do this more intelligently, avoiding to hide the scrollbars
-    [self bringSubviewToFront:headerView];
+    NSUInteger stretchyHeaderViewIndex = [self.subviews indexOfObjectIdenticalTo:headerView];
+    NSUInteger stretchyHeaderViewNewIndex = stretchyHeaderViewIndex;
+    for (UIView *subview in self.subviews) {
+        if ([subview gsk_shouldBeBelowStretchyHeaderView]) {
+            NSUInteger subviewIndex = [self.subviews indexOfObjectIdenticalTo:subview];
+            if (subviewIndex > stretchyHeaderViewNewIndex) {
+                stretchyHeaderViewNewIndex = subviewIndex;
+            }
+        }
+    }
+    if (stretchyHeaderViewIndex != stretchyHeaderViewNewIndex) {
+        [self exchangeSubviewAtIndex:stretchyHeaderViewIndex
+                  withSubviewAtIndex:stretchyHeaderViewNewIndex];
+    }
 }
 
 - (void)gsk_layoutStretchyHeaderView:(GSKStretchyHeaderView *)headerView
@@ -75,6 +90,16 @@
     headerView.frame = headerFrame;
     
     [headerView layoutContentViewIfNeeded];
+}
+
+@end
+
+@implementation UIView (GSKStretchyHeaderViewArrangement)
+
+- (BOOL)gsk_shouldBeBelowStretchyHeaderView {
+    return [self isKindOfClass:[UITableViewCell class]] ||
+        [self isKindOfClass:[UITableViewHeaderFooterView class]] ||
+        [self isKindOfClass:[UICollectionReusableView class]];
 }
 
 @end
