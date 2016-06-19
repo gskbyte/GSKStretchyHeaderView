@@ -49,6 +49,27 @@ or
 }
 ```
 
+## Configuration
+
+You can change multiple parameters in your stretchy header view:
+
+```objc
+// you can change wether it expands at the top or as soon as you scroll down
+headerView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
+
+// You can change the minimum and maximum content heights
+headerView.minimumContentHeight = 64; // you can replace the navigation bar with a stretchy header view
+headerView.maximumContentHeight = 280;
+
+// You can specify if the content expands when the table view bounces, and if it shrinks if contentView.height < maximumContentHeight. This is specially convenient if you use auto layout inside the stretchy header view
+headerView.contentShrinks = YES;
+headerView.contentExpands = NO; // useful if you want to display the refreshControl below the header view
+
+// You can specify wether the content view sticks to the top or the bottom of the header view if one of the previous properties is set to NO
+// In this case, when the user bounces the scrollView, the content will keep its height and will stick to the bottom of the header view
+headerView.contentAnchor = GSKStretchyHeaderViewContentAnchorBottom;
+```
+
 ## Creating your stretchy header
 
 There are two ways to create your own stretchy header:
