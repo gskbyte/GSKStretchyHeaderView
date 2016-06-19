@@ -37,14 +37,14 @@
     GSKExampleData *spoty = [GSKExampleData dataWithTitle:@"Spotify-like header view (Auto Layout)"
                                           headerViewClass:[GSKSpotyLikeHeaderView class]];
     
-    GSKExampleData *scalableLabel = [GSKExampleData dataWithTitle:@"Scalable text"
+    GSKExampleData *scalableLabel = [GSKExampleData dataWithTitle:@"Scalable text (+ expansion modes)"
                                               viewControllerClass:[ScalableLabelViewController class]];
     
     GSKExampleData *firstExample = [GSKExampleData dataWithTitle:@"First example (classical Frame Layout)"
                                                  headerViewClass:[GSKTestStretchyHeaderView class]];
     firstExample.headerViewInitialHeight = 200;
 
-    GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From an interface builder file"
+    GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From a XIB file (+ expansion modes)"
                                       headerViewNibName:@"GSKNibStretchyHeaderView"];
 
     GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"With tabs"
