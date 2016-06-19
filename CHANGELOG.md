@@ -1,3 +1,5 @@
+# 1.0.0 Soon!!!
+
 # 0.11.0
 
 - **New functionality**: add [new mode](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Pod/Classes/GSKStretchyHeaderView.h#L64) for immediate expansion when scrolling down. Showcased in the examples *With tabs*, *From a XIB file* and *Scalable Text*)
