@@ -8,7 +8,7 @@ static const BOOL kNavBar = YES;
 @property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *navigationTitleLabel;
-
+@property (weak, nonatomic) IBOutlet UIButton *expansionModeButton;
 @end
 
 @implementation GSKNibStretchyHeaderView
@@ -16,12 +16,17 @@ static const BOOL kNavBar = YES;
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.contentView.backgroundColor = [UIColor colorWithWhite:0.2 alpha:1];
-
+    self.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
     if (kNavBar) {
         self.minimumContentHeight = 64;
     } else {
         self.navigationTitleLabel.hidden = YES;
     }
+    
+    self.expansionModeButton.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.expansionModeButton.layer.borderWidth = 2;
+    self.expansionModeButton.layer.cornerRadius = 4;
+    [self updateExpansionModeButtonTitle];
 }
 
 - (void)didChangeStretchFactor:(CGFloat)stretchFactor {
@@ -41,6 +46,35 @@ static const BOOL kNavBar = YES;
         }
         self.navigationTitleLabel.alpha = navTitleAlpha;
     }
+}
+
+- (void)updateExpansionModeButtonTitle {
+    switch (self.expansionMode) {
+        case GSKStretchyHeaderViewExpansionModeTopOnly: {
+            [self.expansionModeButton setTitle:@"Expansion: top"
+                                      forState:UIControlStateNormal];
+            break;
+        }
+        case GSKStretchyHeaderViewExpansionModeImmediate: {
+            [self.expansionModeButton setTitle:@"Expansion: immediate"
+                                      forState:UIControlStateNormal];
+            break;
+        }
+    }
+}
+
+- (IBAction)didTapExpansionModeButton:(id)sender {
+    switch (self.expansionMode) {
+        case GSKStretchyHeaderViewExpansionModeTopOnly: {
+            self.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
+            break;
+        }
+        case GSKStretchyHeaderViewExpansionModeImmediate: {
+            self.expansionMode = GSKStretchyHeaderViewExpansionModeTopOnly;
+            break;
+        }
+    }
+    [self updateExpansionModeButtonTitle];
 }
 
 @end

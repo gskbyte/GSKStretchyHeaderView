@@ -43,14 +43,30 @@
         headerFrame.size.width = CGRectGetWidth(self.bounds);
     }
     
-    // Adjust the height of the header view depending on the content offset
-    if (contentOffset.y + headerView.maximumHeight < 0) { // bigger than default
-        headerFrame.size.height = -contentOffset.y;
-    } else if (-contentOffset.y <= headerView.minimumHeight) { // less than minimum height
-        headerFrame.size.height = headerView.minimumHeight;
-    } else { // between minimum and maximum
-        headerFrame.size.height = -contentOffset.y;
+    CGFloat headerViewHeight = CGRectGetHeight(headerView.bounds);
+    switch (headerView.expansionMode) {
+        case GSKStretchyHeaderViewExpansionModeTopOnly: {
+            if (contentOffset.y + headerView.maximumHeight < 0) { // bigger than default
+                headerViewHeight = -contentOffset.y;
+            } else {
+                headerViewHeight = MIN(headerView.maximumHeight, MAX(-contentOffset.y, headerView.minimumHeight));
+            }
+            break;
+        }
+        case GSKStretchyHeaderViewExpansionModeImmediate: {
+            CGFloat scrollDelta = contentOffset.y - previousContentOffset.y;
+            if (contentOffset.y + headerView.maximumHeight < 0) { // bigger than default
+                headerViewHeight = -contentOffset.y;
+            } else {
+                headerViewHeight -= scrollDelta;
+                headerViewHeight = MIN(headerView.maximumHeight, MAX(headerViewHeight, headerView.minimumHeight));
+            }
+            break;
+        }
     }
+    headerFrame.size.height = headerViewHeight;
+    
+    // Adjust the height of the header view depending on the content offset
     
     // If the size of the header view changes, we will need to adjust its content view
     if (!CGSizeEqualToSize(headerView.frame.size, headerFrame.size)) {

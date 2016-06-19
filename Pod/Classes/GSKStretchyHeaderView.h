@@ -32,7 +32,27 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewContentAnchor) {
     GSKStretchyHeaderViewContentAnchorBottom = 1
 };
 
+/**
+ Specifies wether how the stretchy header view will be expanded
+ */
+typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
+    /// The header view will expand only at the top of the scroll view
+    GSKStretchyHeaderViewExpansionModeTopOnly = 0,
+    /// The header view will expand as soon as the user scrolls down
+    GSKStretchyHeaderViewExpansionModeImmediate = 1
+};
+
 @interface GSKStretchyHeaderView : UIView
+
+/**
+ Specifies wether the header view will grow only when the top of the scroll view
+ is visible, or as soon as the user scrolls down.
+ */
+#if TARGET_INTERFACE_BUILDER
+@property(nonatomic) IBInspectable NSUInteger expansionMode;
+#else
+@property(nonatomic) GSKStretchyHeaderViewExpansionMode expansionMode;
+#endif
 
 /**
  The main view to which you add your custom content.

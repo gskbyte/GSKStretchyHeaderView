@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -43,6 +43,17 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdP-QH-BkB">
+                    <rect key="frame" x="251.5" y="369" width="97" height="23"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <inset key="contentEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    <state key="normal" title="expansionMode">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="didTapExpansionModeButton:" destination="iN0-l3-epB" eventType="touchUpInside" id="Cg7-bM-zwI"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -51,12 +62,14 @@
                 <constraint firstItem="QRt-Jw-3vW" firstAttribute="top" secondItem="IDV-kH-KIc" secondAttribute="bottom" constant="8" id="GH1-On-4TK"/>
                 <constraint firstAttribute="trailing" secondItem="aMv-3S-oxx" secondAttribute="trailing" id="GRk-T0-Wfr"/>
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-16" id="GuP-HQ-plq"/>
+                <constraint firstItem="cdP-QH-BkB" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HMg-g0-6Ee"/>
                 <constraint firstItem="ePj-xy-EI5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OyO-rb-yam"/>
                 <constraint firstAttribute="trailing" secondItem="QRt-Jw-3vW" secondAttribute="trailing" constant="12" id="ZTG-zn-LtS"/>
                 <constraint firstItem="aMv-3S-oxx" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fbC-ju-Dip"/>
                 <constraint firstItem="ePj-xy-EI5" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="10" id="l1k-vK-38T"/>
                 <constraint firstAttribute="bottom" secondItem="aMv-3S-oxx" secondAttribute="bottom" id="pv5-QU-awc"/>
                 <constraint firstItem="IDV-kH-KIc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qCF-xt-FOX"/>
+                <constraint firstItem="cdP-QH-BkB" firstAttribute="top" secondItem="QRt-Jw-3vW" secondAttribute="bottom" constant="8" id="rP2-kc-KVJ"/>
             </constraints>
             <userDefinedRuntimeAttributes>
                 <userDefinedRuntimeAttribute type="number" keyPath="maximumContentHeight">
@@ -68,6 +81,7 @@
             </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="backgroundImageView" destination="aMv-3S-oxx" id="PYT-58-Obu"/>
+                <outlet property="expansionModeButton" destination="cdP-QH-BkB" id="I0K-dC-0Zs"/>
                 <outlet property="navigationTitleLabel" destination="ePj-xy-EI5" id="Txn-eh-S0d"/>
                 <outlet property="userImage" destination="IDV-kH-KIc" id="yZN-iV-FkM"/>
                 <outlet property="userNameLabel" destination="QRt-Jw-3vW" id="O20-AZ-exF"/>

@@ -30,6 +30,7 @@
                                                     options:nil];
     self.stretchyHeaderView = nibViews.firstObject;
     self.stretchyHeaderView.tabsDelegate = self;
+    self.stretchyHeaderView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
     [self.tableView addSubview:self.stretchyHeaderView];
 
     NSMutableArray *dataSources = [NSMutableArray array];

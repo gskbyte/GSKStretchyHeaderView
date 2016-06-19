@@ -79,18 +79,23 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 #pragma mark - Public properties
 
+- (void)setExpansionMode:(GSKStretchyHeaderViewExpansionMode)expansionMode {
+    _expansionMode = expansionMode;
+    [self.scrollView gsk_layoutStretchyHeaderView:self
+                                    contentOffset:self.scrollView.contentOffset
+                            previousContentOffset:self.scrollView.contentOffset];
+}
+
 - (void)setMaximumContentHeight:(CGFloat)maximumContentHeight {
     if (maximumContentHeight == _maximumContentHeight) {
         return;
     }
 
     _maximumContentHeight = maximumContentHeight;
-    if (self.scrollView) {
-        [self setupScrollViewInsets];
-        [self.scrollView gsk_layoutStretchyHeaderView:self
-                                        contentOffset:self.scrollView.contentOffset
-                                previousContentOffset:self.scrollView.contentOffset];
-    }
+    [self setupScrollViewInsets];
+    [self.scrollView gsk_layoutStretchyHeaderView:self
+                                    contentOffset:self.scrollView.contentOffset
+                            previousContentOffset:self.scrollView.contentOffset];
 }
 
 - (void)setContentInset:(UIEdgeInsets)contentInset {
