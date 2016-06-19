@@ -22,6 +22,7 @@ GSKStretchyHeaderView is an implementation of the stretchy header paradigm as se
 - Provide support for frame layout, auto layout and Interface Builder `.xib` files
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
+- Two expansion modes: the header view can grow only when the top of the scroll view is reached, or as soon as the user scrolls down.
 
 ## Usage
 
