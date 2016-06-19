@@ -6,6 +6,7 @@
 @interface GSKVisibleSectionHeadersDataSource : GSKExampleDataSource
 @property (nonatomic) CGFloat stretchyHeaderViewMaximumContentHeight;
 @property (nonatomic) CGFloat stretchyHeaderViewMinimumContentHeight;
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 @end
 
 @implementation GSKVisibleSectionHeadersViewController
@@ -31,6 +32,11 @@
     dataSource.stretchyHeaderViewMaximumContentHeight = self.stretchyHeaderView.maximumContentHeight;
     dataSource.stretchyHeaderViewMinimumContentHeight = self.stretchyHeaderView.minimumContentHeight;
     return dataSource;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    GSKVisibleSectionHeadersDataSource *dataSource = (GSKVisibleSectionHeadersDataSource *) self.dataSource;
+    [dataSource scrollViewDidScroll:scrollView];
 }
 
 @end
