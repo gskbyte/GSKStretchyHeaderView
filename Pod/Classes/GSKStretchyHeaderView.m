@@ -20,8 +20,10 @@
 // THE SOFTWARE.
 
 #import "GSKStretchyHeaderView.h"
+#import "GSKStretchyHeaderView+Protected.h"
 #import "GSKGeometry.h"
 #import "UIView+GSKTransplantSubviews.h"
+#import "UIScrollView+GSKStretchyHeaderView.h"
 #import <KVOController/NSObject+FBKVOController.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -29,6 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 @interface GSKStretchyHeaderView ()
+@property (nonatomic) BOOL needsLayoutContentView;
 @property (nonatomic, weak) UIScrollView *scrollView;
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) CGFloat stretchFactor;
@@ -71,6 +74,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     _contentView = [[GSKStretchyHeaderContentView alloc] initWithFrame:self.bounds];
     [self gsk_transplantSubviewsToView:_contentView];
     [self addSubview:_contentView];
+    [self setNeedsLayoutContentView];
 }
 
 #pragma mark - Public properties
@@ -83,7 +87,9 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     _maximumContentHeight = maximumContentHeight;
     if (self.scrollView) {
         [self setupScrollViewInsets];
-        [self updateOriginForContentOffset:self.scrollView.contentOffset];
+        [self.scrollView gsk_layoutStretchyHeaderView:self
+                                        contentOffset:self.scrollView.contentOffset
+                                previousContentOffset:self.scrollView.contentOffset];
     }
 }
 
@@ -130,17 +136,20 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     
     [self.KVOController observe:self.scrollView
                         keyPath:NSStringFromSelector(@selector(contentOffset))
-                        options:NSKeyValueObservingOptionNew
+                        options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                           block:^(id observer, id object, NSDictionary<NSString *, NSValue *> *change) {
                               CGPoint contentOffset = change[NSKeyValueChangeNewKey].CGPointValue;
-                              [self updateOriginForContentOffset:contentOffset];
+                              CGPoint previousContentOffset = change[NSKeyValueChangeOldKey].CGPointValue;
+                              [self.scrollView gsk_layoutStretchyHeaderView:self
+                                                              contentOffset:contentOffset
+                                                      previousContentOffset:previousContentOffset];
     }];
     
     [self.KVOController observe:self.scrollView.layer
                         keyPath:NSStringFromSelector(@selector(sublayers))
                         options:NSKeyValueObservingOptionNew
                           block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
-                              [self.scrollView bringSubviewToFront:self];
+                              [self.scrollView gsk_arrangeSubviewsWithStretchyHeaderView:self];
     }];
     
     [self setupScrollViewInsets];
@@ -148,45 +157,50 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 #pragma mark - Private properties and methods
 
+- (CGFloat)verticalInset {
+    return self.contentInset.top + self.contentInset.bottom;
+}
+
+- (CGFloat)horizontalInset {
+    return self.contentInset.left + self.contentInset.right;
+}
+
+- (CGFloat)maximumHeight {
+    return self.maximumContentHeight + self.verticalInset;
+}
+
+- (CGFloat)minimumHeight {
+    return self.minimumContentHeight + self.verticalInset;
+}
+
 - (void)setupScrollViewInsets {
     UIEdgeInsets scrollViewContentInset = self.scrollView.contentInset;
     scrollViewContentInset.top = self.maximumContentHeight + self.contentInset.top + self.contentInset.bottom;
     self.scrollView.contentInset = scrollViewContentInset;
 }
 
-- (void)updateOriginForContentOffset:(CGPoint)contentOffset {
-    const CGFloat verticalInset = self.contentInset.top + self.contentInset.bottom;
+- (void)setNeedsLayoutContentView {
+    self.needsLayoutContentView = YES;
+}
+
+- (void)layoutContentViewIfNeeded {
+    if (!self.needsLayoutContentView) {
+        return;
+    }
+    
+    const CGFloat ownHeight = CGRectGetHeight(self.bounds);
+    const CGFloat ownWidth = CGRectGetWidth(self.bounds);
     const CGFloat contentHeightDif = (self.maximumContentHeight - self.minimumContentHeight);
-    const CGFloat maximumHeight = self.maximumContentHeight + verticalInset;
-    const CGFloat minimumHeight = self.minimumContentHeight + verticalInset;
-
-    CGRect frame = self.frame;
-    BOOL forceStretchFactorUpdate = NO;
-
-    if (frame.size.width != self.scrollView.frame.size.width) {
-        frame.size.width = self.scrollView.frame.size.width;
-        forceStretchFactorUpdate = YES;
-    }
-    frame.origin.y = contentOffset.y;
-
-    if (contentOffset.y + maximumHeight < 0) { // bigger than default
-        frame.size.height = -contentOffset.y;
-    } else if (-contentOffset.y <= minimumHeight) { // less than minimum height
-        frame.size.height = self.minimumContentHeight + verticalInset;
-    } else { // between minimum and maximum
-        frame.size.height = -contentOffset.y;
-    }
-    self.frame = frame;
-
-    const CGFloat visibleContentViewHeight = frame.size.height - verticalInset;
-    CGFloat contentViewHeight = visibleContentViewHeight;
+    const CGFloat maxContentViewHeight = ownHeight - self.verticalInset;
+    
+    CGFloat contentViewHeight = maxContentViewHeight;
     if (!self.contentExpands) {
         contentViewHeight = MIN(contentViewHeight, self.maximumContentHeight);
     }
     if (!self.contentShrinks) {
         contentViewHeight = MAX(contentViewHeight, self.maximumContentHeight);
     }
-
+    
     CGFloat contentViewTop;
     switch (self.contentAnchor) {
         case GSKStretchyHeaderViewContentAnchorTop: {
@@ -194,7 +208,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
             break;
         }
         case GSKStretchyHeaderViewContentAnchorBottom: {
-            contentViewTop = frame.size.height - contentViewHeight;
+            contentViewTop = ownHeight - contentViewHeight;
             if (!self.contentExpands) {
                 contentViewTop = MIN(0, contentViewTop);
             }
@@ -203,16 +217,17 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     }
     self.contentView.frame = CGRectMake(self.contentInset.left,
                                         contentViewTop,
-                                        frame.size.width - self.contentInset.left - self.contentInset.right,
+                                        ownWidth - self.horizontalInset,
                                         contentViewHeight);
-
-    CGFloat newStretchFactor = (visibleContentViewHeight - self.minimumContentHeight) / contentHeightDif;
-    if (newStretchFactor != self.stretchFactor ||
-        forceStretchFactorUpdate) {
+    
+    CGFloat newStretchFactor = (maxContentViewHeight - self.minimumContentHeight) / contentHeightDif;
+    if (newStretchFactor != self.stretchFactor) {
         self.stretchFactor = newStretchFactor;
         [self didChangeStretchFactor:newStretchFactor];
         [self.stretchDelegate stretchyHeaderView:self didChangeStretchFactor:newStretchFactor];
     }
+    
+    self.needsLayoutContentView = NO;
 }
 
 #pragma mark - Stretch factor
@@ -222,6 +237,11 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 }
 
 #pragma mark - Layout
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    [self layoutContentViewIfNeeded];
+}
 
 - (void)contentViewDidLayoutSubviews {
     // default implementation does not do anything

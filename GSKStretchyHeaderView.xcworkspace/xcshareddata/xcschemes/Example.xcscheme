@@ -28,7 +28,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CFB4900F50B4919934C4EA70C8565B4C"
+               BlueprintIdentifier = "6A6A3E8BEA5AAE37F75D8190C3C13240"
                BuildableName = "GSKStretchyHeaderView.framework"
                BlueprintName = "GSKStretchyHeaderView"
                ReferencedContainer = "container:Example/Pods/Pods.xcodeproj">
@@ -109,7 +109,8 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
@@ -117,7 +118,7 @@
             BlueprintName = "Example"
             ReferencedContainer = "container:Example/Example.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

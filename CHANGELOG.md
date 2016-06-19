@@ -1,7 +1,8 @@
-# 1.0
+# 0.11.0 (WIP)
 
 - Rename `contentBounces` to `contentExpands`
 - Rename `contentStretches` to `contentShrinks`
+- Refactor layout code: stretchy header frame is configured in the scrollview
 
 # 0.10.0
 
