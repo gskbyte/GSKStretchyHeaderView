@@ -1,4 +1,4 @@
-# GSKStretchyHeaderView
+# GSKStretchyHeaderView, by [gskbyte](https://twitter.com/gskbyte)
 
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
@@ -23,6 +23,8 @@ GSKStretchyHeaderView is an implementation of the stretchy header paradigm as se
 - No need to subclass a custom view controller or to use a custom `UICollectionViewLayout`
 - Simple usage: just implement your own subclass and add it to your `UIScrollView` subclass
 - Two expansion modes: the header view can grow only when the top of the scroll view is reached, or as soon as the user scrolls down.
+
+If you are using this library in your project, I would be more than glad to [know about it!](mailto:gskbyte@gmail.com)
 
 ## Usage
 
