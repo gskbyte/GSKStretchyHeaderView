@@ -1,4 +1,4 @@
 language: objective-c
 script: rake spec
-after_success: bundle exec slather coverage --verbose Example/Example.xcodeproj
+after_success: bundle exec slather coverage --verbose GSKStretchyHeaderView/GSKStretchyHeaderView.xcodeproj
 osx_image: xcode7.3

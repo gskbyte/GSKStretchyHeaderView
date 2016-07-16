@@ -7,11 +7,4 @@ project 'Example.xcodeproj'
 target 'Example' do
   pod 'GSKStretchyHeaderView', :path => '../'
   pod 'Masonry'
-
-  target 'Tests' do
-    inherit! :search_paths
-
-    pod 'Expecta'
-    pod 'OCMock'
-  end
 end
