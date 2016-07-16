@@ -1,5 +1,13 @@
 # 1.0.0 Soon!!!
 
+# 0.12.0
+
+- Remove dependency on `KVOController``
+- Remove test dependencies on `Expecta` and `OCMock`
+- Create library project to generate a framework
+- Support [Carthage](https://github.com/Carthage/Carthage)
+- Support test coverage display via [Coveralls](https://coveralls.io)
+
 # 0.11.0
 
 - **New functionality**: add [new mode](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/Pod/Classes/GSKStretchyHeaderView.h#L64) for immediate expansion when scrolling down. Showcased in the examples *With tabs*, *From a XIB file* and *Scalable Text*)
