@@ -5,6 +5,9 @@
       location = "group:Example/Example.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:GSKStretchyHeaderView/GSKStretchyHeaderView.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Example/Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

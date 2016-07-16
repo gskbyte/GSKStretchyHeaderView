@@ -21,6 +21,6 @@
     "ios": "7.0"
   },
   "requires_arc": true,
-  "source_files": "Pod/Classes/**/*",
-  "private_header_files": "Pod/Classes/Private/*.h"
+  "source_files": "GSKStretchyHeaderView/Classes/**/*",
+  "private_header_files": "GSKStretchyHeaderView/Classes/Private/*.h"
 }

@@ -1,25 +1,19 @@
 PODS:
-  - Expecta (1.0.5)
   - GSKStretchyHeaderView (0.12.0)
   - Masonry (1.0.1)
-  - OCMock (3.3.1)
 
 DEPENDENCIES:
-  - Expecta
   - GSKStretchyHeaderView (from `../`)
   - Masonry
-  - OCMock
 
 EXTERNAL SOURCES:
   GSKStretchyHeaderView:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  Expecta: e1c022fcd33910b6be89c291d2775b3fe27a89fe
-  GSKStretchyHeaderView: 0e4324ab4b9b22dd53fcd3b62db5e63cb5e33fa1
+  GSKStretchyHeaderView: 25554059df35b7b01b37373eba1e1e57582c45a2
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
-  OCMock: f3f61e6eaa16038c30caa5798c5e49d3307b6f22
 
-PODFILE CHECKSUM: 06ea78cbed48d7134878553f01c2f4e8790c20e5
+PODFILE CHECKSUM: d2d76392ebaf9a2519a5ffd1b02145c1bf8e7420
 
 COCOAPODS: 1.0.1
