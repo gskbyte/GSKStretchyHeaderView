@@ -7,4 +7,3 @@ build_directory: build/
 ignore:
   - Example/*
   - ../**
-  - GSKStretchyHeaderView/**
