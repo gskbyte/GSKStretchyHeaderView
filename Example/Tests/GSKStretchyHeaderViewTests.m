@@ -10,34 +10,40 @@
 static const CGFloat kInitialHeaderViewHeight = 280;
 
 @interface GSKStretchyHeaderViewTests : XCTestCase
+@property (nonatomic) UIWindow *window;
+@property (nonatomic) UIScrollView *scrollView;
 @end
 
 @implementation GSKStretchyHeaderViewTests
 
+- (void)setUp {
+    [super setUp];
+    self.window = [[UIWindow alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    [self.window addSubview:self.scrollView];
+}
+
 - (void)testDefaultValues {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    [scrollView addSubview:[self headerView]];
+    [self.scrollView addSubview:[self headerView]];
     
     expect(self.headerView.maximumContentHeight).to.equal(kInitialHeaderViewHeight);
     expect(self.headerView.minimumContentHeight).to.equal(0);
     expect(self.headerView.frame.size.height).to.equal(kInitialHeaderViewHeight);
-    expect(scrollView.contentInset.top).to.equal(kInitialHeaderViewHeight);
+    expect(self.scrollView.contentInset.top).to.equal(kInitialHeaderViewHeight);
 }
 
 - (void)testScrollWithoutInsetsNoMinimumContentHeight {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    
     GSKStretchyHeaderView *headerView = [self headerView];
-    [scrollView addSubview:headerView];
+    [self.scrollView addSubview:headerView];
     
-    scrollView.contentSize = CGSizeMake(320, 2000);
+    self.scrollView.contentSize = CGSizeMake(320, 2000);
     
     // initial scroll
     expect(headerView.frame).to.equal(CGRectMake(0, -kInitialHeaderViewHeight, 320, kInitialHeaderViewHeight));
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, kInitialHeaderViewHeight));
     expect(headerView.stretchFactor).to.equal(1);
     
-    scrollView.contentOffset = CGPointMake(0, -100);
+    self.scrollView.contentOffset = CGPointMake(0, -100);
     
     // scroll a bit to the top
     expect(headerView.frame).to.equal(CGRectMake(0, -100, 320, 100));
@@ -45,14 +51,14 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.beInTheRangeOf(0, 1);
 
     // scroll a lot to the top
-    scrollView.contentOffset = CGPointMake(0, 100);
+    self.scrollView.contentOffset = CGPointMake(0, 100);
     
     expect(headerView.frame).to.equal(CGRectMake(0, 100, 320, 0));
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 0));
     expect(headerView.stretchFactor).to.equal(0);
     
     // try to bounce the header view
-    scrollView.contentOffset = CGPointMake(0, -400);
+    self.scrollView.contentOffset = CGPointMake(0, -400);
     
     expect(headerView.frame).to.equal(CGRectMake(0, -400, 320, 400));
     expect(headerView.contentView.top).to.equal(headerView.contentInset.top);
@@ -61,16 +67,14 @@ static const CGFloat kInitialHeaderViewHeight = 280;
 }
 
 - (void)testScrollViewWithMinimumContentHeight {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 120;
     headerView.contentExpands = NO;
     headerView.contentShrinks = NO;
     headerView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    [scrollView addSubview:headerView];
+    [self.scrollView addSubview:headerView];
     
-    scrollView.contentSize = CGSizeMake(320, 2000);
+    self.scrollView.contentSize = CGSizeMake(320, 2000);
 
     // initial state
     expect(headerView.frame).to.equal(CGRectMake(0, -(kInitialHeaderViewHeight + headerView.contentInset.top),
@@ -81,7 +85,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.equal(1);
     
     // scroll a bit to the top
-    scrollView.contentOffset = CGPointMake(0, -250);
+    self.scrollView.contentOffset = CGPointMake(0, -250);
     
     expect(headerView.frame).to.equal(CGRectMake(0, -250, 320, 250));
     expect(headerView.contentView.top).to.equal(headerView.contentInset.top);
@@ -89,7 +93,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.beInTheRangeOf(0, 1);
     
     // scroll a lot to the top
-    scrollView.contentOffset = CGPointMake(0, 100);
+    self.scrollView.contentOffset = CGPointMake(0, 100);
     
     expect(headerView.frame).to.equal(CGRectMake(0, 100, 320, headerView.minimumContentHeight + headerView.contentInset.top));
     expect(headerView.contentView.top).to.equal(headerView.contentInset.top);
@@ -97,7 +101,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.equal(0);
 
     // try to bounce the header view
-    scrollView.contentOffset = CGPointMake(0, -400);
+    self.scrollView.contentOffset = CGPointMake(0, -400);
     
     expect(headerView.frame).to.equal(CGRectMake(0, -400, 320, 400));
     expect(headerView.contentView.top).to.equal(headerView.contentInset.top);
@@ -106,16 +110,14 @@ static const CGFloat kInitialHeaderViewHeight = 280;
 }
 
 - (void)testScrollViewWithAnchorBottomAndMinimumSize {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 120;
     headerView.contentShrinks = NO;
     headerView.contentAnchor = GSKStretchyHeaderViewContentAnchorBottom;
     headerView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
-    [scrollView addSubview:headerView];
+    [self.scrollView addSubview:headerView];
     
-    scrollView.contentSize = CGSizeMake(320, 2000);
+    self.scrollView.contentSize = CGSizeMake(320, 2000);
     
     // initial state
     expect(headerView.frame).to.equal(CGRectMake(0, -(kInitialHeaderViewHeight + headerView.contentInset.top),
@@ -126,7 +128,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.equal(1);
     
     // scroll a bit to the top
-    scrollView.contentOffset = CGPointMake(0, -250);
+    self.scrollView.contentOffset = CGPointMake(0, -250);
     
     expect(headerView.frame).to.equal(CGRectMake(0, -250, 320, 250));
     expect(headerView.contentView.top).to.equal(250 - kInitialHeaderViewHeight);
@@ -134,7 +136,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.beInTheRangeOf(0, 1);
     
     // scroll a lot to the top
-    scrollView.contentOffset = CGPointMake(0, 100);
+    self.scrollView.contentOffset = CGPointMake(0, 100);
     
     expect(headerView.frame).to.equal(CGRectMake(0, 100, 320, headerView.minimumContentHeight + headerView.contentInset.top));
     expect(headerView.contentView.top).to.equal(-96);
@@ -142,7 +144,7 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     expect(headerView.stretchFactor).to.equal(0);
     
     // try to bounce the header view
-    scrollView.contentOffset = CGPointMake(0, -400);
+    self.scrollView.contentOffset = CGPointMake(0, -400);
     
     expect(headerView.frame).to.equal(CGRectMake(0, -400, 320, 400));
     expect(headerView.contentView.top).to.equal(headerView.contentInset.top);
@@ -151,47 +153,43 @@ static const CGFloat kInitialHeaderViewHeight = 280;
 }
 
 - (void)testExpansionModeImmediate {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
-    
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 120;
     headerView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
     headerView.contentExpands = NO;
-    [scrollView addSubview:headerView];
+    [self.scrollView addSubview:headerView];
     
     expect(headerView.frame).to.equal(CGRectMake(0, -kInitialHeaderViewHeight, 320, kInitialHeaderViewHeight));
 
     // Scroll to a point between maximumContentHeight and minimumContentHeight
-    scrollView.contentOffset = CGPointMake(0, -200);
+    self.scrollView.contentOffset = CGPointMake(0, -200);
     expect(headerView.frame).to.equal(CGRectMake(0, -200, 320, 200));
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 200));
     
     // Scroll down more than the maximumContentHeight
-    scrollView.contentOffset = CGPointMake(0, -400);
+    self.scrollView.contentOffset = CGPointMake(0, -400);
     expect(headerView.frame).to.equal(CGRectMake(0, -400, 320, 400));
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, kInitialHeaderViewHeight)); // beacuse contentExpands = NO
 
     // Scroll up more than the minimumContentHeight
-    scrollView.contentOffset = CGPointMake(0, 500);
+    self.scrollView.contentOffset = CGPointMake(0, 500);
     expect(headerView.frame).to.equal(CGRectMake(0, 500, 320, 120));
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 120));
 
     // As soon as we scroll down a little bit, the height of the header view increases
-    scrollView.contentOffset = CGPointMake(0, 400);
+    self.scrollView.contentOffset = CGPointMake(0, 400);
     expect(headerView.frame).to.equal(CGRectMake(0, 400, 320, 220)); // because we scroll down 100 points, height increases 100 points
     expect(headerView.contentView.frame).to.equal(CGRectMake(0, 0, 320, 220));
-
 }
 
 - (void)testLoadFromXib {
-    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
     NSArray* nibViews = [[NSBundle bundleForClass:self.class] loadNibNamed:@"GSKTestHeaderView"
                                                       owner:self
                                                     options:nil];
     GSKTestHeaderView *headerView = nibViews.firstObject;
-    [scrollView addSubview:headerView];
+    [self.scrollView addSubview:headerView];
     
-    scrollView.contentSize = CGSizeMake(320, 2000);
+    self.scrollView.contentSize = CGSizeMake(320, 2000);
     
     expect(headerView.maximumContentHeight).to.equal(250);
     expect(headerView.minimumContentHeight).to.equal(64);

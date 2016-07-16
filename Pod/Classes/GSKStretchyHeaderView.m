@@ -24,7 +24,6 @@
 #import "GSKGeometry.h"
 #import "UIView+GSKTransplantSubviews.h"
 #import "UIScrollView+GSKStretchyHeaderView.h"
-#import <KVOController/NSObject+FBKVOController.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -34,6 +33,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 @property (nonatomic) BOOL needsLayoutContentView;
 @property (nonatomic) BOOL arrangingSelfInScrollView;
 @property (nonatomic, weak) UIScrollView *scrollView;
+@property (nonatomic) BOOL observingScrollView;
 @property (nonatomic, weak) id<GSKStretchyHeaderViewStretchDelegate> stretchDelegate;
 @property (nonatomic) CGFloat stretchFactor;
 @end
@@ -126,11 +126,22 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     }
 }
 
+// we have to stop observing the scroll view before it gets deallocated
+// willMoveToSuperview: happens too late
+- (void)willMoveToWindow:(nullable UIWindow *)newWindow {
+    [super willMoveToWindow:newWindow];
+    if (newWindow) {
+        [self observeScrollViewIfPossible];
+    } else {
+        [self stopObservingScrollView];
+    }
+}
+
 - (void)didMoveToSuperview {
     [super didMoveToSuperview];
     
     if (self.superview != self.scrollView) {
-        [self.KVOController unobserveAll];
+        [self stopObservingScrollView];
         self.scrollView = nil;
     }
     
@@ -139,30 +150,52 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     }
     
     self.scrollView = (UIScrollView *)self.superview;
-    
-    [self.KVOController observe:self.scrollView
-                        keyPath:NSStringFromSelector(@selector(contentOffset))
-                        options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
-                          block:^(id observer, id object, NSDictionary<NSString *, NSValue *> *change) {
-                              CGPoint contentOffset = change[NSKeyValueChangeNewKey].CGPointValue;
-                              CGPoint previousContentOffset = change[NSKeyValueChangeOldKey].CGPointValue;
-                              [self.scrollView gsk_layoutStretchyHeaderView:self
-                                                              contentOffset:contentOffset
-                                                      previousContentOffset:previousContentOffset];
-    }];
-    
-    [self.KVOController observe:self.scrollView.layer
-                        keyPath:NSStringFromSelector(@selector(sublayers))
-                        options:NSKeyValueObservingOptionNew
-                          block:^(id observer, id object, NSDictionary<NSString *, id> *change) {
-                              if (!self.arrangingSelfInScrollView) {
-                                  self.arrangingSelfInScrollView = YES;
-                                  [self.scrollView gsk_arrangeStretchyHeaderView:self];
-                                  self.arrangingSelfInScrollView = NO;
-                              }
-    }];
+    [self observeScrollViewIfPossible];
     
     [self setupScrollViewInsets];
+}
+
+- (void)observeScrollViewIfPossible {
+    if (self.scrollView == nil || self.observingScrollView) {
+        return;
+    }
+    
+    [self.scrollView addObserver:self
+                      forKeyPath:NSStringFromSelector(@selector(contentOffset))
+                         options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    [self.scrollView.layer addObserver:self
+                            forKeyPath:NSStringFromSelector(@selector(sublayers))
+                               options:NSKeyValueObservingOptionNew
+                               context:nil];
+    self.observingScrollView = YES;
+}
+
+- (void)stopObservingScrollView {
+    [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentOffset))];
+    [self.scrollView.layer removeObserver:self forKeyPath:NSStringFromSelector(@selector(sublayers))];
+    
+    self.observingScrollView = NO;
+}
+
+- (void)observeValueForKeyPath:(nullable NSString *)keyPath
+                      ofObject:(nullable id)object
+                        change:(nullable NSDictionary<NSString *, NSValue *> *)change
+                       context:(nullable void *)context {
+    if (object == self.scrollView &&
+        [keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
+        CGPoint contentOffset = change[NSKeyValueChangeNewKey].CGPointValue;
+        CGPoint previousContentOffset = change[NSKeyValueChangeOldKey].CGPointValue;
+        [self.scrollView gsk_layoutStretchyHeaderView:self
+                                        contentOffset:contentOffset
+                                previousContentOffset:previousContentOffset];
+    } else if (object == self.scrollView.layer &&
+               [keyPath isEqualToString:NSStringFromSelector(@selector(sublayers))]) {
+        if (!self.arrangingSelfInScrollView) {
+            self.arrangingSelfInScrollView = YES;
+            [self.scrollView gsk_arrangeStretchyHeaderView:self];
+            self.arrangingSelfInScrollView = NO;
+        }
+    }
 }
 
 #pragma mark - Private properties and methods
