@@ -2,12 +2,10 @@
 
 [![License](https://img.shields.io/cocoapods/l/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
 [![Platform](https://img.shields.io/cocoapods/p/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
-
-Master: 
-[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
-
-Latest stable: 
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Version](https://img.shields.io/cocoapods/v/GSKStretchyHeaderView.svg?style=flat)](http://cocoapods.org/pods/GSKStretchyHeaderView)
+
+[![CI Status](https://travis-ci.org/gskbyte/GSKStretchyHeaderView.svg?branch=master)](https://travis-ci.org/gskbyte/GSKStretchyHeaderView)
 
 ![Example 1](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/airbnb_small.gif)
 ![Example 2](https://raw.githubusercontent.com/gskbyte/GSKStretchyHeaderView/master/screenshots/stretchy_blur_small.gif)
@@ -93,6 +91,16 @@ GSKStretchyHeaderView is available through [CocoaPods](http://cocoapods.org). To
 
 ```ruby
 pod "GSKStretchyHeaderView"
+```
+
+
+GSKStretchyHeaderView is also available through [Carthage](). To install it, just add this line to your `Cartfile:
+```
+github "gskbyte/GSKStretchyHeaderView"
+```
+and run
+```bash
+carthage update GSKStretchyHeaderView
 ```
 
 ## Author
