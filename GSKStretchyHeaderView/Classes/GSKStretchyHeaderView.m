@@ -169,6 +169,10 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 }
 
 - (void)stopObservingScrollView {
+    if (!self.observingScrollView) {
+        return;
+    }
+    
     [self.scrollView removeObserver:self forKeyPath:NSStringFromSelector(@selector(contentOffset))];
     [self.scrollView.layer removeObserver:self forKeyPath:NSStringFromSelector(@selector(sublayers))];
     

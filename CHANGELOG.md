@@ -1,5 +1,9 @@
 # 1.0.0 Soon!!!
 
+# 0.12.1
+
+- Fix crash when removing from scroll view
+
 # 0.12.0
 
 - Remove dependency on `KVOController``

@@ -183,6 +183,17 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     XCTAssertEqualFrame(headerView.contentView.frame, CGRectMake(0, 0, 320, 220));
 }
 
+- (void)testShouldNotCrashAfterRemoval {
+    GSKStretchyHeaderView *headerView = [self headerView];
+    headerView.minimumContentHeight = 120;
+    headerView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
+    headerView.contentExpands = NO;
+    [self.scrollView addSubview:headerView];
+    
+    [headerView removeFromSuperview];
+    XCTAssertNil(headerView.superview);
+}
+
 - (void)testLoadFromXib {
     NSArray* nibViews = [[NSBundle bundleForClass:self.class] loadNibNamed:@"GSKTestHeaderView"
                                                       owner:self

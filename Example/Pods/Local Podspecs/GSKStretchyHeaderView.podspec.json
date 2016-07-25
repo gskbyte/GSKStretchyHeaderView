@@ -1,6 +1,6 @@
 {
   "name": "GSKStretchyHeaderView",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "summary": "A generic, easy to use stretchy header view for UITableView and UICollectionView",
   "description": "GSKStretchyHeaderView allows you to add a stretchy header view (like Twitter's or Spotify's) to any existing UITableView and UICollectionView. There is no need inherit from custom view controllers, just create your custom header view and add it to your UITableView or UICollectionView. Creating a custom stretchy header view is as easy as inheriting from the base class or using Interface Builder.",
   "homepage": "https://github.com/gskbyte/GSKStretchyHeaderView",
@@ -14,7 +14,7 @@
   },
   "source": {
     "git": "https://github.com/gskbyte/GSKStretchyHeaderView.git",
-    "tag": "0.12.0"
+    "tag": "0.12.1"
   },
   "social_media_url": "https://twitter.com/gskbyte",
   "platforms": {
