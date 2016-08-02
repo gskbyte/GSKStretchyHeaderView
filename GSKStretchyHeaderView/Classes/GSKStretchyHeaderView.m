@@ -67,6 +67,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     self.contentAnchor = GSKStretchyHeaderViewContentAnchorTop;
     self.contentExpands = YES;
     self.contentShrinks = YES;
+    self.manageScrollViewInsets = YES;
 }
 
 - (void)setupContentView {
@@ -91,7 +92,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     }
 
     _maximumContentHeight = maximumContentHeight;
-    [self setupScrollViewInsets];
+    [self setupScrollViewInsetsIfNeeded];
     [self.scrollView gsk_layoutStretchyHeaderView:self
                                     contentOffset:self.scrollView.contentOffset
                             previousContentOffset:self.scrollView.contentOffset];
@@ -99,7 +100,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 - (void)setContentInset:(UIEdgeInsets)contentInset {
     _contentInset = contentInset;
-    [self setupScrollViewInsets];
+    [self setupScrollViewInsetsIfNeeded];
 }
 
 #pragma mark - Public methods
@@ -150,7 +151,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     self.scrollView = (UIScrollView *)self.superview;
     [self observeScrollViewIfPossible];
     
-    [self setupScrollViewInsets];
+    [self setupScrollViewInsetsIfNeeded];
 }
 
 - (void)observeScrollViewIfPossible {
@@ -218,10 +219,12 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     return self.minimumContentHeight + self.verticalInset;
 }
 
-- (void)setupScrollViewInsets {
-    UIEdgeInsets scrollViewContentInset = self.scrollView.contentInset;
-    scrollViewContentInset.top = self.maximumContentHeight + self.contentInset.top + self.contentInset.bottom;
-    self.scrollView.contentInset = scrollViewContentInset;
+- (void)setupScrollViewInsetsIfNeeded {
+    if (self.scrollView && self.manageScrollViewInsets) {
+        UIEdgeInsets scrollViewContentInset = self.scrollView.contentInset;
+        scrollViewContentInset.top = self.maximumContentHeight + self.contentInset.top + self.contentInset.bottom;
+        self.scrollView.contentInset = scrollViewContentInset;
+    }
 }
 
 - (void)setNeedsLayoutContentView {

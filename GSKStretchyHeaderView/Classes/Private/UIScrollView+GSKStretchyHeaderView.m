@@ -58,6 +58,12 @@
         headerFrame.size.width = CGRectGetWidth(self.bounds);
     }
     
+    if (!headerView.manageScrollViewInsets) {
+        CGFloat offsetAdjustment = headerView.maximumHeight - headerView.minimumHeight;
+        contentOffset.y -= offsetAdjustment;
+        previousContentOffset.y -= offsetAdjustment;
+    }
+    
     CGFloat headerViewHeight = CGRectGetHeight(headerView.bounds);
     switch (headerView.expansionMode) {
         case GSKStretchyHeaderViewExpansionModeTopOnly: {

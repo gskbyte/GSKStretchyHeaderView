@@ -87,7 +87,8 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
 @property(nonatomic) IBInspectable UIEdgeInsets contentInset;
 
 /**
- *  Specifies wether the contentView sticks to the top or the bottom of the headerView. Default value is GSKStretchyHeaderContentViewAnchorTop.
+ *  Specifies wether the contentView sticks to the top or the bottom of the headerView. 
+ *  Default value is GSKStretchyHeaderContentViewAnchorTop.
  *  This has effect only if contentShrinks and/or contentExpands are set to NO.
  */
 #if TARGET_INTERFACE_BUILDER
@@ -95,6 +96,14 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
 #else
 @property(nonatomic) GSKStretchyHeaderViewContentAnchor contentAnchor;
 #endif
+
+/**
+ *  Indicates if the header view changes the scrollView insets automatically. You usually want to
+ *  enable this property, unless you have a table view with sticky visible section headers.
+ *  Have a look at this issue for more information: https://github.com/gskbyte/GSKStretchyHeaderView/issues/17
+ *  Default value is YES.
+ */
+@property(nonatomic) BOOL manageScrollViewInsets;
 
 /**
  *  Specifies wether the contentView height shrinks when scrolling up. Default is YES.

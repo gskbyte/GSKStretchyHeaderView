@@ -4,16 +4,21 @@
 #import "UIView+GSKLayoutHelper.h"
 
 @interface GSKVisibleSectionHeadersDataSource : GSKExampleDataSource
-@property (nonatomic) CGFloat stretchyHeaderViewMaximumContentHeight;
-@property (nonatomic) CGFloat stretchyHeaderViewMinimumContentHeight;
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
+
 @end
 
 @implementation GSKVisibleSectionHeadersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    
+    // by setting contentInset.top, we set where the section headers will be fixed
+    self.tableView.contentInset = UIEdgeInsetsMake(self.stretchyHeaderView.minimumContentHeight, 0, 0, 0);
+    // we add an empty header view at the top of the table view to increase the initial offset before the first section header
+    self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,
+                                                                              0,
+                                                                              self.tableView.width,
+                                                                              self.stretchyHeaderView.maximumContentHeight - self.stretchyHeaderView.minimumContentHeight)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -24,19 +29,16 @@
 }
 
 - (GSKStretchyHeaderView *)loadStretchyHeaderView {
-    return [[GSKSpotyLikeHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 280)];
+    GSKSpotyLikeHeaderView *headerView = [[GSKSpotyLikeHeaderView alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 280)];
+    
+    // we have to set this flag before we add the header to the table view, otherwise it will change its insets immediately
+    headerView.manageScrollViewInsets = NO;
+    
+    return headerView;
 }
 
 - (GSKExampleDataSource *)loadDataSource {
-    GSKVisibleSectionHeadersDataSource *dataSource = [[GSKVisibleSectionHeadersDataSource alloc] init];
-    dataSource.stretchyHeaderViewMaximumContentHeight = self.stretchyHeaderView.maximumContentHeight;
-    dataSource.stretchyHeaderViewMinimumContentHeight = self.stretchyHeaderView.minimumContentHeight;
-    return dataSource;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    GSKVisibleSectionHeadersDataSource *dataSource = (GSKVisibleSectionHeadersDataSource *) self.dataSource;
-    [dataSource scrollViewDidScroll:scrollView];
+    return [[GSKVisibleSectionHeadersDataSource alloc] init];
 }
 
 @end
@@ -44,7 +46,7 @@
 @implementation GSKVisibleSectionHeadersDataSource
 
 - (instancetype)init {
-    return [self initWithNumberOfRows:10];
+    return [self initWithNumberOfRows:7];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -53,18 +55,6 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return [NSString stringWithFormat:@"Section #%@", @(section)];
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIEdgeInsets scrollViewContentInset = scrollView.contentInset;
-    if (scrollView.contentOffset.y > -self.stretchyHeaderViewMinimumContentHeight) {
-        scrollViewContentInset.top = self.stretchyHeaderViewMinimumContentHeight;
-    } else if (scrollView.contentOffset.y < -self.stretchyHeaderViewMaximumContentHeight) {
-        scrollViewContentInset.top = self.stretchyHeaderViewMaximumContentHeight;
-    } else {
-        scrollViewContentInset.top = -scrollView.contentOffset.y;
-    }
-    scrollView.contentInset = scrollViewContentInset;
 }
 
 @end

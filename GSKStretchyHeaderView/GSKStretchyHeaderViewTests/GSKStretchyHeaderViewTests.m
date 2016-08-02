@@ -194,6 +194,32 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     XCTAssertNil(headerView.superview);
 }
 
+- (void)testCalculateFrameWhenNotManagingScrollViewInsets {
+    GSKStretchyHeaderView *headerView = [self headerView];
+    headerView.minimumContentHeight = 64;
+    headerView.manageScrollViewInsets = NO;
+    [self.scrollView addSubview:headerView];
+    
+    XCTAssertEqualInsets(UIEdgeInsetsZero, self.scrollView.contentInset);
+    
+    // Force scroll by moving it twice
+    [self.scrollView setContentOffset:CGPointMake(0, 1)
+                             animated:NO];
+    [self.scrollView setContentOffset:CGPointMake(0, -self.scrollView.contentInset.top)
+                             animated:NO];
+    
+    // if we don't set the content inset of the scrollview manually to the minimum content height,
+    // the header view won't reach its maximum height naturally (we have to swipe down)
+    XCTAssertEqualFrame(headerView.frame, CGRectMake(0, 0, self.scrollView.width, headerView.maximumContentHeight - headerView.minimumContentHeight));
+    
+    // but if we set it, then it will be layouted properly
+    self.scrollView.contentInset = UIEdgeInsetsMake(headerView.minimumContentHeight, 0, 0, 0);
+    [self.scrollView setContentOffset:CGPointMake(0, -self.scrollView.contentInset.top)
+                             animated:NO]; // scroll it to the top
+    
+    XCTAssertEqualFrame(headerView.frame, CGRectMake(0, -self.scrollView.contentInset.top, self.scrollView.width, kInitialHeaderViewHeight));
+}
+
 - (void)testLoadFromXib {
     NSArray* nibViews = [[NSBundle bundleForClass:self.class] loadNibNamed:@"GSKTestHeaderView"
                                                       owner:self
