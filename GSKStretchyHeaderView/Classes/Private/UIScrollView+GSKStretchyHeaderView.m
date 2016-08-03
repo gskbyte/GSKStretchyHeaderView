@@ -33,14 +33,13 @@
     NSAssert(headerView.superview == self, @"The provided header view must be a subview of %@", self);
     NSUInteger stretchyHeaderViewIndex = [self.subviews indexOfObjectIdenticalTo:headerView];
     NSUInteger stretchyHeaderViewNewIndex = stretchyHeaderViewIndex;
-    for (UIView *subview in self.subviews) {
+    for (NSUInteger i = stretchyHeaderViewIndex + 1; i < self.subviews.count; ++i) {
+        UIView *subview = self.subviews[i];
         if ([subview gsk_shouldBeBelowStretchyHeaderView]) {
-            NSUInteger subviewIndex = [self.subviews indexOfObjectIdenticalTo:subview];
-            if (subviewIndex > stretchyHeaderViewNewIndex) {
-                stretchyHeaderViewNewIndex = subviewIndex;
-            }
+            stretchyHeaderViewNewIndex = i;
         }
     }
+    
     if (stretchyHeaderViewIndex != stretchyHeaderViewNewIndex) {
         [self exchangeSubviewAtIndex:stretchyHeaderViewIndex
                   withSubviewAtIndex:stretchyHeaderViewNewIndex];
@@ -56,6 +55,12 @@
     headerFrame.origin.y = contentOffset.y;
     if (CGRectGetWidth(headerFrame) != CGRectGetWidth(self.bounds)) {
         headerFrame.size.width = CGRectGetWidth(self.bounds);
+    }
+    
+    if (!headerView.manageScrollViewInsets) {
+        CGFloat offsetAdjustment = headerView.maximumHeight - headerView.minimumHeight;
+        contentOffset.y -= offsetAdjustment;
+        previousContentOffset.y -= offsetAdjustment;
     }
     
     CGFloat headerViewHeight = CGRectGetHeight(headerView.bounds);
