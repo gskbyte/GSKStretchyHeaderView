@@ -1,5 +1,10 @@
 # 1.0.0 Soon!!!
 
+# 0.12.2
+
+- Add the possibility to disable changing the scroll view `contentInset` automatically
+- Optimise the arrangement of the header view inside the scroll view
+
 # 0.12.1
 
 - Fix crash when removing from scroll view
