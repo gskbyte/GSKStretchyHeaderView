@@ -12,22 +12,22 @@ class ScalableLabelViewController: GSKExampleBaseTableViewController {
         self.configureExpandModeButton()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.gsk_setNavigationBarTransparent(true, animated: false)
     }
     
     func configureExpandModeButton() {
-        let buttonTitle: String = self.stretchyHeaderView.expansionMode == .TopOnly ? "Top only" : "Immediate"
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .Plain, target: self, action: #selector(switchExpandMode))
+        let buttonTitle: String = self.stretchyHeaderView.expansionMode == .topOnly ? "Top only" : "Immediate"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .plain, target: self, action: #selector(switchExpandMode))
     }
     
     func switchExpandMode() {
         switch self.stretchyHeaderView.expansionMode {
-        case .TopOnly:
-            self.stretchyHeaderView.expansionMode = .Immediate
-        case .Immediate:
-            self.stretchyHeaderView.expansionMode = .TopOnly
+        case .topOnly:
+            self.stretchyHeaderView.expansionMode = .immediate
+        case .immediate:
+            self.stretchyHeaderView.expansionMode = .topOnly
         }
         self.configureExpandModeButton()
     }
