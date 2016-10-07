@@ -110,6 +110,8 @@ Jose Alcalá Correa, jose.alcala.correa@gmail.com
 
 ## License
 
-GSKStretchyHeaderView is available under the MIT license. See the LICENSE file for more info.
+`GSKStretchyHeaderView` is available under the MIT license. See the LICENSE file for more info.
+
+If your app uses `GSKStretchyHeaderView`, I'd be glad if you ping me via [Twitter](https://twitter.com/gskbyte) or via email.
 
 ## [Changelog](https://github.com/gskbyte/GSKStretchyHeaderView/blob/master/CHANGELOG.md)
