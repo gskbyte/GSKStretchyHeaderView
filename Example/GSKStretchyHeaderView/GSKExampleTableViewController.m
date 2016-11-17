@@ -1,6 +1,8 @@
 #import "GSKExampleTableViewController.h"
 #import "UINavigationController+Transparency.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @implementation GSKExampleTableViewController
 
 - (instancetype)initWithData:(GSKExampleData *)data {
@@ -25,14 +27,19 @@
 
     if (self.data.headerViewClass) {
         headerView = [[self.data.headerViewClass alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, self.data.headerViewInitialHeight)];
-    } else {
+    } else if (self.data.nibName) {
         NSArray* nibViews = [[NSBundle mainBundle] loadNibNamed:self.data.nibName
                                                           owner:self
                                                         options:nil];
         headerView = nibViews.firstObject;
+    } else {
+        [NSException raise:@"Can't initialise header view"
+                    format:@"You must provide a header view in GSKExampleData instances"];
     }
 
     return headerView;
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

@@ -47,16 +47,19 @@
     GSKExampleData *nib = [GSKExampleData dataWithTitle:@"From a XIB file (+ expansion modes)"
                                       headerViewNibName:@"GSKNibStretchyHeaderView"];
 
-    GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"With tabs"
+    GSKExampleData *tabs = [GSKExampleData dataWithTitle:@"With tabs on top"
                                      viewControllerClass:[GSKExampleTabsViewController class]];
-
+    
     GSKExampleData *navBar = [GSKExampleData dataWithTitle:@"Below the navigation bar"
                                        viewControllerClass:[GSKExampleNavigationBarViewController class]];
+    
+    GSKExampleData *tabBarViewController = [GSKExampleData dataWithTitle:@"Tab bar view controller"
+                                                     viewControllerClass:[TabBarViewController class]];
 
     GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"
                                                viewControllerClass:[GSKVisibleSectionHeadersViewController class]];
 
-    self.exampleDatas = @[airbnb, twitter, spoty, scalableLabel, firstExample, nib, tabs, navBar, visibleHeaders];
+    self.exampleDatas = @[airbnb, twitter, spoty, scalableLabel, firstExample, nib, tabs, navBar, tabBarViewController, visibleHeaders];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

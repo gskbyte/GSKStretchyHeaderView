@@ -3,6 +3,8 @@
 #import "UINavigationController+Transparency.h"
 #import "GSKExampleDataSource.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 static const NSUInteger kNumberOfRows = 100;
 
 @interface GSKExampleCollectionViewController () <UICollectionViewDelegateFlowLayout>
@@ -63,3 +65,5 @@ static const NSUInteger kNumberOfRows = 100;
 }
 
 @end
+
+NS_ASSUME_NONNULL_END

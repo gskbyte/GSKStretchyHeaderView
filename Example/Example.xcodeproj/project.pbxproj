@@ -41,6 +41,7 @@
 		C0752A5D1C95EF9C000543E3 /* GSKTwitterExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */; };
 		C086E0031C846309002A54C1 /* GSKExampleNavigationBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */; };
 		C086E00A1C846C5E002A54C1 /* GSKExampleBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */; };
+		C08935C61DD5D96B00BA8078 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C08935C51DD5D96B00BA8078 /* TabBarViewController.swift */; };
 		C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */; };
 		C0F6F5B71CA9571F00026142 /* GSKTwitterStretchyHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = C0F6F5B61CA9571F00026142 /* GSKTwitterStretchyHeaderView.m */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,7 @@
 		C086E0021C846309002A54C1 /* GSKExampleNavigationBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleNavigationBarViewController.m; sourceTree = "<group>"; };
 		C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKExampleBaseTableViewController.h; sourceTree = "<group>"; };
 		C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKExampleBaseTableViewController.m; sourceTree = "<group>"; };
+		C08935C51DD5D96B00BA8078 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		C09024791C901F2300264C0D /* GSKVisibleSectionHeadersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKVisibleSectionHeadersViewController.h; sourceTree = "<group>"; };
 		C090247A1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSKVisibleSectionHeadersViewController.m; sourceTree = "<group>"; };
 		C0F6F5B51CA9571F00026142 /* GSKTwitterStretchyHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSKTwitterStretchyHeaderView.h; sourceTree = "<group>"; };
@@ -252,12 +254,6 @@
 				C086E0071C846C4F002A54C1 /* Base view controllers */,
 				C086E0001C8462D6002A54C1 /* Data source */,
 				C086DFFF1C8462C9002A54C1 /* Cells */,
-				C03FC4E51C81B2FE0015FAAA /* UINavigationController+Transparency.h */,
-				C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */,
-				C03FC4E81C81B3250015FAAA /* GSKExampleCollectionViewController.h */,
-				C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */,
-				C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */,
-				C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */,
 				C03FC4FA1C8348150015FAAA /* GSKExampleTabsViewController.h */,
 				C03FC4FB1C8348150015FAAA /* GSKExampleTabsViewController.m */,
 				C086E0011C846309002A54C1 /* GSKExampleNavigationBarViewController.h */,
@@ -269,6 +265,7 @@
 				C0752A5B1C95EF9C000543E3 /* GSKTwitterExampleViewController.h */,
 				C0752A5C1C95EF9C000543E3 /* GSKTwitterExampleViewController.m */,
 				82469C511CF3A0D600D3335A /* ScalableLabelViewController.swift */,
+				C08935C51DD5D96B00BA8078 /* TabBarViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -330,6 +327,12 @@
 			children = (
 				C086E0081C846C5E002A54C1 /* GSKExampleBaseTableViewController.h */,
 				C086E0091C846C5E002A54C1 /* GSKExampleBaseTableViewController.m */,
+				C03FC4E51C81B2FE0015FAAA /* UINavigationController+Transparency.h */,
+				C03FC4E61C81B2FE0015FAAA /* UINavigationController+Transparency.m */,
+				C03FC4E81C81B3250015FAAA /* GSKExampleCollectionViewController.h */,
+				C03FC4E91C81B3250015FAAA /* GSKExampleCollectionViewController.m */,
+				C03FC4EA1C81B3250015FAAA /* GSKExampleTableViewController.h */,
+				C03FC4EB1C81B3250015FAAA /* GSKExampleTableViewController.m */,
 			);
 			name = "Base view controllers";
 			sourceTree = "<group>";
@@ -365,7 +368,7 @@
 			attributes = {
 				CLASSPREFIX = GSK;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Jose Alcalá Correa";
 				TargetAttributes = {
 					6003F589195388D20070C39A = {
@@ -464,6 +467,7 @@
 				C03FC4F41C820C9C0015FAAA /* GSKNibStretchyHeaderView.m in Sources */,
 				C066207A1C87311000F1AEF5 /* GSKAirbnbExampleViewController.m in Sources */,
 				C03FC5031C8348150015FAAA /* GSKExampleTabsViewController.m in Sources */,
+				C08935C61DD5D96B00BA8078 /* TabBarViewController.swift in Sources */,
 				C0752A5D1C95EF9C000543E3 /* GSKTwitterExampleViewController.m in Sources */,
 				C090247B1C901F2300264C0D /* GSKVisibleSectionHeadersViewController.m in Sources */,
 				6003F59E195388D20070C39A /* GSKAppDelegate.m in Sources */,
@@ -517,14 +521,19 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",

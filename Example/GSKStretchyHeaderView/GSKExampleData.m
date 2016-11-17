@@ -3,9 +3,9 @@
 @interface GSKExampleData ()
 
 @property (nonatomic) NSString *title;
-@property (nonatomic) Class viewControllerClass;
-@property (nonatomic) Class headerViewClass;
-@property (nonatomic) NSString *nibName;
+@property (nullable, nonatomic) Class viewControllerClass;
+@property (nullable, nonatomic) Class headerViewClass;
+@property (nullable, nonatomic) NSString *nibName;
 
 @end
 

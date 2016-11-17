@@ -13,7 +13,10 @@
     [super viewDidLoad];
     
     // by setting contentInset.top, we set where the section headers will be fixed
-    self.tableView.contentInset = UIEdgeInsetsMake(self.stretchyHeaderView.minimumContentHeight, 0, 0, 0);
+    UIEdgeInsets contentInset = self.tableView.contentInset;
+    contentInset.top = self.stretchyHeaderView.minimumContentHeight;
+    self.tableView.contentInset = contentInset;
+    
     // we add an empty header view at the top of the table view to increase the initial offset before the first section header
     // otherwise the header view would cover the first cells
     self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0,
