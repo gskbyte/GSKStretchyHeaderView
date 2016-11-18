@@ -1,4 +1,6 @@
-# 1.0.0 Soon!!!
+# [1.0.0](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.0)
+
+- After a few months without changes or critical errors found, we have marked the library as stable. Enjoy!
 
 # 0.12.2
 
