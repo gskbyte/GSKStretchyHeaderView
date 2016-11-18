@@ -1,6 +1,6 @@
 PODS:
-  - GSKStretchyHeaderView (0.12.2)
-  - Masonry (1.0.1)
+  - GSKStretchyHeaderView (1.0.0)
+  - Masonry (1.0.2)
 
 DEPENDENCIES:
   - GSKStretchyHeaderView (from `../`)
@@ -8,11 +8,11 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   GSKStretchyHeaderView:
-    :path: "../"
+    :path: ../
 
 SPEC CHECKSUMS:
-  GSKStretchyHeaderView: affdd9f3ae6d6f3cea31dccf604367c617d037ad
-  Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
+  Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
 
 PODFILE CHECKSUM: d2d76392ebaf9a2519a5ffd1b02145c1bf8e7420
 
