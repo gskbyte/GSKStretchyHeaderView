@@ -8,7 +8,7 @@ DEPENDENCIES:
 
 EXTERNAL SOURCES:
   GSKStretchyHeaderView:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
   GSKStretchyHeaderView: daba8f035eaade6326d05ee2a382be714bb019c0
@@ -16,4 +16,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d2d76392ebaf9a2519a5ffd1b02145c1bf8e7420
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.1.1
