@@ -106,7 +106,11 @@ carthage update GSKStretchyHeaderView
 
 ## Author
 
-Jose Alcalá Correa, jose.alcala.correa@gmail.com
+[Jose Alcalá Correa](https://twitter.com/gskbyte)
+
+## Contributions
+
+Contributions are more than welcome! If you find a solution for a bug or have an improvement, don't hesitate to [open a pull request](https://github.com/gskbyte/GSKStretchyHeaderView/compare)!
 
 ## License
 
