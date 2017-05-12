@@ -169,6 +169,13 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     self.observingScrollView = YES;
 }
 
+- (void)removeFromSuperview {
+
+    [self stopObservingScrollView];
+
+    [super removeFromSuperview];
+}
+
 - (void)stopObservingScrollView {
     if (!self.observingScrollView) {
         return;
