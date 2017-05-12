@@ -194,6 +194,15 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     XCTAssertNil(headerView.superview);
 }
 
+- (void)testShouldNotCrashAfterRemovalFromSuperviewWithoutWindow {
+    GSKStretchyHeaderView *headerView = [self headerView];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, 320, 640)];
+    [scrollView addSubview:headerView];
+
+    [headerView removeFromSuperview];
+    XCTAssertNil(headerView.superview);
+}
+
 - (void)testCalculateFrameWhenNotManagingScrollViewInsets {
     GSKStretchyHeaderView *headerView = [self headerView];
     headerView.minimumContentHeight = 64;
