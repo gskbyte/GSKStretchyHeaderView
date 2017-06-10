@@ -254,7 +254,10 @@ static const CGFloat kInitialHeaderViewHeight = 280;
 
 - (void)testSetMaximumContentHeightResetting {
     GSKStretchyHeaderView *headerView = [self headerView];
-    headerView.maximumContentHeight = 120;
+    UIEdgeInsets initialInsets = self.scrollView.contentInset;
+    headerView.maximumContentHeight = kInitialHeaderViewHeight; // should have no effect, it's already set
+    XCTAssertEqual(initialInsets.top, self.scrollView.contentInset.top);
+    
     headerView.minimumContentHeight = 64;
     headerView.manageScrollViewInsets = NO;
     [self.scrollView addSubview:headerView];
