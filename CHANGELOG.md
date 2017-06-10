@@ -1,3 +1,9 @@
+# [1.0.1](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.1)
+
+- [Fixed crash when removing header from a superview without window])(https://github.com/gskbyte/GSKStretchyHeaderView/pull/53). 
+
+Thanks [@ojcarcete](https://github.com/ojcarcete)!
+
 # [1.0.0](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.0)
 
 - After a few months without changes or critical errors found, we have marked the library as stable. Enjoy!
