@@ -252,6 +252,22 @@ static const CGFloat kInitialHeaderViewHeight = 280;
     // TODO: test that the constraints have been correctly transplanted
 }
 
+- (void)testSetMaximumContentHeightResetting {
+    GSKStretchyHeaderView *headerView = [self headerView];
+    headerView.maximumContentHeight = 120;
+    headerView.minimumContentHeight = 64;
+    headerView.manageScrollViewInsets = NO;
+    [self.scrollView addSubview:headerView];
+    
+    [self.scrollView setContentOffset:CGPointMake(0, -30)
+                             animated:NO];
+
+    // by calling this method, the header view will make the scrollview go to the top
+    [headerView setMaximumContentHeight:80
+                          resetAnimated:NO];
+    XCTAssertEqual(self.scrollView.contentOffset.y, -80);
+}
+
 #pragma mark - Helper methods
 
 - (GSKStretchyHeaderView *)headerView {
