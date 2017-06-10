@@ -58,8 +58,11 @@
 
     GSKExampleData *visibleHeaders = [GSKExampleData dataWithTitle:@"Visible section headers"
                                                viewControllerClass:[GSKVisibleSectionHeadersViewController class]];
+    
+    GSKExampleData *textField = [GSKExampleData dataWithTitle:@"Text field inside stretchy header"
+                                              headerViewClass:[GSKTextFieldHeaderView class]];
 
-    self.exampleDatas = @[airbnb, twitter, spoty, scalableLabel, firstExample, nib, tabs, navBar, tabBarViewController, visibleHeaders];
+    self.exampleDatas = @[airbnb, twitter, spoty, scalableLabel, firstExample, nib, tabs, navBar, tabBarViewController, visibleHeaders, textField];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

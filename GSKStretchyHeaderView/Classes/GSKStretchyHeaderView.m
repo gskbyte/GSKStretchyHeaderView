@@ -184,6 +184,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
                       ofObject:(nullable id)object
                         change:(nullable NSDictionary<NSString *, NSValue *> *)change
                        context:(nullable void *)context {
+    NSLog(@"contentInset %@", NSStringFromUIEdgeInsets(self.scrollView.contentInset));
     if (object == self.scrollView &&
         [keyPath isEqualToString:NSStringFromSelector(@selector(contentOffset))]) {
         CGPoint contentOffset = change[NSKeyValueChangeNewKey].CGPointValue;
