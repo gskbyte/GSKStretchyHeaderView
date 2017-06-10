@@ -6,5 +6,5 @@ end
 
 desc "Runs the specs [EMPTY]"
 task :spec do
-  sh 'xcodebuild -workspace GSKStretchyHeaderView.xcworkspace -derivedDataPath "build" -scheme \'GSKStretchyHeaderView\' -configuration Debug -destination platform=\'iOS Simulator\',OS=9.3,name=\'iPhone 5s\' clean build test -sdk iphonesimulator | xcpretty -sc && exit ${PIPESTATUS[0]}'
+  sh 'xcodebuild -workspace GSKStretchyHeaderView.xcworkspace -derivedDataPath "build" -scheme \'GSKStretchyHeaderView\' -configuration Debug -destination platform=\'iOS Simulator\',OS=10.3.1,name=\'iPhone 7\' clean build test -sdk iphonesimulator | xcpretty -sc && exit ${PIPESTATUS[0]}'
 end
