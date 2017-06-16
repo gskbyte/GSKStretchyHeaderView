@@ -1,6 +1,6 @@
 # [1.0.1](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.1)
 
-- [Fixed crash when removing header from a superview without window])(https://github.com/gskbyte/GSKStretchyHeaderView/pull/53). 
+- [Fixed crash when removing header from a superview without window](https://github.com/gskbyte/GSKStretchyHeaderView/pull/53). 
 
 Thanks [@ojcarcete](https://github.com/ojcarcete)!
 
