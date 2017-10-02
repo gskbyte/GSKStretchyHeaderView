@@ -7,7 +7,7 @@ class ScalableLabelHeaderView: GSKStretchyHeaderView {
     private lazy var label: UILabel = {
         let label = UILabel(frame: CGRect(x: 0, y: 20, width: self.contentView.width, height: self.contentView.height - 20))
         label.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        label.font = UIFont.monospacedDigitSystemFont(ofSize: self.maxFontSize, weight: UIFontWeightMedium)
+        label.font = UIFont.monospacedDigitSystemFont(ofSize: self.maxFontSize, weight: UIFont.Weight.medium)
         label.textColor = UIColor.darkGray
         label.text = "Scalable text"
         label.textAlignment = .center
@@ -37,7 +37,7 @@ class ScalableLabelHeaderView: GSKStretchyHeaderView {
         
         let fontSize = CGFloatTranslateRange(min(1, stretchFactor), 0, 1, minFontSize, maxFontSize)
         if abs(fontSize - self.label.font.pointSize) > 0.05 { // to avoid changing the font too often, this could be more precise though
-            self.label.font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: UIFontWeightMedium)
+            self.label.font = UIFont.monospacedDigitSystemFont(ofSize: fontSize, weight: UIFont.Weight.medium)
         }
     }
 }

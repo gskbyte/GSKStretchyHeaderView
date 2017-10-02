@@ -22,7 +22,7 @@ class ScalableLabelViewController: GSKExampleBaseTableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: buttonTitle, style: .plain, target: self, action: #selector(switchExpandMode))
     }
     
-    func switchExpandMode() {
+    @objc func switchExpandMode() {
         switch self.stretchyHeaderView.expansionMode {
         case .topOnly:
             self.stretchyHeaderView.expansionMode = .immediate
