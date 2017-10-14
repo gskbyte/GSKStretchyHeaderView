@@ -66,7 +66,7 @@
     CGFloat headerViewHeight = CGRectGetHeight(headerView.bounds);
     switch (headerView.expansionMode) {
         case GSKStretchyHeaderViewExpansionModeTopOnly: {
-            if (contentOffset.y + headerView.maximumHeight < 0) { // bigger than default
+            if (contentOffset.y + headerView.maximumHeight <= 0) { // bigger than default
                 headerViewHeight = -contentOffset.y;
             } else {
                 headerViewHeight = MIN(headerView.maximumHeight, MAX(-contentOffset.y, headerView.minimumHeight));
@@ -75,7 +75,7 @@
         }
         case GSKStretchyHeaderViewExpansionModeImmediate: {
             CGFloat scrollDelta = contentOffset.y - previousContentOffset.y;
-            if (contentOffset.y + headerView.maximumHeight < 0) { // bigger than default
+            if (contentOffset.y + headerView.maximumHeight <= 0) { // bigger than default
                 headerViewHeight = -contentOffset.y;
             } else {
                 headerViewHeight -= scrollDelta;
