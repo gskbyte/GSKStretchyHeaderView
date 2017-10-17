@@ -33,6 +33,9 @@ static const NSUInteger kNumberOfRows = 100;
     [super viewDidLoad];
 
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 
     if (self.data.headerViewClass) {
         self.stretchyHeaderView = [[self.data.headerViewClass alloc] initWithFrame:CGRectMake(0, 0, self.collectionView.frame.size.width, self.data.headerViewInitialHeight)];
