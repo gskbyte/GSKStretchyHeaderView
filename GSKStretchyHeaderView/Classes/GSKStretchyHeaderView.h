@@ -113,10 +113,11 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
  *
  * - Please see UIScrollView+GSKStretchyHeaderView.m for more information.
  * - Have a look at this issue for more information: https://github.com/gskbyte/GSKStretchyHeaderView/issues/63
+ * - OpenRadar issue: http://www.openradar.me/34308893
  *
  * Default value is YES
  */
-@property(nonatomic) BOOL managesScrollViewSubviewHierarchy;
+@property(nonatomic) BOOL manageScrollViewSubviewHierarchy;
 
 /**
  *  Specifies wether the contentView height shrinks when scrolling up. Default is YES.

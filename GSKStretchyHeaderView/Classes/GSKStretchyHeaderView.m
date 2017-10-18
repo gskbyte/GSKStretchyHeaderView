@@ -71,7 +71,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
     self.contentExpands = YES;
     self.contentShrinks = YES;
     self.manageScrollViewInsets = YES;
-    self.managesScrollViewSubviewHierarchy = YES;
+    self.manageScrollViewSubviewHierarchy = YES;
 }
 
 - (void)setupContentView {
@@ -142,7 +142,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 
 - (void)didMoveToWindow {
     [super didMoveToWindow];
-    if (!self.managesScrollViewSubviewHierarchy) {
+    if (!self.manageScrollViewSubviewHierarchy) {
         return;
     }
     
@@ -220,7 +220,7 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
             NSAssert(NO, @"keyPath '%@' is not being observed", keyPath);
         }
         
-        if (!self.arrangingSelfInScrollView && self.managesScrollViewSubviewHierarchy) {
+        if (!self.arrangingSelfInScrollView && self.manageScrollViewSubviewHierarchy) {
             self.arrangingSelfInScrollView = YES;
             [self.scrollView gsk_arrangeStretchyHeaderView:self];
             self.arrangingSelfInScrollView = NO;
