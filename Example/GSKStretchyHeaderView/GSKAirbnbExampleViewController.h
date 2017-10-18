@@ -1,5 +1,5 @@
-#import "GSKExampleBaseTableViewController.h"
+@import UIKit;
 
-@interface GSKAirbnbExampleViewController : GSKExampleBaseTableViewController
+@interface GSKAirbnbExampleViewController : UICollectionViewController
 
 @end

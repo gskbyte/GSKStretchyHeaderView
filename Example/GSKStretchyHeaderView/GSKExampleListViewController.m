@@ -26,6 +26,8 @@
     [super viewDidLoad];
 
     self.title = @"GSKStretchyHeaderView";
+    self.tableView.rowHeight = [GSKExampleDataCell height];
+    
     [GSKExampleDataCell registerIn:self.tableView];
 
     GSKExampleData *airbnb = [GSKExampleData dataWithTitle:@"airbnb-like header view"
@@ -71,10 +73,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.exampleDatas.count;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [GSKExampleDataCell height];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

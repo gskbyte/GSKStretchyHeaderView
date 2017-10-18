@@ -29,6 +29,15 @@
 
 @implementation UIScrollView (GSKStretchyHeaderView)
 
+- (void)gsk_fixZPositionsForStretchyHeaderView:(GSKStretchyHeaderView *)headerView {
+    headerView.layer.zPosition = 1;
+    for (UIView *subview in self.subviews) {
+        if (![subview gsk_shouldBeBelowStretchyHeaderView]) {
+            subview.layer.zPosition = 2;
+        }
+    }
+}
+
 - (void)gsk_arrangeStretchyHeaderView:(GSKStretchyHeaderView *)headerView {
     NSAssert(headerView.superview == self, @"The provided header view must be a subview of %@", self);
     NSUInteger stretchyHeaderViewIndex = [self.subviews indexOfObjectIdenticalTo:headerView];
@@ -103,8 +112,8 @@
 
 - (BOOL)gsk_shouldBeBelowStretchyHeaderView {
     return [self isKindOfClass:[UITableViewCell class]] ||
-        [self isKindOfClass:[UITableViewHeaderFooterView class]] ||
-        [self isKindOfClass:[UICollectionReusableView class]];
+           [self isKindOfClass:[UITableViewHeaderFooterView class]] ||
+           [self isKindOfClass:[UICollectionReusableView class]];
 }
 
 @end

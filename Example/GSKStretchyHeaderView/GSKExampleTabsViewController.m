@@ -35,7 +35,7 @@
 
     NSMutableArray *dataSources = [NSMutableArray array];
     for (NSUInteger i = 0; i < self.stretchyHeaderView.tabsCount; ++i) {
-        GSKExampleDataSource *dataSource = [[GSKExampleDataSource alloc] initWithNumberOfRows:100];
+        GSKExampleDataSource *dataSource = [[GSKExampleDataSource alloc] init];
         [dataSources addObject:dataSource];
     }
     self.dataSources = [dataSources copy];

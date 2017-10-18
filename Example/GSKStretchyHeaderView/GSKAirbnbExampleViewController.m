@@ -1,7 +1,11 @@
 #import "GSKAirbnbExampleViewController.h"
 #import "GSKAirbnbStretchyHeaderView.h"
+#import "GSKExampleDataSource.h"
 
 @interface GSKAirbnbExampleViewController () <GSKAirbnbStretchyHeaderViewDelegate>
+@property (nonatomic, readonly) UICollectionViewFlowLayout *collectionViewFlowLayout;
+@property (nonatomic) GSKStretchyHeaderView *stretchyHeaderView;
+@property (nonatomic) GSKExampleDataSource *dataSource;
 @end
 
 @interface GSKPresentableViewController : UIViewController
@@ -10,18 +14,44 @@
 
 @implementation GSKAirbnbExampleViewController
 
+- (instancetype)init {
+    UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    collectionViewFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    collectionViewFlowLayout.minimumLineSpacing = 0;
+    collectionViewFlowLayout.minimumInteritemSpacing = 0;
+    
+    return [super initWithCollectionViewLayout:collectionViewFlowLayout];
+}
+
+- (UICollectionViewFlowLayout *)collectionViewFlowLayout {
+    return (UICollectionViewFlowLayout *)self.collectionViewLayout;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(beginRefreshing:) forControlEvents:UIControlEventValueChanged];
-
-    [self.tableView addSubview:self.refreshControl];
+    self.stretchyHeaderView = [self loadStretchyHeaderView];
+    [self.collectionView addSubview:self.stretchyHeaderView];
+    
+    self.dataSource = [[GSKExampleDataSource alloc] init];
+    [self.dataSource registerForCollectionView:self.collectionView];
+    
+    self.dataSource.numberOfSections = 10;
+    self.dataSource.numberOfRowsInEverySection = 6;
+    self.dataSource.displaysSectionHeaders = YES;
     self.dataSource.cellColors = @[[UIColor whiteColor], [UIColor lightGrayColor]];
+    
+    self.collectionView.refreshControl = [[UIRefreshControl alloc] init];
+    [self.collectionView.refreshControl addTarget:self action:@selector(beginRefreshing:) forControlEvents:UIControlEventValueChanged];
 }
 
 - (GSKStretchyHeaderView *)loadStretchyHeaderView {
-    CGRect frame = CGRectMake(0, 0, self.tableView.frame.size.width, 250);
+    CGRect frame = CGRectMake(0, 0, self.collectionView.frame.size.width, 250);
     GSKAirbnbStretchyHeaderView *headerView = [[GSKAirbnbStretchyHeaderView alloc] initWithFrame:frame];
     headerView.maximumContentHeight = 300;
     headerView.minimumContentHeight = 84;
@@ -42,10 +72,10 @@
 
 - (void)airbnbStretchyHeaderView:(GSKAirbnbStretchyHeaderView *)headerView
               didTapSearchButton:(id)sender {
-    CGPoint contentOffset = self.tableView.contentOffset;
+    CGPoint contentOffset = self.collectionView.contentOffset;
     if (contentOffset.y < -self.stretchyHeaderView.minimumContentHeight) {
         contentOffset.y = -self.stretchyHeaderView.minimumContentHeight;
-        [self.tableView setContentOffset:contentOffset animated:YES];
+        [self.collectionView setContentOffset:contentOffset animated:YES];
     }
 }
 
@@ -59,13 +89,22 @@
 
 - (void)beginRefreshing:(id)sender {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.refreshControl endRefreshing];
+        [self.collectionView.refreshControl endRefreshing];
     });
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout *)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(collectionView.frame.size.width,
+                      [self.dataSource heightForItemAtIndexPath:indexPath]);
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    return CGSizeMake(collectionView.frame.size.width, 20);
+}
+
 @end
-
-
 
 @implementation GSKPresentableViewController
 

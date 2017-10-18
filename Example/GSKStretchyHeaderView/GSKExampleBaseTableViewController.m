@@ -1,8 +1,6 @@
 #import "GSKExampleBaseTableViewController.h"
 #import "UINavigationController+Transparency.h"
 
-static const NSUInteger kNumberOfRows = 100;
-
 @interface GSKExampleBaseTableViewController ()
 
 @end
@@ -55,7 +53,7 @@ static const NSUInteger kNumberOfRows = 100;
 }
 
 - (GSKExampleDataSource *)loadDataSource {
-    return [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
+    return [[GSKExampleDataSource alloc] init];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

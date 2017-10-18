@@ -5,8 +5,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static const NSUInteger kNumberOfRows = 100;
-
 @interface GSKExampleCollectionViewController () <UICollectionViewDelegateFlowLayout>
 @property (nonatomic) GSKExampleData *data;
 @property (nonatomic) GSKStretchyHeaderView *stretchyHeaderView;
@@ -47,7 +45,7 @@ static const NSUInteger kNumberOfRows = 100;
     }
     [self.collectionView addSubview:self.stretchyHeaderView];
 
-    self.dataSource = [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
+    self.dataSource = [[GSKExampleDataSource alloc] init];
     [self.dataSource registerForCollectionView:self.collectionView];
 }
 
