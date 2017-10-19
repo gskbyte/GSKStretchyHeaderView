@@ -3,14 +3,14 @@
 #import "UINavigationController+Transparency.h"
 #import "UIView+GSKLayoutHelper.h"
 
-@interface GSKVisibleSectionHeadersDataSource : GSKExampleDataSource
-
-@end
-
 @implementation GSKVisibleSectionHeadersViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.dataSource.numberOfSections = 10;
+    self.dataSource.numberOfRowsInEverySection = 7;
+    self.dataSource.displaysSectionHeaders = YES;
     
     // by setting contentInset.top, we set where the section headers will be fixed
     UIEdgeInsets contentInset = self.tableView.contentInset;
@@ -39,26 +39,6 @@
     headerView.manageScrollViewInsets = NO;
     
     return headerView;
-}
-
-- (GSKExampleDataSource *)loadDataSource {
-    return [[GSKVisibleSectionHeadersDataSource alloc] init];
-}
-
-@end
-
-@implementation GSKVisibleSectionHeadersDataSource
-
-- (instancetype)init {
-    return [self initWithNumberOfRows:7];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Section #%@", @(section)];
 }
 
 @end

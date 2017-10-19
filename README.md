@@ -29,46 +29,64 @@ If you are using this library in your project, I would be more than glad to [kno
 
 To add a stretchy header to your table or collection view, you just have to do this:
 
-```objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    CGSize headerSize = CGSizeMake(self.tableView.frame.size.width, 200); // 200 will be the default height
-    self.stretchyHeader = [[GSKStretchyHeaderViewSubclass alloc] initWithFrame:CGRectMake(0, 0, headerSize.width, headerSize.height)];
-    self.stretchyHeader.delegate = self; // this is completely optional
-    [self.tableView addSubview:self.stretchyHeader];
+```swift
+
+var stretchyHeader: GSKStretchyHeaderViewSubclass!
+
+...
+
+func viewDidLoad() {
+    super.viewDidLoad()
+    let headerSize = CGSize(width: self.tableView.frame.size.width, 
+                            height: 200) // 200 will be the default height
+    self.stretchyHeader = GSKStretchyHeaderViewSubclass(frame: CGRect(x: 0, y: 0,
+                                                                      width: headerSize.width, 
+                                                                      height: headerSize.height))
+    self.stretchyHeader.delegate = self // this is completely optional
+    self.tableView.addSubview(self.stretchyHeader)
 }
 ```
 or
-```objc
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    NSArray<UIView *> *nibViews = [[NSBundle mainBundle] loadNibNamed:@"GSKTabsStretchyHeaderView"
-                                                                owner:self
-                                                              options:nil];
-    self.stretchyHeaderView = nibViews.firstObject;
-    [self.tableView addSubview:self.stretchyHeaderView];
+```swift
+func viewDidLoad() {
+    super.viewDidLoad()
+    let nibViews = Bundle.main.loadNibNamed("GSKTabsStretchyHeaderView", owner: self, options: nil)
+    self.stretchyHeaderView = nibViews.firstObject
+    self.tableView.addSubview(self.stretchyHeaderView)
 }
 ```
+
+## Compatibility with iOS 11 and the iPhone X
+
+After the changes introduced in iOS 11, some issues have appeared with the safe area adjustments to scroll views. To avoid glitches and strange behaviours, just do the following when you set up your header view:
+
+```swift
+if #available(iOS 11.0, *) {
+    self.tableView.contentInsetAdjustmentBehavior = .never
+}
+```
+
+For the time being, we haven't found a better way to deal with the `contentInset` adjustment, so the support for the iPhone X and the `safeAreaInsets` is not there yet. This may require a major refactor of the header view and a major release. For more information, see [this issue](https://github.com/gskbyte/GSKStretchyHeaderView/issues/63) and [this PR (#68)](https://github.com/gskbyte/GSKStretchyHeaderView/pull/68).
 
 ## Configuration
 
 You can change multiple parameters in your stretchy header view:
 
-```objc
+```swift
 // you can change wether it expands at the top or as soon as you scroll down
-headerView.expansionMode = GSKStretchyHeaderViewExpansionModeImmediate;
+headerView.expansionMode = .immediate
 
 // You can change the minimum and maximum content heights
-headerView.minimumContentHeight = 64; // you can replace the navigation bar with a stretchy header view
-headerView.maximumContentHeight = 280;
+headerView.minimumContentHeight = 64 // you can replace the navigation bar with a stretchy header view
+headerView.maximumContentHeight = 280
 
 // You can specify if the content expands when the table view bounces, and if it shrinks if contentView.height < maximumContentHeight. This is specially convenient if you use auto layout inside the stretchy header view
-headerView.contentShrinks = YES;
-headerView.contentExpands = NO; // useful if you want to display the refreshControl below the header view
+headerView.contentShrinks = true
+headerView.contentExpands = false // useful if you want to display the refreshControl below the header view
 
-// You can specify wether the content view sticks to the top or the bottom of the header view if one of the previous properties is set to NO
+// You can specify wether the content view sticks to the top or the bottom of the header view if one of the previous properties is set to `false`
 // In this case, when the user bounces the scrollView, the content will keep its height and will stick to the bottom of the header view
-headerView.contentAnchor = GSKStretchyHeaderViewContentAnchorBottom;
+headerView.contentAnchor = .bottom
 ```
 
 ## Creating your stretchy header

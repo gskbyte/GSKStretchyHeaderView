@@ -1,3 +1,12 @@
+# [1.0.2](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.2)
+
+- [Fix device rotation issue](https://github.com/gskbyte/GSKStretchyHeaderView/pull/65)
+- [Add Xcode 9 support](https://github.com/gskbyte/GSKStretchyHeaderView/pull/64)
+- [Fix contentInset and view hierarchy issues with iOS 11](https://github.com/gskbyte/GSKStretchyHeaderView/pull/68)
+
+
+Thanks [@julienpouget](https://github.com/julienpouget)!
+
 # [1.0.1](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.1)
 
 - [Fixed crash when removing header from a superview without window](https://github.com/gskbyte/GSKStretchyHeaderView/pull/53). 

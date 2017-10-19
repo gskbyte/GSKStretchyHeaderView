@@ -1,8 +1,6 @@
 #import "GSKExampleBaseTableViewController.h"
 #import "UINavigationController+Transparency.h"
 
-static const NSUInteger kNumberOfRows = 100;
-
 @interface GSKExampleBaseTableViewController ()
 
 @end
@@ -21,6 +19,9 @@ static const NSUInteger kNumberOfRows = 100;
     [super viewDidLoad];
     
     self.automaticallyAdjustsScrollViewInsets = NO;
+    if (@available(iOS 11.0, *)) {
+        self.tableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
     UIEdgeInsets contentInset = self.tableView.contentInset;
     if (self.navigationController) {
         contentInset.top = 64;
@@ -52,7 +53,7 @@ static const NSUInteger kNumberOfRows = 100;
 }
 
 - (GSKExampleDataSource *)loadDataSource {
-    return [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
+    return [[GSKExampleDataSource alloc] init];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

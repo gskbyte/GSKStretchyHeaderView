@@ -106,6 +106,20 @@ typedef NS_ENUM(NSUInteger, GSKStretchyHeaderViewExpansionMode) {
 @property(nonatomic) BOOL manageScrollViewInsets;
 
 /**
+ * Indicates if the view hierarchy of the containing scroll view should be manipulated to fix some artifacts,
+ * such as section header and supplementary views appearing on top of this header view.
+ * This may involve moving views behind the header view, like UICollectionReusableView and UITableViewHeaderFooterView,
+ * and adjusting `zPosition` for some views on iOS 11.
+ *
+ * - Please see UIScrollView+GSKStretchyHeaderView.m for more information.
+ * - Have a look at this issue for more information: https://github.com/gskbyte/GSKStretchyHeaderView/issues/63
+ * - OpenRadar issue: http://www.openradar.me/34308893
+ *
+ * Default value is YES
+ */
+@property(nonatomic) BOOL manageScrollViewSubviewHierarchy;
+
+/**
  *  Specifies wether the contentView height shrinks when scrolling up. Default is YES.
  */
 @property(nonatomic) IBInspectable BOOL contentShrinks;

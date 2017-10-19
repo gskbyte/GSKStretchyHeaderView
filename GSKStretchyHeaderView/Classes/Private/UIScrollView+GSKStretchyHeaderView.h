@@ -25,6 +25,8 @@
 
 @interface UIScrollView (GSKStretchyHeaderView)
 
+- (void)gsk_fixZPositionsForStretchyHeaderView:(GSKStretchyHeaderView *)headerView;
+
 - (void)gsk_arrangeStretchyHeaderView:(GSKStretchyHeaderView *)headerView;
 - (void)gsk_layoutStretchyHeaderView:(GSKStretchyHeaderView *)headerView
                        contentOffset:(CGPoint)contentOffset

@@ -5,8 +5,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-static const NSUInteger kNumberOfRows = 100;
-
 @interface GSKExampleCollectionViewController () <UICollectionViewDelegateFlowLayout>
 @property (nonatomic) GSKExampleData *data;
 @property (nonatomic) GSKStretchyHeaderView *stretchyHeaderView;
@@ -33,6 +31,9 @@ static const NSUInteger kNumberOfRows = 100;
     [super viewDidLoad];
 
     self.collectionView.backgroundColor = [UIColor whiteColor];
+    if (@available(iOS 11.0, *)) {
+        self.collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
 
     if (self.data.headerViewClass) {
         self.stretchyHeaderView = [[self.data.headerViewClass alloc] initWithFrame:CGRectMake(0, 0, self.collectionView.frame.size.width, self.data.headerViewInitialHeight)];
@@ -44,7 +45,7 @@ static const NSUInteger kNumberOfRows = 100;
     }
     [self.collectionView addSubview:self.stretchyHeaderView];
 
-    self.dataSource = [[GSKExampleDataSource alloc] initWithNumberOfRows:kNumberOfRows];
+    self.dataSource = [[GSKExampleDataSource alloc] init];
     [self.dataSource registerForCollectionView:self.collectionView];
 }
 
