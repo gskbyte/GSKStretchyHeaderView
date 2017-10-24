@@ -1,9 +1,12 @@
+# [1.0.3](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.3)
+
+- [Fix layout guides crash on iOS 11](https://github.com/gskbyte/GSKStretchyHeaderView/pull/71)
+
 # [1.0.2](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.2)
 
 - [Fix device rotation issue](https://github.com/gskbyte/GSKStretchyHeaderView/pull/65)
 - [Add Xcode 9 support](https://github.com/gskbyte/GSKStretchyHeaderView/pull/64)
 - [Fix contentInset and view hierarchy issues with iOS 11](https://github.com/gskbyte/GSKStretchyHeaderView/pull/68)
-
 
 Thanks [@julienpouget](https://github.com/julienpouget)!
 
