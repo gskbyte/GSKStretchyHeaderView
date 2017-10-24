@@ -29,6 +29,18 @@
 
 @implementation UIView (GSKTransplantSubviews)
 
+- (BOOL)gsk_isSelfOrLayoutGuide:(id)object {
+    // We can't transplant constraints to layout guides like safe area insets (introduced in iOS 11)
+    // So we assume the constraints will be related to the superview
+    // This may become a problem if the safe area insets are not zero, but for header views it's always the case
+    if (object == self) {
+        return true;
+    } else if (@available(iOS 9.0, *)) {
+        return [object isKindOfClass:[UILayoutGuide class]];
+    }
+    return false;
+}
+
 - (void)gsk_transplantSubviewsToView:(UIView *)newSuperview {
     NSArray<UIView *> *oldSubviews = self.subviews;
     NSArray<NSLayoutConstraint *> *oldConstraints = self.constraints;
@@ -47,8 +59,8 @@
 
     [self removeConstraints:oldConstraints];
     [oldConstraints enumerateObjectsUsingBlock:^(NSLayoutConstraint *oldConstraint, NSUInteger index, BOOL *stop) {
-        id firstItem = oldConstraint.firstItem == self ? newSuperview : oldConstraint.firstItem;
-        id secondItem = oldConstraint.secondItem == self ? newSuperview : oldConstraint.secondItem;
+        id firstItem = [self gsk_isSelfOrLayoutGuide:oldConstraint.firstItem] ? newSuperview : oldConstraint.firstItem;
+        id secondItem = [self gsk_isSelfOrLayoutGuide:oldConstraint.secondItem] ? newSuperview : oldConstraint.secondItem;
         NSLayoutConstraint *constraint = [oldConstraint gsk_copyWithFirstItem:firstItem
                                                                    secondItem:secondItem];
         if ([constraint respondsToSelector:@selector(setActive:)]) {
