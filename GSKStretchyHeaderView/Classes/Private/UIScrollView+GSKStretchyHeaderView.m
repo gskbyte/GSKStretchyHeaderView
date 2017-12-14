@@ -32,7 +32,7 @@
 - (void)gsk_fixZPositionsForStretchyHeaderView:(GSKStretchyHeaderView *)headerView {
     headerView.layer.zPosition = 1;
     for (UIView *subview in self.subviews) {
-        if (![subview gsk_shouldBeBelowStretchyHeaderView]) {
+        if (![subview gsk_shouldBeBelowStretchyHeaderView] && (subview.layer.zPosition == 0 || subview.layer.zPosition == 1)) {
             subview.layer.zPosition = 2;
         }
     }
