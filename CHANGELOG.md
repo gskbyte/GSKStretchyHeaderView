@@ -1,3 +1,9 @@
+# [1.0.4](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.4)
+
+- [Fix zPosition change issues](https://github.com/gskbyte/GSKStretchyHeaderView/pull/82)
+
+Thanks @abotkin-cpi!
+
 # [1.0.3](https://github.com/gskbyte/GSKStretchyHeaderView/releases/tag/1.0.3)
 
 - [Fix layout guides crash on iOS 11](https://github.com/gskbyte/GSKStretchyHeaderView/pull/71)
