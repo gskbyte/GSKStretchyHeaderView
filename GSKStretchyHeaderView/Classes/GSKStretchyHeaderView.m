@@ -45,7 +45,6 @@ static const CGFloat kNibDefaultMaximumContentHeight = 240;
 @implementation GSKStretchyHeaderView
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    NSAssert(frame.size.height > 0, @"Initial height MUST be greater than 0");
     self = [super initWithFrame:frame];
     if (self) {
         self.maximumContentHeight = self.frame.size.height;
